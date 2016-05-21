@@ -17,4 +17,11 @@ public class TituloTest {
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
 
+	@Test
+	public void testQueNoCompilaParaComprobarJenkins() {
+		
+		String lineaDeCodigoSinPuntoYComa = "LineaSinPuntoYComa"
+
+	}
+
 }
