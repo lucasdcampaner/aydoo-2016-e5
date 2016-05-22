@@ -17,6 +17,6 @@ public abstract class ItemEntrada {
 		return texto;
 	}
 	
-	public abstract String getContenidoFormateado(Formateador formateador);
+	public abstract String getTextoFormateado(Formateador formateador);
 	
 }

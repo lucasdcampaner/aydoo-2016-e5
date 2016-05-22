@@ -6,7 +6,7 @@ public class Titulo extends ItemEntrada{
 		super(contenido);
 	}
 
-	public String getContenidoFormateado(Formateador formateador) {
+	public String getTextoFormateado(Formateador formateador) {
 		return formateador.getTituloFormateado(this.getTexto());
 	}
 
