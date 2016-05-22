@@ -2,16 +2,21 @@ package ar.edu.untref.aydoo;
 
 public abstract class ItemEntrada {
 	
-	private String contenido;
+	private String texto;
 
-	public ItemEntrada(String contenido) {
-		this.contenido = contenido;
+	/**
+	 * 
+	 * @param texto se guarda sin el marcador de que es item, eso lo define el objeto.
+	 */
+	
+	public ItemEntrada(String texto) {
+		this.texto = texto;
 	}
 	
-	public String getContenido() {
-		return contenido;
+	public String getTexto() {
+		return texto;
 	}
 	
-	public abstract String getContenidoFormatoHTML();
+	public abstract String getContenidoFormateado(Formateador formateador);
 	
 }
