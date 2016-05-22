@@ -18,6 +18,16 @@ public class SectionTest {
 		Assert.assertEquals(sectionInicioEsperada, sectionInicioObtenidaFormatoHTML);
 	}
 
-	
+	@Test
+	public void seObtieneTextoFinEnFormatoHTMLParaUnaSection() {
+		
+		ItemEntrada section = new Section("Finaliza la seccion");
+		String sectionFinEsperada = "</section>";
+		
+		Formateador formateadorHTML = new FormateadorHTML();
+		String sectionFinObtenidaFormatoHTML = section.getFinFormateado(formateadorHTML);
+		
+		Assert.assertEquals(sectionFinEsperada, sectionFinObtenidaFormatoHTML);
+	}	
 	
 }
