@@ -43,15 +43,19 @@ public class VisualizadorPorPantallaTest {
 		String subtituloEntrada = "Subtitulo de prueba";
 		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
 		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>";
-		String itemsEsperados = tituloEsperado + subtituloEsperado;
+		
+		List<String> itemsEsperados = new LinkedList<String>();
+		itemsEsperados.add(tituloEsperado);
+		itemsEsperados.add(subtituloEsperado);
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		List<String> items = new LinkedList<String>();
+		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
 		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
 		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
-		items.add(tituloObtenidoFormatoHTML);
-		items.add(subtituloObtenidoFormatoHTML);
+		
+		items.agregarItem(tituloObtenidoFormatoHTML);
+		items.agregarItem(subtituloObtenidoFormatoHTML);
 
-		Assert.assertEquals(itemsEsperados, items.get(0) + items.get(1));
+		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 }
