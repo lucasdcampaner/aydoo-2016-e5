@@ -55,4 +55,6 @@ public class FormateadorHTML extends Formateador {
 		return sectionFormateada;
 	}
 
+	
+
 }

@@ -8,6 +8,8 @@ public abstract class Formateador {
 
 	public abstract String getImagenFormateado(String texto);
 	public abstract String getItemListaFormateado(String texto);
-	public abstract String getSectionFormateado(String texto);
+	
+	public abstract String getInicioSectionFormateado();
+	public abstract String getFinSectionFormateado();
 	
 }
