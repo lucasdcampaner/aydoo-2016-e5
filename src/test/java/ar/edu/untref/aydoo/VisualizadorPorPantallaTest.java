@@ -11,7 +11,7 @@ public class VisualizadorPorPantallaTest {
 		String tituloEntrada = "Titulo de prueba";
 		//List<ItemEntrada> items = new LinkedList<ItemEntrada>();
 		ItemEntrada titulo = new Titulo(tituloEntrada);
-		String tituloEsperado = "<h1> Titulo de prueba </h1>";
+		String tituloEsperado = "<h1>Titulo de prueba</h1>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
