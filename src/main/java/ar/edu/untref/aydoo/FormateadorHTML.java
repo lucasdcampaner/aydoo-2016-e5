@@ -8,15 +8,53 @@ public class FormateadorHTML extends Formateador {
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
 		
-		String tituloFormateado = tagInicio + " " + texto +  " " + tagFin; 
+		String tituloFormateado = tagInicio + texto + tagFin; 
 		
 		return tituloFormateado;
 	}
 
 	@Override
 	public String getSubTituloFormateado(String texto) {
+
+		String tagInicio = "<h2>";
+		String tagFin = "</h2>";
+		
+		String subTituloFormateado = tagInicio + texto + tagFin; 
+		
+		return subTituloFormateado;
+	}
+
+	@Override
+	public String getImagenFormateado(String texto) {
+
+		String tagInicio = "<img src=\"";
+		String tagFin ="\"/>";
+				
+		String imagenFormateado = tagInicio + texto + tagFin; 
+		
+		return imagenFormateado;
+	}
+
+	@Override
+	public String getItemListaFormateado(String texto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String getInicioSectionFormateado() {
+				
+		String sectionFormateada = "<section>"; 
+		return sectionFormateada;
+	}
+
+	@Override
+	public String getFinSectionFormateado() {
+				
+		String sectionFormateada = "</section>"; 
+		return sectionFormateada;
+	}
+
+	
 
 }

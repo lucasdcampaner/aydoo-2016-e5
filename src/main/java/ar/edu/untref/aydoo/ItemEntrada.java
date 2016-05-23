@@ -18,5 +18,9 @@ public abstract class ItemEntrada {
 	}
 	
 	public abstract String getTextoFormateado(Formateador formateador);
+
+	public abstract String getInicioFormateado(Formateador formateadorHTML);
+
+	public abstract String getFinFormateado(Formateador formateadorHTML);
 	
 }

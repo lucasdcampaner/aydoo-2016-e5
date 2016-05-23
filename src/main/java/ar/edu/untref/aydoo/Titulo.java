@@ -10,4 +10,14 @@ public class Titulo extends ItemEntrada{
 		return formateador.getTituloFormateado(this.getTexto());
 	}
 
+	@Override
+	public String getInicioFormateado(Formateador formateadorHTML) {
+		return "";
+	}
+
+	@Override
+	public String getFinFormateado(Formateador formateadorHTML) {
+		return "";
+	}
+
 }
