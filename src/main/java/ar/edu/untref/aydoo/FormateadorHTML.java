@@ -14,9 +14,24 @@ public class FormateadorHTML extends Formateador {
 	}
 
 	@Override
+	public String getInicioSectionFormateado() {
+				
+		String sectionFormateada = "<section>"; 
+		return sectionFormateada;
+	}
+
+	@Override
+	public String getFinSectionFormateado() {
+				
+		String sectionFormateada = "</section>"; 
+		return sectionFormateada;
+	}
+
+	@Override
 	public String getSubTituloFormateado(String texto) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}	
+	
 
 }
