@@ -14,10 +14,10 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
-		
+
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
-	
+
 	@Test
 	public void seMuestraContenidoEnFormatoHTMLParaUnSubtituloDePrueba() {
 
@@ -27,7 +27,7 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
-		
+
 		Assert.assertEquals(subtituloEsperado, subtituloObtenidoFormatoHTML);
 	}
 

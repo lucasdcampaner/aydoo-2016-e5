@@ -7,9 +7,9 @@ public class FormateadorHTML extends Formateador {
 
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
-		
-		String tituloFormateado = tagInicio + texto + tagFin; 
-		
+
+		String tituloFormateado = tagInicio + texto + tagFin;
+
 		return tituloFormateado;
 	}
 
@@ -18,9 +18,9 @@ public class FormateadorHTML extends Formateador {
 
 		String tagInicio = "<h2>";
 		String tagFin = "</h2>";
-		
-		String subTituloFormateado = tagInicio + texto + tagFin; 
-		
+
+		String subTituloFormateado = tagInicio + texto + tagFin;
+
 		return subTituloFormateado;
 	}
 
@@ -28,10 +28,10 @@ public class FormateadorHTML extends Formateador {
 	public String getImagenFormateado(String texto) {
 
 		String tagInicio = "<img src=\"";
-		String tagFin ="\"/>";
-				
-		String imagenFormateado = tagInicio + texto + tagFin; 
-		
+		String tagFin = "\"/>";
+
+		String imagenFormateado = tagInicio + texto + tagFin;
+
 		return imagenFormateado;
 	}
 
@@ -43,25 +43,30 @@ public class FormateadorHTML extends Formateador {
 
 	@Override
 	public String getInicioSectionFormateado() {
-				
-		String sectionFormateada = "<section>"; 
+
+		String sectionFormateada = "<section>";
 		return sectionFormateada;
 	}
 
 	@Override
 	public String getFinSectionFormateado() {
-				
-		String sectionFormateada = "</section>"; 
+
+		String sectionFormateada = "</section>";
 		return sectionFormateada;
 	}
 
 	@Override
 	public String getInicioItemListaFormateado() {
 		// TODO Auto-generated method stub getInicioItemListaFormateado
-		String itemListaFormateada = "<ul>"; 
+		String itemListaFormateada = "<ul>";
 		return itemListaFormateada;
 	}
 
-	
+	@Override
+	public String getFinItemListaFormateado() {
+		// TODO Auto-generated method stub getInicioItemListaFormateado
+		String itemListaFormateada = "</ul>";
+		return itemListaFormateada;
+	}
 
 }

@@ -9,16 +9,16 @@ public class ItemLista extends ItemEntrada {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		//return formateador.getItemListaFormateado(this.getTexto());
+		// return formateador.getItemListaFormateado(this.getTexto());
 		return "";
 	}
 
 	public String getInicioFormateado(Formateador formateador) {
 		return formateador.getInicioItemListaFormateado();
-	}	
+	}
 
-//	public String getFinFormateado(Formateador formateador) {
-//		return formateador.getFinItemListaFormateado();
-//	}		
+	public String getFinFormateado(Formateador formateador) {
+		return formateador.getFinItemListaFormateado();
+	}
 
 }

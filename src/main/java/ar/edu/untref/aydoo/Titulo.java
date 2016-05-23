@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class Titulo extends ItemEntrada{
+public class Titulo extends ItemEntrada {
 
 	public Titulo(String contenido) {
 		super(contenido);
