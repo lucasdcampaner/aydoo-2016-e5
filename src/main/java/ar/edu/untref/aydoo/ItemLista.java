@@ -9,20 +9,16 @@ public class ItemLista extends ItemEntrada {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		// TODO Auto-generated method stub
-		return null;
+		//return formateador.getItemListaFormateado(this.getTexto());
+		return "";
 	}
 
-	@Override
-	public String getInicioFormateado(Formateador formateadorHTML) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String getInicioFormateado(Formateador formateador) {
+		return formateador.getInicioItemListaFormateado();
+	}	
 
-	@Override
-	public String getFinFormateado(Formateador formateadorHTML) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public String getFinFormateado(Formateador formateador) {
+//		return formateador.getFinItemListaFormateado();
+//	}		
 
 }

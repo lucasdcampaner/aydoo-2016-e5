@@ -55,6 +55,13 @@ public class FormateadorHTML extends Formateador {
 		return sectionFormateada;
 	}
 
+	@Override
+	public String getInicioItemListaFormateado() {
+		// TODO Auto-generated method stub getInicioItemListaFormateado
+		String itemListaFormateada = "<ul>"; 
+		return itemListaFormateada;
+	}
+
 	
 
 }
