@@ -119,5 +119,15 @@ public class ManejadorDeOpcionesTest {
 		
 	}
 	
+	//TODO 
+	/*
+	 * Test que verique que el archivo de entrada termine con md para verificar que sea realmente
+	 * el archivo de entrada. Crear excepcion para tal caso
+	 * Test que verique los caracteres validos, Crear excepcion para el caso.
+	 * Terminar de verificar los ordenes combinados
+	 * Pensar y hacer mas test con otras posibilidades a cubrir.
+	 */
+	
+	
 
 }
