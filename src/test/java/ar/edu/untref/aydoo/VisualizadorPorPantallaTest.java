@@ -13,12 +13,18 @@ public class VisualizadorPorPantallaTest {
 
 		String tituloEntrada = "Titulo de prueba";
 		ItemEntrada titulo = new Titulo(tituloEntrada);
-		String tituloEsperado = "<h1>Titulo de prueba</h1>";
+		String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
+		
+		List<String> itemsEsperados = new LinkedList<String>();
+		itemsEsperados.add(tituloEsperado);
 
 		Formateador formateadorHTML = new FormateadorHTML();
+		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
 		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
 
-		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
+		items.agregarItem(tituloObtenidoFormatoHTML);
+
+		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
 	@Test
@@ -26,12 +32,18 @@ public class VisualizadorPorPantallaTest {
 
 		String subtituloEntrada = "Subtitulo de prueba";
 		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
-		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>";
+		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
+
+		List<String> itemsEsperados = new LinkedList<String>();
+		itemsEsperados.add(subtituloEsperado);
 
 		Formateador formateadorHTML = new FormateadorHTML();
+		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
 		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
 
-		Assert.assertEquals(subtituloEsperado, subtituloObtenidoFormatoHTML);
+		items.agregarItem(subtituloObtenidoFormatoHTML);
+
+		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
 	@Test
@@ -39,12 +51,18 @@ public class VisualizadorPorPantallaTest {
 
 		String imagenEntrada = "imagenDePrueba.jpg";
 		ItemEntrada imagen = new Imagen(imagenEntrada);
-		String imagenEsperada = "<img src=\"imagenDePrueba.jpg\"/>";
+		String imagenEsperada = "<img src=\"imagenDePrueba.jpg\"/>" + "\n";
+		
+		List<String> itemsEsperados = new LinkedList<String>();
+		itemsEsperados.add(imagenEsperada);
 
 		Formateador formateadorHTML = new FormateadorHTML();
+		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
 		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML);
+		
+		items.agregarItem(imagenObtenidaFormatoHTML);
 
-		Assert.assertEquals(imagenEsperada, imagenObtenidaFormatoHTML);
+		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
 	@Test
@@ -69,8 +87,6 @@ public class VisualizadorPorPantallaTest {
 
 		items.agregarItem(tituloObtenidoFormatoHTML);
 		items.agregarItem(subtituloObtenidoFormatoHTML);
-
-		System.out.println(items.mostrarItems());
 
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
@@ -105,8 +121,6 @@ public class VisualizadorPorPantallaTest {
 		items.agregarItem(subtituloObtenidoFormatoHTML);
 		items.agregarItem(imagenObtenidaFormatoHTML);
 
-		System.out.println(items.mostrarItems());
-
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
@@ -132,8 +146,6 @@ public class VisualizadorPorPantallaTest {
 
 		items.agregarItem(inicioSectionObtenidaFormatoHTML);
 		items.agregarItem(finSectionObtenidaFormatoHTML);
-
-		System.out.println(items.mostrarItems());
 
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
@@ -174,8 +186,6 @@ public class VisualizadorPorPantallaTest {
 		items.agregarItem(tituloObtenidoFormatoHTML);
 		items.agregarItem(subtituloObtenidoFormatoHTML);
 		items.agregarItem(finSectionObtenidaFormatoHTML);
-
-		System.out.println(items.mostrarItems());
 
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
