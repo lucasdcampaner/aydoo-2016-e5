@@ -12,6 +12,8 @@ public abstract class ItemEntrada {
 		return texto;
 	}
 
-	public abstract String getTextoFormateado(Formateador formateador, boolean inicioTag);
+	public abstract String getTextoFormateado(Formateador formateador);
+
+	public abstract void agregarElementoEnContenedor(ItemEntrada item);
 
 }

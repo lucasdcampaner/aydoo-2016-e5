@@ -27,7 +27,7 @@ public class GeneradorSalida {
 		
 		 for (ItemEntrada itemEntrada : itemsEntrada) {
 			
-			 listaDeStringsSalida.add(itemEntrada.getTextoFormateado(formateador,inicioTag));
+			 listaDeStringsSalida.add(itemEntrada.getTextoFormateado(formateador));
 			 inicioTag = !inicioTag;
 		 }
 		

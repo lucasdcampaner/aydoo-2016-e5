@@ -20,7 +20,7 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML, true);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
 
 		items.agregarItem(tituloObtenidoFormatoHTML);
 
@@ -39,7 +39,7 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML, true);
+		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
 
 		items.agregarItem(subtituloObtenidoFormatoHTML);
 
@@ -58,7 +58,7 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML, true);
+		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML);
 		
 		items.agregarItem(imagenObtenidaFormatoHTML);
 
@@ -82,8 +82,8 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML, true);
-		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML, true);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
+		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
 
 		items.agregarItem(tituloObtenidoFormatoHTML);
 		items.agregarItem(subtituloObtenidoFormatoHTML);
@@ -113,9 +113,9 @@ public class VisualizadorPorPantallaTest {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML, true);
-		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML, true);
-		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML, true);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
+		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
+		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML);
 
 		items.agregarItem(tituloObtenidoFormatoHTML);
 		items.agregarItem(subtituloObtenidoFormatoHTML);
@@ -123,70 +123,5 @@ public class VisualizadorPorPantallaTest {
 
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
-
-	@Test
-	public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionDePrueba() {
-
-		String inicioSection = "inicio section de prueba";
-		Section section1 = new Section(inicioSection);
-		String inicioSectionEsperada = "<section>" + "\n";
-
-		String finSection = "fin section de prueba";
-		Section section2 = new Section(finSection);
-		String finSectionEsperada = "</section>" + "\n";
-
-		List<String> itemsEsperados = new LinkedList<String>();
-		itemsEsperados.add(inicioSectionEsperada);
-		itemsEsperados.add(finSectionEsperada);
-
-		Formateador formateadorHTML = new FormateadorHTML();
-		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-		String inicioSectionObtenidaFormatoHTML = section1.getTextoFormateado(formateadorHTML, true);
-		String finSectionObtenidaFormatoHTML = section2.getTextoFormateado(formateadorHTML, false);
-
-		items.agregarItem(inicioSectionObtenidaFormatoHTML);
-		items.agregarItem(finSectionObtenidaFormatoHTML);
-
-		Assert.assertEquals(itemsEsperados, items.mostrarItems());
-	}
-
-//	@Test
-//	public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionConContenidoDePrueba() {
-//
-//		String inicioSection = "inicio section de prueba";
-//		Section section1 = new Section(inicioSection);
-//		String inicioSectionEsperada = "<section>" + "\n";
-//
-//		String tituloEntrada = "Titulo de prueba";
-//		ItemEntrada titulo = new Titulo(tituloEntrada);
-//		String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
-//
-//		String subtituloEntrada = "Subtitulo de prueba";
-//		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
-//		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
-//
-//		String finSection = "fin section de prueba";
-//		Section section2 = new Section(finSection);
-//		String finSectionEsperada = "</section>" + "\n";
-//
-//		List<String> itemsEsperados = new LinkedList<String>();
-//		itemsEsperados.add(inicioSectionEsperada);
-//		itemsEsperados.add(tituloEsperado);
-//		itemsEsperados.add(subtituloEsperado);
-//		itemsEsperados.add(finSectionEsperada);
-//
-//		Formateador formateadorHTML = new FormateadorHTML();
-//		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-//		String inicioSectionObtenidaFormatoHTML = section1.getInicioFormateado(formateadorHTML);
-//		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
-//		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
-//		String finSectionObtenidaFormatoHTML = section2.getFinFormateado(formateadorHTML);
-//
-//		items.agregarItem(inicioSectionObtenidaFormatoHTML);
-//		items.agregarItem(tituloObtenidoFormatoHTML);
-//		items.agregarItem(subtituloObtenidoFormatoHTML);
-//		items.agregarItem(finSectionObtenidaFormatoHTML);
-//
-//		Assert.assertEquals(itemsEsperados, items.mostrarItems());
-//	}
+	
 }

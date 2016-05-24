@@ -7,8 +7,12 @@ public class ItemLista extends ItemEntrada {
 	}
 
 	@Override
-	public String getTextoFormateado(Formateador formateador, boolean tagInicio) {
+	public String getTextoFormateado(Formateador formateador) {
 		return formateador.getItemListaFormateado(this.getTexto());
+	}
+
+	@Override
+	public void agregarElementoEnContenedor(ItemEntrada item) {		
 	}
 
 }

@@ -13,7 +13,7 @@ public class TextoPlanoTest {
 		String textoPlanoEsperado = textoPlanoEntrada;
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateado(formateadorHTML, true);
+		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals(textoPlanoEsperado, textoPlanoObtenidoFormatoHTML);
 	}

@@ -7,8 +7,12 @@ public class Imagen extends ItemEntrada {
 	}
 
 	@Override
-	public String getTextoFormateado(Formateador formateador, boolean inicioTag) {
+	public String getTextoFormateado(Formateador formateador) {
 		return formateador.getImagenFormateado(this.getTexto());
+	}
+
+	@Override
+	public void agregarElementoEnContenedor(ItemEntrada item) {		
 	}
 
 }

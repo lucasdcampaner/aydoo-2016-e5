@@ -13,7 +13,7 @@ public class TituloTest {
 		String tituloEsperado = "<h1>Titulo de prueba</h1>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML, true);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
@@ -37,7 +37,7 @@ public class TituloTest {
 		String tituloEsperado = "<h1></h1>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML, true);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
