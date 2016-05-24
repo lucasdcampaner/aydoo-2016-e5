@@ -31,12 +31,12 @@ public class ItemListaContenedor extends ItemEntrada {
 		return html;
 	}
 	
-	@Override
+	
 	public String getInicioFormateado(Formateador formateador) {
 		return formateador.getInicioItemListaContenedorFormateado();
 	}
 
-	@Override
+	
 	public String getFinFormateado(Formateador formateador) {
 		return formateador.getFinItemListaContenedorFormateado();
 	}

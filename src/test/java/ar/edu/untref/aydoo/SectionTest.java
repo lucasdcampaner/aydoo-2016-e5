@@ -6,16 +6,17 @@ import org.junit.Test;
 public class SectionTest {
 
 	@Test
-	public void seObtieneTextoInicioEnFormatoHTMLParaUnaSection() {
+	public void seObtieneSectionVaciaEnFormatoHTML() {
 
-		ItemEntrada section = new Section("Comienza la seccion");
-		String sectionInicioEsperada = "<section>";
+		ItemEntrada itemListaContenedor = new Section("");
+				
+		String sectionEsperada = "<section></section>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		//TDD, similar lista en itel lista contenedor
-		//String sectionInicioObtenidaFormatoHTML = section.getInicioFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
 
-		//Assert.assertEquals(sectionInicioEsperada, sectionInicioObtenidaFormatoHTML);
+		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
+		
 	}
 
 }
