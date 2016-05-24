@@ -3,13 +3,13 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ItemListaTest {
+public class ItemListaContenedorTest {
 
 	@Test
 	public void seCreaItemListaEspecificadaRecuperandoSuNombre() {
 
 		String contenido = "un item de una lista";
-		ItemEntrada itemLista = new ItemLista(contenido);
+		ItemEntrada itemLista = new ItemListaContenedor(contenido);
 
 		String textoLista = itemLista.getTexto();
 
@@ -18,13 +18,11 @@ public class ItemListaTest {
 	}
 
 	@Test
-	public void seObtieneTextoPrimerElementoEnFormatoHTMLParaUnaLista() {
+	public void seObtieneVacioEnFormatoHTMLParaUnaLista() {
 
 		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
-		ItemEntrada itemLista = new ItemLista("un item de una lista");
-		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 
-		String itemListaEsperada = "<ul><li>un item de una lista</li></ul>";
+		String itemListaEsperada = "<ul></ul>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
@@ -32,5 +30,4 @@ public class ItemListaTest {
 		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
 
 	}
-
 }

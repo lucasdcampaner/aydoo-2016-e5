@@ -36,12 +36,6 @@ public class FormateadorHTML extends Formateador {
 	}
 
 	@Override
-	public String getItemListaFormateado(String texto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String getInicioSectionFormateado() {
 
 		String sectionFormateada = "<section>";
@@ -56,15 +50,24 @@ public class FormateadorHTML extends Formateador {
 	}
 
 	@Override
-	public String getInicioItemListaFormateado() {
-		// TODO Auto-generated method stub getInicioItemListaFormateado
+	public String getItemListaFormateado(String texto) {
+
+		String tagInicio = "<li>";
+		String tagFin = "</li>";
+
+		String imagenFormateado = tagInicio + texto + tagFin;
+
+		return imagenFormateado;
+	}
+
+	@Override
+	public String getInicioItemListaContenedorFormateado() {
 		String itemListaFormateada = "<ul>";
 		return itemListaFormateada;
 	}
 
 	@Override
-	public String getFinItemListaFormateado() {
-		// TODO Auto-generated method stub getInicioItemListaFormateado
+	public String getFinItemListaContenedorFormateado() {
 		String itemListaFormateada = "</ul>";
 		return itemListaFormateada;
 	}

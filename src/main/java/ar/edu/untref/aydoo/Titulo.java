@@ -11,13 +11,9 @@ public class Titulo extends ItemEntrada {
 	}
 
 	@Override
-	public String getInicioFormateado(Formateador formateadorHTML) {
-		return "";
-	}
+	public void agregarElementoEnContenedor(ItemEntrada item) {
+		// TODO Auto-generated method stub
 
-	@Override
-	public String getFinFormateado(Formateador formateadorHTML) {
-		return "";
 	}
 
 }
