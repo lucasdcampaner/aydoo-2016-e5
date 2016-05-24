@@ -20,15 +20,17 @@ public class VisualizadorPorPantalla {
 	}
 
 	public List<String> mostrarItems() {
+		
+		String itemsAMostrar = "";
 
 		List<String> itemsAVisualizar = new LinkedList<String>();
 
 		Iterator<String> iteradorItemsEntrada = this.listaDeItems.iterator();
 		while (iteradorItemsEntrada.hasNext()) {
+			
+			itemsAMostrar = iteradorItemsEntrada.next() + "\n";
 
-			String ItemActual = iteradorItemsEntrada.next();
-
-			itemsAVisualizar.add(ItemActual);
+			itemsAVisualizar.add(itemsAMostrar);
 
 		}
 
