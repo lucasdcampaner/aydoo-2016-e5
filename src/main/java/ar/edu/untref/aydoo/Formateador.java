@@ -14,7 +14,8 @@ public abstract class Formateador {
 
 	public abstract String getFinSectionFormateado();
 
-	public abstract String getInicioItemListaContenedorFormateado() ;
-	public abstract String getFinItemListaContenedorFormateado() ;
+	public abstract String getInicioItemListaContenedorFormateado();
+
+	public abstract String getFinItemListaContenedorFormateado();
 
 }

@@ -110,73 +110,157 @@ public class VisualizadorPorPantallaTest {
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
-//	@Test
-//	public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionDePrueba() {
-//
-//		String inicioSection = "inicio section de prueba";
-//		ItemEntrada section1 = new Section(inicioSection);
-//		String inicioSectionEsperada = "<section>" + "\n";
-//
-//		String finSection = "fin section de prueba";
-//		ItemEntrada section2 = new Section(finSection);
-//		String finSectionEsperada = "</section>" + "\n";
-//
-//		List<String> itemsEsperados = new LinkedList<String>();
-//		itemsEsperados.add(inicioSectionEsperada);
-//		itemsEsperados.add(finSectionEsperada);
-//
-//		Formateador formateadorHTML = new FormateadorHTML();
-//		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-//		String inicioSectionObtenidaFormatoHTML = section1.getTextoFormateado(formateadorHTML);
-//		String finSectionObtenidaFormatoHTML = section2.getTextoFormateado(formateadorHTML);
-//
-//		items.agregarItem(inicioSectionObtenidaFormatoHTML);
-//		items.agregarItem(finSectionObtenidaFormatoHTML);
-//
-//		System.out.println(items.mostrarItems());
-//
-//		Assert.assertEquals(itemsEsperados, items.mostrarItems());
-//	}
+	// @Test
+	// public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionDePrueba() {
+	//
+	// String inicioSection = "inicio section de prueba";
+	// ItemEntrada section1 = new Section(inicioSection);
+	// String inicioSectionEsperada = "<section>" + "\n";
+	//
+	// String finSection = "fin section de prueba";
+	// ItemEntrada section2 = new Section(finSection);
+	// String finSectionEsperada = "</section>" + "\n";
+	//
+	// List<String> itemsEsperados = new LinkedList<String>();
+	// itemsEsperados.add(inicioSectionEsperada);
+	// itemsEsperados.add(finSectionEsperada);
+	//
+	// Formateador formateadorHTML = new FormateadorHTML();
+	// VisualizadorPorPantalla items = new VisualizadorPorPantalla();
+	// String inicioSectionObtenidaFormatoHTML =
+	// section1.getTextoFormateado(formateadorHTML);
+	// String finSectionObtenidaFormatoHTML =
+	// section2.getTextoFormateado(formateadorHTML);
+	//
+	// items.agregarItem(inicioSectionObtenidaFormatoHTML);
+	// items.agregarItem(finSectionObtenidaFormatoHTML);
+	//
+	// System.out.println(items.mostrarItems());
+	//
+	// Assert.assertEquals(itemsEsperados, items.mostrarItems());
+	// }
 
-//	@Test
-//	public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionConContenidoDePrueba() {
-//
-//		String inicioSection = "inicio section de prueba";
-//		ItemEntrada section1 = new Section(inicioSection);
-//		String inicioSectionEsperada = "<section>" + "\n";
-//
-//		String tituloEntrada = "Titulo de prueba";
-//		ItemEntrada titulo = new Titulo(tituloEntrada);
-//		String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
-//
-//		String subtituloEntrada = "Subtitulo de prueba";
-//		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
-//		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
-//
-//		String finSection = "fin section de prueba";
-//		ItemEntrada section2 = new Section(finSection);
-//		String finSectionEsperada = "</section>" + "\n";
-//
-//		List<String> itemsEsperados = new LinkedList<String>();
-//		itemsEsperados.add(inicioSectionEsperada);
-//		itemsEsperados.add(tituloEsperado);
-//		itemsEsperados.add(subtituloEsperado);
-//		itemsEsperados.add(finSectionEsperada);
-//
-//		Formateador formateadorHTML = new FormateadorHTML();
-//		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-//		String inicioSectionObtenidaFormatoHTML = section1.getInicioFormateado(formateadorHTML);
-//		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML);
-//		String subtituloObtenidoFormatoHTML = subtitulo.getTextoFormateado(formateadorHTML);
-//		String finSectionObtenidaFormatoHTML = section2.getFinFormateado(formateadorHTML);
-//
-//		items.agregarItem(inicioSectionObtenidaFormatoHTML);
-//		items.agregarItem(tituloObtenidoFormatoHTML);
-//		items.agregarItem(subtituloObtenidoFormatoHTML);
-//		items.agregarItem(finSectionObtenidaFormatoHTML);
-//
-//		System.out.println(items.mostrarItems());
-//
-//		Assert.assertEquals(itemsEsperados, items.mostrarItems());
-//	}
+	// @Test
+	// public void
+	// seMuestraContenidoEnFormatoHTMLParaUnaSeccionConContenidoDePrueba() {
+	//
+	// String inicioSection = "inicio section de prueba";
+	// ItemEntrada section1 = new Section(inicioSection);
+	// String inicioSectionEsperada = "<section>" + "\n";
+	//
+	// String tituloEntrada = "Titulo de prueba";
+	// ItemEntrada titulo = new Titulo(tituloEntrada);
+	// String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
+	//
+	// String subtituloEntrada = "Subtitulo de prueba";
+	// ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
+	// String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
+	//
+	// String finSection = "fin section de prueba";
+	// ItemEntrada section2 = new Section(finSection);
+	// String finSectionEsperada = "</section>" + "\n";
+	//
+	// List<String> itemsEsperados = new LinkedList<String>();
+	// itemsEsperados.add(inicioSectionEsperada);
+	// itemsEsperados.add(tituloEsperado);
+	// itemsEsperados.add(subtituloEsperado);
+	// itemsEsperados.add(finSectionEsperada);
+	//
+	// Formateador formateadorHTML = new FormateadorHTML();
+	// VisualizadorPorPantalla items = new VisualizadorPorPantalla();
+	// String inicioSectionObtenidaFormatoHTML =
+	// section1.getInicioFormateado(formateadorHTML);
+	// String tituloObtenidoFormatoHTML =
+	// titulo.getTextoFormateado(formateadorHTML);
+	// String subtituloObtenidoFormatoHTML =
+	// subtitulo.getTextoFormateado(formateadorHTML);
+	// String finSectionObtenidaFormatoHTML =
+	// section2.getFinFormateado(formateadorHTML);
+	//
+	// items.agregarItem(inicioSectionObtenidaFormatoHTML);
+	// items.agregarItem(tituloObtenidoFormatoHTML);
+	// items.agregarItem(subtituloObtenidoFormatoHTML);
+	// items.agregarItem(finSectionObtenidaFormatoHTML);
+	//
+	// System.out.println(items.mostrarItems());
+	//
+	// Assert.assertEquals(itemsEsperados, items.mostrarItems());
+	// }
+
+	// @Test
+	// public void seMuestraContenidoEnFormatoHTMLParaUnaSeccionDePrueba() {
+	//
+	// String inicioSection = "inicio section de prueba";
+	// ItemEntrada section1 = new Section(inicioSection);
+	// String inicioSectionEsperada = "<section>" + "\n";
+	//
+	// String finSection = "fin section de prueba";
+	// ItemEntrada section2 = new Section(finSection);
+	// String finSectionEsperada = "</section>" + "\n";
+	//
+	// List<String> itemsEsperados = new LinkedList<String>();
+	// itemsEsperados.add(inicioSectionEsperada);
+	// itemsEsperados.add(finSectionEsperada);
+	//
+	// Formateador formateadorHTML = new FormateadorHTML();
+	// VisualizadorPorPantalla items = new VisualizadorPorPantalla();
+	// String inicioSectionObtenidaFormatoHTML =
+	// section1.getInicioFormateado(formateadorHTML);
+	// String finSectionObtenidaFormatoHTML =
+	// section2.getFinFormateado(formateadorHTML);
+	//
+	// items.agregarItem(inicioSectionObtenidaFormatoHTML);
+	// items.agregarItem(finSectionObtenidaFormatoHTML);
+	//
+	// System.out.println(items.mostrarItems());
+	//
+	// Assert.assertEquals(itemsEsperados, items.mostrarItems());
+	// }
+
+	// @Test
+	// public void
+	// seMuestraContenidoEnFormatoHTMLParaUnaSeccionConContenidoDePrueba() {
+	//
+	// String inicioSection = "inicio section de prueba";
+	// ItemEntrada section1 = new Section(inicioSection);
+	// String inicioSectionEsperada = "<section>" + "\n";
+	//
+	// String tituloEntrada = "Titulo de prueba";
+	// ItemEntrada titulo = new Titulo(tituloEntrada);
+	// String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
+	//
+	// String subtituloEntrada = "Subtitulo de prueba";
+	// ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
+	// String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
+	//
+	// String finSection = "fin section de prueba";
+	// ItemEntrada section2 = new Section(finSection);
+	// String finSectionEsperada = "</section>" + "\n";
+	//
+	// List<String> itemsEsperados = new LinkedList<String>();
+	// itemsEsperados.add(inicioSectionEsperada);
+	// itemsEsperados.add(tituloEsperado);
+	// itemsEsperados.add(subtituloEsperado);
+	// itemsEsperados.add(finSectionEsperada);
+	//
+	// Formateador formateadorHTML = new FormateadorHTML();
+	// VisualizadorPorPantalla items = new VisualizadorPorPantalla();
+	// String inicioSectionObtenidaFormatoHTML =
+	// section1.getInicioFormateado(formateadorHTML);
+	// String tituloObtenidoFormatoHTML =
+	// titulo.getTextoFormateado(formateadorHTML);
+	// String subtituloObtenidoFormatoHTML =
+	// subtitulo.getTextoFormateado(formateadorHTML);
+	// String finSectionObtenidaFormatoHTML =
+	// section2.getFinFormateado(formateadorHTML);
+	//
+	// items.agregarItem(inicioSectionObtenidaFormatoHTML);
+	// items.agregarItem(tituloObtenidoFormatoHTML);
+	// items.agregarItem(subtituloObtenidoFormatoHTML);
+	// items.agregarItem(finSectionObtenidaFormatoHTML);
+	//
+	// System.out.println(items.mostrarItems());
+	//
+	// Assert.assertEquals(itemsEsperados, items.mostrarItems());
+	// }
 }

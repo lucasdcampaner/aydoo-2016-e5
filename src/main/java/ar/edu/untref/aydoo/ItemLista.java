@@ -10,13 +10,13 @@ public class ItemLista extends ItemEntrada {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		 return formateador.getItemListaFormateado(this.getTexto());
+		return formateador.getItemListaFormateado(this.getTexto());
 	}
 
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
