@@ -29,7 +29,7 @@ public class ItemListaTest {
 		Formateador formateadorHTML = new FormateadorHTML();
 		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
 
-		//Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
+		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
 		
 	}
 
