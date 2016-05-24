@@ -35,6 +35,19 @@ public class VisualizadorPorPantallaTest {
 	}
 
 	@Test
+	public void seMuestraContenidoEnFormatoHTMLParaUnaImagenDePrueba() {
+
+		String imagenEntrada = "imagenDePrueba.jpg";
+		ItemEntrada imagen = new Imagen(imagenEntrada);
+		String imagenEsperada = "<img src=\"imagenDePrueba.jpg\"/>";
+
+		Formateador formateadorHTML = new FormateadorHTML();
+		String imagenObtenidaFormatoHTML = imagen.getTextoFormateado(formateadorHTML);
+
+		Assert.assertEquals(imagenEsperada, imagenObtenidaFormatoHTML);
+	}
+
+	@Test
 	public void seMuestraContenidoEnFormatoHTMLParaUnTituloYUnSubtituloDePrueba() {
 
 		String tituloEntrada = "Titulo de prueba";
