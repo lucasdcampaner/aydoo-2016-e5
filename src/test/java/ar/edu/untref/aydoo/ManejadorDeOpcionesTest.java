@@ -125,6 +125,7 @@ public class ManejadorDeOpcionesTest {
 	 * el archivo de entrada. Crear excepcion para tal caso
 	 * Test que verique los caracteres validos, Crear excepcion para el caso.
 	 * Terminar de verificar los ordenes combinados
+	 * Testear Si me pasan --MODE=algo no valido
 	 * Pensar y hacer mas test con otras posibilidades a cubrir.
 	 */
 	
