@@ -4,14 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ManejadorDeOpcionesTest {
-
-	/**
-	 * Casos para ir testeando:
-	 */
-
-	//java -jar slider.jar --output=presentacion1 mipresentacion.md
-	//NO VALIDO, hacer excepciones
-	//java -jar slider.jar --output=presentacion1 mipresentacion.md  --mode=no-output
 	
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefault() {
@@ -83,5 +75,18 @@ public class ManejadorDeOpcionesTest {
 		Assert.assertEquals(outputEsperado, outputObtenido);
 
 	}
+	
+	@Test(expected = ManejadorDeOpcionesException.class)
+	public void combinacionConOutputYModoNoOutputArrojaExcepcion() throws ManejadorDeOpcionesException {
 
+		String mode = "--MODE=NO-OUTPUT";
+		String archivo = "MIPRESENTACION.MD";
+		String output = "--OUTPUT=PRESENTACION1";
+
+		String[] args = {mode, archivo, output};
+		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
+		manejadorDeOpciones.validarCombinacionDeOpciones();
+		
+	}
+	
 }

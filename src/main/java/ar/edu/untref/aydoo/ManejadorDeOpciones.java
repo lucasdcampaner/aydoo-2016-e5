@@ -28,6 +28,13 @@ public class ManejadorDeOpciones {
 		}
 	}
 
+	public void validarCombinacionDeOpciones() throws ManejadorDeOpcionesException {
+
+		if (this.mode == "--MODE=NO-OUTPUT" && this.output != "") {
+			throw new ManejadorDeOpcionesException();
+		}		 
+	}
+	
 	public String getMode() {
 		return this.mode;
 	}
