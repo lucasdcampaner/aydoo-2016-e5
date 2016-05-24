@@ -22,13 +22,10 @@ public class GeneradorSalida {
 	
 	public List<String> generarListaDeStringsSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
 		
-		boolean inicioTag = true;
 		List<String> listaDeStringsSalida = new LinkedList<String>();
 		
 		 for (ItemEntrada itemEntrada : itemsEntrada) {
-			
 			 listaDeStringsSalida.add(itemEntrada.getTextoFormateado(formateador));
-			 inicioTag = !inicioTag;
 		 }
 		
 		return listaDeStringsSalida;
