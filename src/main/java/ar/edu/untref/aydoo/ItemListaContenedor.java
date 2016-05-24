@@ -14,20 +14,31 @@ public class ItemListaContenedor extends ItemEntrada {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		// TODO Auto-generated method stub
-		return null;
+		return formateador.getInicioItemListaContenedorFormateado() + getFormatoListoEnHTML() + formateador.getFinItemListaContenedorFormateado();
+		
+	}
+	
+	private String getFormatoListoEnHTML() {		
+		String html = "";
+		
+		Formateador formateadorHTML = new FormateadorHTML(); 
+		
+		for(ItemEntrada item : this.listaDeItems){			
+			html += item.getTextoFormateado(formateadorHTML);
+		
+		}
+		
+		return html;
+	}
+	
+	@Override
+	public String getInicioFormateado(Formateador formateador) {
+		return formateador.getInicioItemListaContenedorFormateado();
 	}
 
 	@Override
-	public String getInicioFormateado(Formateador formateadorHTML) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getFinFormateado(Formateador formateadorHTML) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getFinFormateado(Formateador formateador) {
+		return formateador.getFinItemListaContenedorFormateado();
 	}
 	
 	@Override

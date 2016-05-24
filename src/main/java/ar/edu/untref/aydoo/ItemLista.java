@@ -2,45 +2,41 @@ package ar.edu.untref.aydoo;
 
 public class ItemLista extends ItemEntrada {
 
-	private boolean primero;
-
 	public ItemLista(String texto) {
 
 		super(texto);
-		this.primero = true;
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		// return formateador.getItemListaFormateado(this.getTexto());
-		// itemLista.getInicioFormateado(formateadorHTML)
-		String devolucion = "";
-		if (this.primero) {
-			devolucion += formateador.getInicioItemListaFormateado();
-			this.primero = false;
-		}
-		else {
-			
-			devolucion += formateador.getInicioItemListaElementoFormateado();
-			devolucion += formateador.getItemListaFormateado(this.getTexto());
-		}
-
-		return devolucion;
+		 return formateador.getItemListaFormateado(this.getTexto());
 	}
 
-	public String getInicioFormateado(Formateador formateador) {
-		return formateador.getInicioItemListaFormateado();
-	}
-
-	public String getFinFormateado(Formateador formateador) {
-		return formateador.getFinItemListaFormateado();
-	}
+//	public String getInicioFormateado(Formateador formateador) {
+//		return formateador.getInicioItemListaFormateado();
+//	}
+//
+//		public String getFinFormateado(Formateador formateador) {
+//		return formateador.getFinItemListaFormateado();
+//	}
 
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String getInicioFormateado(Formateador formateadorHTML) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getFinFormateado(Formateador formateadorHTML) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

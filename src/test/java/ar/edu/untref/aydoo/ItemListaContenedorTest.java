@@ -16,4 +16,18 @@ public class ItemListaContenedorTest {
 		Assert.assertEquals(contenido, textoLista);
 
 	}
+	
+	@Test
+	public void seObtieneVacioEnFormatoHTMLParaUnaLista() {
+
+		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+		
+		String itemListaEsperada = "<ul></ul>";
+
+		Formateador formateadorHTML = new FormateadorHTML();
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+
+		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
+		
+	}
 }
