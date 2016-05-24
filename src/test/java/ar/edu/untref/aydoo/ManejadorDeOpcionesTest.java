@@ -25,17 +25,17 @@ public class ManejadorDeOpcionesTest {
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultArchivoEnPrimerParametro() {
 
-		String modeEsperado = "--MODE=DEFAULT";
 		String archivoEsperado = "MIPRESENTACION.MD";
+		String modeEsperado = "--MODE=DEFAULT";
 
 		String[] args = {archivoEsperado, modeEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 
-		String modeObtenido = manejadorDeOpciones.getMode();
 		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
+		String modeObtenido = manejadorDeOpciones.getMode();
 
-		Assert.assertEquals(modeEsperado, modeObtenido);
 		Assert.assertEquals(archivoEsperado, archivoObtenido);
+		Assert.assertEquals(modeEsperado, modeObtenido);
 
 	}
 	
@@ -56,6 +56,23 @@ public class ManejadorDeOpcionesTest {
 
 	}
 
+	@Test
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutputArchivoEnPrimerParametro() {
+
+		String archivoEsperado = "MIPRESENTACION.MD";
+		String modeEsperado = "--MODE=NO-OUTPUT";
+
+		String[] args = {archivoEsperado, modeEsperado};
+		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
+
+		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
+		String modeObtenido = manejadorDeOpciones.getMode();
+
+		Assert.assertEquals(archivoEsperado, archivoObtenido);
+		Assert.assertEquals(modeEsperado, modeObtenido);
+
+	}	
+	
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosConOutput() {
 
