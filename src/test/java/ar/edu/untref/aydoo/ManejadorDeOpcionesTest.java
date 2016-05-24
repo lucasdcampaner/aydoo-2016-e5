@@ -10,7 +10,6 @@ public class ManejadorDeOpcionesTest {
 
 		String modeEsperado = "--MODE=DEFAULT";
 		String archivoEsperado = "MIPRESENTACION.MD";
-
 		String[] args = {modeEsperado, archivoEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 
@@ -27,7 +26,6 @@ public class ManejadorDeOpcionesTest {
 
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String modeEsperado = "--MODE=DEFAULT";
-
 		String[] args = {archivoEsperado, modeEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 
@@ -47,7 +45,6 @@ public class ManejadorDeOpcionesTest {
 
 		String[] args = {modeEsperado, archivoEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
-
 		String modeObtenido = manejadorDeOpciones.getMode();
 		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
 
@@ -61,10 +58,9 @@ public class ManejadorDeOpcionesTest {
 
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String modeEsperado = "--MODE=NO-OUTPUT";
-
 		String[] args = {archivoEsperado, modeEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
-
+		
 		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
 		String modeObtenido = manejadorDeOpciones.getMode();
 
@@ -76,14 +72,14 @@ public class ManejadorDeOpcionesTest {
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosConOutput() {
 
-		String outputEsperado = "--OUTPUT=PRESENTACION1";
 		String archivoEsperado = "MIPRESENTACION.MD";
+		String outputEsperado = "--OUTPUT=PRESENTACION1";
 
-		String[] args = {outputEsperado, archivoEsperado};
+		String[] args = {archivoEsperado, outputEsperado};
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 
-		String outputObtenido = manejadorDeOpciones.getOutput();
 		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
+		String outputObtenido = manejadorDeOpciones.getOutput();
 
 		Assert.assertEquals(outputEsperado, outputObtenido);
 		Assert.assertEquals(archivoEsperado, archivoObtenido);
