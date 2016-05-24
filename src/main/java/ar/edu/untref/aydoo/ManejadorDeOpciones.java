@@ -16,6 +16,9 @@ public class ManejadorDeOpciones {
 				case "--M":
 					this.mode = args[i];
 					break;
+				case "--O":
+					this.mode = args[i];
+					break;
 				default:
 					this.archivoEntrada = args[i]; 
 					break;
