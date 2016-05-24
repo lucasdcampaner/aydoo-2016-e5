@@ -4,6 +4,7 @@ public class ManejadorDeOpciones {
 
 	private String mode = "";
 	private String archivoEntrada = "";
+	private String output = "";
 
 	public ManejadorDeOpciones(String[] args) {
 
@@ -17,7 +18,7 @@ public class ManejadorDeOpciones {
 					this.mode = args[i];
 					break;
 				case "--O":
-					this.mode = args[i];
+					this.output = args[i];
 					break;
 				default:
 					this.archivoEntrada = args[i]; 
@@ -33,6 +34,10 @@ public class ManejadorDeOpciones {
 
 	public String getArchivoEntrada() {
 		return this.archivoEntrada;
+	}
+
+	public String getOutput() {
+		return this.output ;
 	}
 
 }
