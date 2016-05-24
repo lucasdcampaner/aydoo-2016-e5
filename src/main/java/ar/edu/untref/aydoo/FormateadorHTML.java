@@ -3,6 +3,18 @@ package ar.edu.untref.aydoo;
 public class FormateadorHTML extends Formateador {
 
 	@Override
+	public String getSectionFormateado(boolean inicio) {
+
+		String sectionFormateada;
+		if (inicio) {
+			sectionFormateada = "<section>";	
+		}else {
+			sectionFormateada = "</section>";
+		}		
+		return sectionFormateada;
+	}
+	
+	@Override
 	public String getTituloFormateado(String texto) {
 
 		String tagInicio = "<h1>";
@@ -34,21 +46,7 @@ public class FormateadorHTML extends Formateador {
 
 		return imagenFormateado;
 	}
-
-	@Override
-	public String getInicioSectionFormateado() {
-
-		String sectionFormateada = "<section>";
-		return sectionFormateada;
-	}
-
-	@Override
-	public String getFinSectionFormateado() {
-
-		String sectionFormateada = "</section>";
-		return sectionFormateada;
-	}
-
+	
 	@Override
 	public String getItemListaFormateado(String texto) {
 
@@ -67,14 +65,15 @@ public class FormateadorHTML extends Formateador {
 	}
 
 	@Override
-	public String getFinItemListaContenedorFormateado() {
-		String itemListaFormateada = "</ul>";
-		return itemListaFormateada;
-	}
-
-	@Override
 	public String getTextoPlanoFormateado(String texto) {
 		return texto;
 	}
+
+	@Override
+	public String getFinItemListaContenedorFormateado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

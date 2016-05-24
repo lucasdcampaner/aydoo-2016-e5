@@ -6,14 +6,8 @@ public class Titulo extends ItemEntrada {
 		super(contenido);
 	}
 
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateado(Formateador formateador, boolean inicioTag) {
 		return formateador.getTituloFormateado(this.getTexto());
-	}
-
-	@Override
-	public void agregarElementoEnContenedor(ItemEntrada item) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

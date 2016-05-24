@@ -4,18 +4,11 @@ public class SubTitulo extends ItemEntrada {
 
 	public SubTitulo(String texto) {
 		super(texto);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateado(Formateador formateador, boolean inicioTag) {
 		return formateador.getSubTituloFormateado(this.getTexto());
-	}
-
-	@Override
-	public void agregarElementoEnContenedor(ItemEntrada item) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

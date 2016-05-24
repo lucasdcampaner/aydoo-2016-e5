@@ -4,11 +4,6 @@ public abstract class ItemEntrada {
 
 	private String texto;
 
-	/**
-	 * 
-	 * @param texto se guarda sin el marcador de que itemes , eso lo define el objeto.
-	 */
-
 	public ItemEntrada(String texto) {
 		this.texto = texto;
 	}
@@ -17,8 +12,6 @@ public abstract class ItemEntrada {
 		return texto;
 	}
 
-	public abstract String getTextoFormateado(Formateador formateador);
-
-	public abstract void agregarElementoEnContenedor(ItemEntrada item);
+	public abstract String getTextoFormateado(Formateador formateador, boolean inicioTag);
 
 }
