@@ -15,16 +15,12 @@ public class ManejadorDeOpciones {
 				switch (parametroAEvaluar) {
 				case "--M":
 					this.mode = args[i];
-					verificarModeDefault(this.mode, args[i + 1]);
+					break;
+				default:
+					this.archivoEntrada = args[i]; 
 					break;
 				}
 			}
-		}
-	}
-
-	private void verificarModeDefault(String mode, String segundoParametro) {
-		if (this.mode == "--MODE=DEFAULT") {
-			this.archivoEntrada = segundoParametro;
 		}
 	}
 
