@@ -16,8 +16,9 @@ public class Program {
 		//TODO DO
 		/**
 		 * Si mode=default genero la carpeta con el mismo nombre de archivo de entrada.
-		 * Si mode=no-output imprimi por pantalla.
+		 * Si no se especifica mode el mode es default.
 		 * Si output=carpeta genero la carpeta con el nombre especificado.
+		 * Si mode=no-output imprimi por pantalla.
 		 */
 		
 	}
