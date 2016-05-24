@@ -24,5 +24,6 @@ public abstract class ItemEntrada {
 	public abstract String getInicioFormateado(Formateador formateadorHTML);
 
 	public abstract String getFinFormateado(Formateador formateadorHTML);
+	public abstract void agregarElementoEnContenedor(ItemEntrada item) ;
 
 }

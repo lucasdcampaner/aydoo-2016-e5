@@ -1,15 +1,21 @@
 package ar.edu.untref.aydoo;
 
-public class Imagen extends ItemEntrada {
+import java.util.ArrayList;
 
-	public Imagen(String texto) {
+public class ItemListaContenedor extends ItemEntrada {
+
+	private ArrayList<ItemEntrada> listaDeItems;
+	
+	public ItemListaContenedor(String texto) {
 		super(texto);
+		this.listaDeItems = new ArrayList<>();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getImagenFormateado(this.getTexto());
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -23,11 +29,15 @@ public class Imagen extends ItemEntrada {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		// TODO Auto-generated method stub
-		
+		this.listaDeItems.add(item);	
 	}
+	public ArrayList<ItemEntrada> getElementosEnColeccion() {
+		return this.listaDeItems;
+	}
+	
 
 }

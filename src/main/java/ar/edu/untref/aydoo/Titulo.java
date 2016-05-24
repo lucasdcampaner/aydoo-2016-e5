@@ -20,4 +20,10 @@ public class Titulo extends ItemEntrada {
 		return "";
 	}
 
+	@Override
+	public void agregarElementoEnContenedor(ItemEntrada item) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

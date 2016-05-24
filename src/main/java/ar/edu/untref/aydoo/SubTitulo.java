@@ -24,4 +24,10 @@ public class SubTitulo extends ItemEntrada {
 		return null;
 	}
 
+	@Override
+	public void agregarElementoEnContenedor(ItemEntrada item) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

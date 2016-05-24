@@ -19,4 +19,10 @@ public class Section extends ItemEntrada {
 		return formateador.getFinSectionFormateado();
 	}
 
+	@Override
+	public void agregarElementoEnContenedor(ItemEntrada item) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

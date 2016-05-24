@@ -18,4 +18,9 @@ public abstract class Formateador {
 
 	public abstract String getFinItemListaFormateado();
 
+	public String getInicioItemListaElementoFormateado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

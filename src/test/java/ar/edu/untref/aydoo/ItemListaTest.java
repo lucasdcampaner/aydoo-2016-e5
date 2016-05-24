@@ -17,28 +17,19 @@ public class ItemListaTest {
 
 	}
 
-	@Test
-	public void seObtieneTextoInicioEnFormatoHTMLParaUnaLista() {
-
-		ItemEntrada itemLista = new ItemLista("un item de una lista");
-		String itemListaInicioEsperada = "<ul>";
-
-		Formateador formateadorHTML = new FormateadorHTML();
-		String itemListaInicioObtenidaFormatoHTML = itemLista.getInicioFormateado(formateadorHTML);
-
-		Assert.assertEquals(itemListaInicioEsperada, itemListaInicioObtenidaFormatoHTML);
-	}
-
-	@Test
-	public void seObtieneTextoFinEnFormatoHTMLParaUnaLista() {
-
-		ItemEntrada itemLista = new ItemLista("un item de una lista");
-		String itemListaFinEsperada = "</ul>";
-
-		Formateador formateadorHTML = new FormateadorHTML();
-		String itemListaFinObtenidaFormatoHTML = itemLista.getFinFormateado(formateadorHTML);
-
-		Assert.assertEquals(itemListaFinEsperada, itemListaFinObtenidaFormatoHTML);
-	}
+//	@Test
+//	public void seObtieneTextoPrimerElementoEnFormatoHTMLParaUnaLista() {
+//
+//		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+//		ItemEntrada itemLista = new ItemLista("un item de una lista");
+//		itemListaContenedor.agregarElementoEnContenedor(itemLista);
+//		
+//		String itemListaEsperada = "<ul><li>un item de una lista</li></ul>";
+//
+//		Formateador formateadorHTML = new FormateadorHTML();
+//		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+//
+//		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
+//	}
 
 }
