@@ -72,4 +72,9 @@ public class FormateadorHTML extends Formateador {
 		return itemListaFormateada;
 	}
 
+	@Override
+	public String getTextoPlanoFormateado(String texto) {
+		return texto;
+	}
+
 }

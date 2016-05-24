@@ -6,9 +6,7 @@ public abstract class ItemEntrada {
 
 	/**
 	 * 
-	 * @param texto
-	 *            se guarda sin el marcador de que es item, eso lo define el
-	 *            objeto.
+	 * @param texto se guarda sin el marcador de que itemes , eso lo define el objeto.
 	 */
 
 	public ItemEntrada(String texto) {
