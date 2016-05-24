@@ -71,7 +71,7 @@ public class VisualizadorPorPantallaTest {
 		items.agregarItem(subtituloObtenidoFormatoHTML);
 
 		System.out.println(items.mostrarItems());
-		
+
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
@@ -81,11 +81,11 @@ public class VisualizadorPorPantallaTest {
 		String tituloEntrada = "Titulo de prueba";
 		ItemEntrada titulo = new Titulo(tituloEntrada);
 		String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
-		
+
 		String subtituloEntrada = "Subtitulo de prueba";
 		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
 		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
-		
+
 		String imagenEntrada = "imagenDePrueba.jpg";
 		ItemEntrada imagen = new Imagen(imagenEntrada);
 		String imagenEsperada = "<img src=\"imagenDePrueba.jpg\"/>" + "\n";
@@ -106,7 +106,7 @@ public class VisualizadorPorPantallaTest {
 		items.agregarItem(imagenObtenidaFormatoHTML);
 
 		System.out.println(items.mostrarItems());
-		
+
 		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 	}
 
@@ -127,14 +127,14 @@ public class VisualizadorPorPantallaTest {
 //
 //		Formateador formateadorHTML = new FormateadorHTML();
 //		VisualizadorPorPantalla items = new VisualizadorPorPantalla();
-//		String inicioSectionObtenidaFormatoHTML = section1.getInicioFormateado(formateadorHTML);
-//		String finSectionObtenidaFormatoHTML = section2.getFinFormateado(formateadorHTML);
+//		String inicioSectionObtenidaFormatoHTML = section1.getTextoFormateado(formateadorHTML);
+//		String finSectionObtenidaFormatoHTML = section2.getTextoFormateado(formateadorHTML);
 //
 //		items.agregarItem(inicioSectionObtenidaFormatoHTML);
 //		items.agregarItem(finSectionObtenidaFormatoHTML);
 //
 //		System.out.println(items.mostrarItems());
-//		
+//
 //		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 //	}
 
@@ -148,7 +148,7 @@ public class VisualizadorPorPantallaTest {
 //		String tituloEntrada = "Titulo de prueba";
 //		ItemEntrada titulo = new Titulo(tituloEntrada);
 //		String tituloEsperado = "<h1>Titulo de prueba</h1>" + "\n";
-//		
+//
 //		String subtituloEntrada = "Subtitulo de prueba";
 //		ItemEntrada subtitulo = new SubTitulo(subtituloEntrada);
 //		String subtituloEsperado = "<h2>Subtitulo de prueba</h2>" + "\n";
@@ -176,7 +176,7 @@ public class VisualizadorPorPantallaTest {
 //		items.agregarItem(finSectionObtenidaFormatoHTML);
 //
 //		System.out.println(items.mostrarItems());
-//		
+//
 //		Assert.assertEquals(itemsEsperados, items.mostrarItems());
 //	}
 }
