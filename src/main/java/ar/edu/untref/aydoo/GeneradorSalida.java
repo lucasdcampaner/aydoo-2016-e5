@@ -20,6 +20,8 @@ public class GeneradorSalida {
 		generarListaDeStringsSalida(itemsEntrada, formateador);
 	}
 	
+	//Otro metodo mostrar por pantalla
+	
 	public List<String> generarListaDeStringsSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
 		
 		List<String> listaDeStringsSalida = new LinkedList<String>();

@@ -5,11 +5,6 @@ public class ManejadorDeOpciones {
 	private String mode = "";
 	private String archivoEntrada = "";
 	private String output = "";
-
-	//TODO
-	/**
-	 * Ver de tomar parametros sin el prefijo, ejemplo --mode=defaul, solo default.
-	 */	
 	
 	public ManejadorDeOpciones(String[] args) {
 
