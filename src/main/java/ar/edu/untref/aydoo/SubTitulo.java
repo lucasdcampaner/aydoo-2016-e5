@@ -12,11 +12,10 @@ public class SubTitulo extends ItemEntrada {
 		return formateador.getSubTituloFormateado(this.getTexto());
 	}
 
-	
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

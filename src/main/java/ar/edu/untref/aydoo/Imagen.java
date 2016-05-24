@@ -15,7 +15,7 @@ public class Imagen extends ItemEntrada {
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

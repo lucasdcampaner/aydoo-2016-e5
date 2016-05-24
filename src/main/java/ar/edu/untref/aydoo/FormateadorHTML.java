@@ -35,7 +35,6 @@ public class FormateadorHTML extends Formateador {
 		return imagenFormateado;
 	}
 
-
 	@Override
 	public String getInicioSectionFormateado() {
 
@@ -50,7 +49,6 @@ public class FormateadorHTML extends Formateador {
 		return sectionFormateada;
 	}
 
-	
 	@Override
 	public String getItemListaFormateado(String texto) {
 
@@ -61,7 +59,7 @@ public class FormateadorHTML extends Formateador {
 
 		return imagenFormateado;
 	}
-	
+
 	@Override
 	public String getInicioItemListaContenedorFormateado() {
 		String itemListaFormateada = "<ul>";

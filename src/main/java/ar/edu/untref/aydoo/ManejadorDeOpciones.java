@@ -21,7 +21,7 @@ public class ManejadorDeOpciones {
 					this.output = args[i];
 					break;
 				default:
-					this.archivoEntrada = args[i]; 
+					this.archivoEntrada = args[i];
 					break;
 				}
 			}
@@ -32,9 +32,9 @@ public class ManejadorDeOpciones {
 
 		if (this.mode == "--MODE=NO-OUTPUT" && this.output != "") {
 			throw new ManejadorDeOpcionesException();
-		}		 
+		}
 	}
-	
+
 	public String getMode() {
 		return this.mode;
 	}
@@ -44,7 +44,7 @@ public class ManejadorDeOpciones {
 	}
 
 	public String getOutput() {
-		return this.output ;
+		return this.output;
 	}
 
 }
