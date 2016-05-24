@@ -4,6 +4,7 @@ public class ManejadorDeOpciones {
 
 	private String mode = "";
 	private String archivoEntrada = "";
+	private String output = "";
 
 	public ManejadorDeOpciones(String[] args) {
 
@@ -15,25 +16,35 @@ public class ManejadorDeOpciones {
 				switch (parametroAEvaluar) {
 				case "--M":
 					this.mode = args[i];
-					verificarModeDefault(this.mode, args[i + 1]);
+					break;
+				case "--O":
+					this.output = args[i];
+					break;
+				default:
+					this.archivoEntrada = args[i]; 
 					break;
 				}
 			}
 		}
 	}
 
-	private void verificarModeDefault(String mode, String segundoParametro) {
-		if (this.mode == "--MODE=DEFAULT") {
-			this.archivoEntrada = segundoParametro;
-		}
-	}
+	public void validarCombinacionDeOpciones() throws ManejadorDeOpcionesException {
 
+		if (this.mode == "--MODE=NO-OUTPUT" && this.output != "") {
+			throw new ManejadorDeOpcionesException();
+		}		 
+	}
+	
 	public String getMode() {
 		return this.mode;
 	}
 
 	public String getArchivoEntrada() {
 		return this.archivoEntrada;
+	}
+
+	public String getOutput() {
+		return this.output ;
 	}
 
 }
