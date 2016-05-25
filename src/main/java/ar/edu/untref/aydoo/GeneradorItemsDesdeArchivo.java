@@ -17,9 +17,14 @@ public class GeneradorItemsDesdeArchivo {
 		this.archivoEntrada = null;
 	}
 
-	public void setArchivoEntrada(String archivoEntrada) throws FileNotFoundException {
+	public boolean setArchivoEntrada(String archivoEntrada) throws FileNotFoundException {
 
 		this.archivoEntrada = new FileReader(archivoEntrada);
+		if (this.archivoEntrada != null) {
+			return true;
+		} else
+			return false;
+
 	}
 
 	public List<ItemEntrada> getItemsEntrada(Formateador formateador) throws IOException {
