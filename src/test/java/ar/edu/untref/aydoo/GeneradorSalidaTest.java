@@ -46,10 +46,8 @@ public class GeneradorSalidaTest {
 		
 		String salidaPorPantallaObtenida = generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML);
 		
-		generadorSalida.sobreEscribirLineaEnIndex(itemsEntrada, formateadorHTML);
 		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);
-		
-		
+	
 	}
 	
 	/**
