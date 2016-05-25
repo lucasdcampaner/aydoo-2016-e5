@@ -1,43 +1,53 @@
 package ar.edu.untref.aydoo;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.io.FileUtils;
 
 public class GeneradorSalida {
 	
-	public void copiarArchivosDesdePlantilla(File plantillaOrigen, File carpetaSalida) throws IOException {
-		FileUtils.copyDirectory(plantillaOrigen, carpetaSalida);
+	private final String lineaASobreEscribir = "[este-es-el-texto-a-reemplazar]";
+	private final File plantilla = new File("target/plantilla");
+	private String carpetaSalida;
+	
+	public GeneradorSalida(String carpetaSalida) {
+		this.carpetaSalida = carpetaSalida;
 	}
 	
-	public void sobreEscribirIndex(List<ItemEntrada> itemsEntrada, Formateador formateador) {
-		generarListaDeStringsSalida(itemsEntrada, formateador);
+	public void copiarArchivosDesdePlantilla() throws IOException {
+		FileUtils.copyDirectory(this.plantilla, new File(this.carpetaSalida));
 	}
 	
-	public String imprimirPorPantalla(List<ItemEntrada> itemsEntrada, Formateador formateador) {
-	
-		List<String> listaParaImprimirPorPantalla = generarListaDeStringsSalida(itemsEntrada, formateador);
-		String salidaPorPantalla = "";
+	public void sobreEscribirIndex(List<ItemEntrada> itemsEntrada, Formateador formateador) throws FileNotFoundException {
 		
-		for (String stringSalida : listaParaImprimirPorPantalla) {
-			salidaPorPantalla = salidaPorPantalla + stringSalida;
+		String stringSalida = generarStringSalida(itemsEntrada, formateador);
+		
+		File archivoIndex = new File("target/carpetaPara/index.html");
+		Scanner scanner = new Scanner(archivoIndex);
+		
+		String linealoca = "";
+		while (scanner.hasNextLine()) {
+			linealoca = scanner.nextLine().trim();
+			if (linealoca.compareTo(lineaASobreEscribir) == 0){
+				System.out.println("ACA");
+			}
 		}
 		
-		return salidaPorPantalla;
 	}
-	
-	private List<String> generarListaDeStringsSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
 		
-		List<String> listaDeStringsSalida = new LinkedList<String>();
+	public String generarStringSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
+		
+		String stringSalida = "";
 		
 		 for (ItemEntrada itemEntrada : itemsEntrada) {
-			 listaDeStringsSalida.add(itemEntrada.getTextoFormateado(formateador));
+			 stringSalida = stringSalida + itemEntrada.getTextoFormateado(formateador);
 		 }
 		
-		return listaDeStringsSalida;
+		return stringSalida;
 	}
-
+	
 }

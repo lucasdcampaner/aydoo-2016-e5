@@ -1,14 +1,16 @@
 package ar.edu.untref.aydoo;
 
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class GeneradorSalidaTest {
 
 	@Test
-	public void generarListaDeSalidaParaSobreEscribirIndexOMostrarPorPantalla() {
+	public void generarStringSalidaParaEjemplo1() throws FileNotFoundException {
 		
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		//Items de entrada
@@ -26,45 +28,47 @@ public class GeneradorSalidaTest {
 		itemsEntrada.add(section1);
 		itemsEntrada.add(section2);
 		itemsEntrada.add(section3);
-		//Items de salida
-		List<String> itemsSalidaEsperada = new LinkedList<String>();
-		itemsSalidaEsperada.add("<section>"
-									+ "<h1>El titulo</h1>"
-									+ "<h2>El subtitulo</h2>"
-								+ "</section>");
-		itemsSalidaEsperada.add("<section>"
-		 							+ "<h1>Solo un titulo</h1>"
- 								+ "</section>");
-		itemsSalidaEsperada.add("<section>"
-									+ "<img src=\"imagen.png\"/>"
-								+ "</section>");
-
 		//Generador de salida
-		GeneradorSalida generadorSalida = new GeneradorSalida();
+		String carpetaSalida = "presentacion";
+		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 		Formateador formateadorHTML = new FormateadorHTML();
+		String salidaPorPantallaEsperada = "<section>"
+										 		+ "<h1>El titulo</h1>"
+										 		+ "<h2>El subtitulo</h2>"
+										 + "</section>"
+										 + "<section>"
+										 		+ "<h1>Solo un titulo</h1>"
+								 		 + "</section>"
+								 		 + "<section>"
+								 				+ "<img src=\"imagen.png\"/>"
+						 				 + "</section>";
 		
-		List<String> itemsSalidaObtenida = generadorSalida.generarListaDeStringsSalida(itemsEntrada, formateadorHTML);
+		String salidaPorPantallaObtenida = generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML);
 		
-		for (int i = 0; i < itemsSalidaEsperada.size(); i++) {
-			Assert.assertTrue(itemsSalidaEsperada.get(i).equals(itemsSalidaObtenida.get(i)));
-		}
+		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);
+		
+//		generadorSalida.sobreEscribirIndex(itemsEntrada, formateadorHTML);
 		
 	}
 	
 	/**
 	 * TODO ver si se puede mockear
+	 * @throws IOException 
 	 */	
 //	@Test
 //	public void copiarArchivosDePlantillaEnCarpetaSalida() throws IOException {
+//		
+//		String carpetaSalida = "target/carpetaParaEjemploIntegrador";
+//		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
+//		generadorSalida.copiarArchivosDesdePlantilla();
+//	}
 //
-//		String carpeta = "target/carpetaParaEjemploIntegrador";
-//		String plantilla = "target/plantilla";
-//		File carpetaSalida = new File(carpeta);
-//		File plantillaOrigen = new File(plantilla);
+//	@Test
+//	public void copiarArchivosDePlantillaEnCarpetaSalida2() throws IOException {
 //
-//		GeneradorSalida generadorSalida = new GeneradorSalida();
-//
-//		generadorSalida.copiarArchivosDesdePlantilla(plantillaOrigen, carpetaSalida);
+//		String carpetaSalida = "target/carpetaPara";
+//		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
+//		generadorSalida.copiarArchivosDesdePlantilla();
 //	}
 
 }
