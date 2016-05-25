@@ -11,35 +11,40 @@ public class GeneradorItemsDesdeArchivo {
 
 	private FileReader archivoEntrada;
 	private Scanner scanner;
-	
-	public GeneradorItemsDesdeArchivo(String archivoEntrada) throws FileNotFoundException {
-		
-		this.archivoEntrada = new FileReader(archivoEntrada); 
+	private String contenido;
+
+	public GeneradorItemsDesdeArchivo() {
+		this.archivoEntrada = null;
 	}
-	
+
+	public void setArchivoEntrada(String archivoEntrada) throws FileNotFoundException {
+
+		this.archivoEntrada = new FileReader(archivoEntrada);
+	}
+
 	public List<ItemEntrada> getItemsEntrada(Formateador formateador) throws IOException {
-		
+
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		scanner = new Scanner(archivoEntrada);
 		ItemEntrada itemEntrada;
-		
+
 		while (scanner.hasNextLine()) {
 			itemEntrada = getTipoDeItem(scanner.nextLine());
-        	if (itemEntrada != null){
-    			itemsEntrada.add(itemEntrada);
-    		}
+			if (itemEntrada != null) {
+				itemsEntrada.add(itemEntrada);
+			}
 		}
-		
+
 		return itemsEntrada;
 	}
-	
+
 	private ItemEntrada getTipoDeItem(String linea) {
-		
+
 		ItemEntrada itemEntrada = null;
 		String caracterizadorLinea = linea.substring(0, 2);
 		String textoDesdePosicion2 = linea.substring(2);
 		String textoDesdePosicion3 = linea.substring(3);
-		
+
 		switch (caracterizadorLinea) {
 		case "# ":
 			itemEntrada = new Titulo(textoDesdePosicion2);
@@ -49,7 +54,7 @@ public class GeneradorItemsDesdeArchivo {
 			break;
 		case "i:":
 			itemEntrada = new Imagen(textoDesdePosicion3);
-			break;		
+			break;
 		case "* ":
 			itemEntrada = new ItemLista(textoDesdePosicion2);
 			break;
@@ -60,8 +65,28 @@ public class GeneradorItemsDesdeArchivo {
 			itemEntrada = new TextoPlano(linea);
 			break;
 		}
-		
+
 		return itemEntrada;
 	}
-	
+
+	public void setContenidoPrueba(String contenidoArchivo) {
+		contenido = contenidoArchivo;
+
+	}
+
+	public List<ItemEntrada> getItemsEntradaPruebaSinFile(Formateador formateadorHTML) {
+		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
+		// scanner = new Scanner(archivoEntrada);
+		ItemEntrada itemEntrada = null;
+		String[] coleccion = this.contenido.split("\n");
+		for (int i = 0; i < coleccion.length; i++) {
+			itemsEntrada.add(new Section(""));
+			itemEntrada = getTipoDeItem(coleccion[i]);
+			if (itemEntrada != null) {
+				itemsEntrada.add(itemEntrada);
+			}
+		}
+		return itemsEntrada;
+	}
+
 }
