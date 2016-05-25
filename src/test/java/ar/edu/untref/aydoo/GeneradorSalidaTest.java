@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import org.junit.Test;
 public class GeneradorSalidaTest {
 
 	@Test
-	public void generarStringSalidaParaEjemplo1() throws FileNotFoundException {
+	public void generarStringSalidaParaEjemplo1() throws IOException {
 		
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		//Items de entrada
@@ -45,9 +46,9 @@ public class GeneradorSalidaTest {
 		
 		String salidaPorPantallaObtenida = generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML);
 		
+		generadorSalida.sobreEscribirLineaEnIndex(itemsEntrada, formateadorHTML);
 		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);
 		
-//		generadorSalida.sobreEscribirIndex(itemsEntrada, formateadorHTML);
 		
 	}
 	
