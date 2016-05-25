@@ -8,11 +8,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 
 public class GeneradorSalida {
-
-	private File carpetaSalida; 
 	
 	public void copiarArchivosDesdePlantilla(File plantillaOrigen, File carpetaSalida) throws IOException {
-		this.carpetaSalida = carpetaSalida;
 		FileUtils.copyDirectory(plantillaOrigen, carpetaSalida);
 	}
 	
@@ -20,9 +17,19 @@ public class GeneradorSalida {
 		generarListaDeStringsSalida(itemsEntrada, formateador);
 	}
 	
-	//Otro metodo mostrar por pantalla
+	public String imprimirPorPantalla(List<ItemEntrada> itemsEntrada, Formateador formateador) {
 	
-	public List<String> generarListaDeStringsSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
+		List<String> listaParaImprimirPorPantalla = generarListaDeStringsSalida(itemsEntrada, formateador);
+		String salidaPorPantalla = "";
+		
+		for (String stringSalida : listaParaImprimirPorPantalla) {
+			salidaPorPantalla = salidaPorPantalla + stringSalida;
+		}
+		
+		return salidaPorPantalla;
+	}
+	
+	private List<String> generarListaDeStringsSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
 		
 		List<String> listaDeStringsSalida = new LinkedList<String>();
 		
