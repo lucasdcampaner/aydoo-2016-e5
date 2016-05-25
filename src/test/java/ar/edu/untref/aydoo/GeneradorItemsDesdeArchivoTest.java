@@ -1,32 +1,52 @@
 package ar.edu.untref.aydoo;
 
-public class GeneradorItemsDesdeArchivoTest {
-	
-	//TODO ver si se puede mockear para no ir al file system.
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
-	
-//	@Test
-//	public void seCreaListaDeItemsEntradaDelEjemploIntegrador() throws IOException {
-//		
-//		String archivoEntrada = "ejemploIntegrador.md";
-//		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
-//		List<ItemEntrada> itemsEntradaEsperada = new LinkedList<ItemEntrada>();
-//		itemsEntradaEsperada.add(new Section(""));
-//		itemsEntradaEsperada.add(new Titulo("El titulo"));
-//		itemsEntradaEsperada.add(new SubTitulo("El Subtitulo"));
-//		itemsEntradaEsperada.add(new Section(""));
-//		itemsEntradaEsperada.add(new Titulo("Solo un titulo"));
-//		itemsEntradaEsperada.add(new Section(""));
-//		itemsEntradaEsperada.add(new TextoPlano("solo texto sin nada mas"));
-//		Formateador formateadorHTML = new FormateadorHTML();
-//		
-//		//Aca estaria el mock
-//		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML);
-//		
-//		for (int i = 0; i < itemsEntradaObtenida.size(); i++) {
-//			Assert.assertEquals(itemsEntradaEsperada.get(i).getTexto(), itemsEntradaObtenida.get(i).getTexto());
-//		}
-//		
-//	}
-	
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+public class GeneradorItemsDesdeArchivoTest {
+
+	// TODO ver si se puede mockear para no ir al file system.
+
+	@Test
+	public void seCreaListaDeItemsEntradaDelEjemploIntegrador() throws IOException {
+		String contenidoArchivo = "# Titulo 1" + "\n";
+		String archivoEntrada = "ejemploIntegrador.md";
+		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo();
+		//generadorItemsDesdeArchivo.setArchivoEntrada(archivoEntrada);
+		List<ItemEntrada> lista = new LinkedList<ItemEntrada>();
+		lista.add(new Section(""));
+		lista.add(new Titulo("Titulo 1"));
+		Formateador formateadorHTML = new FormateadorHTML();
+		generadorItemsDesdeArchivo = Mockito.mock(GeneradorItemsDesdeArchivo.class);
+		Mockito.when(generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML)).thenReturn(lista);
+		
+		//GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivoPasandoContenido(archivoEntrada,);
+		
+		generadorItemsDesdeArchivo.setContenidoPrueba(contenidoArchivo);
+		List<ItemEntrada> itemsEntradaEsperada = new LinkedList<ItemEntrada>();
+		itemsEntradaEsperada.add(new Section(""));
+		itemsEntradaEsperada.add(new Titulo("Titulo 1"));
+		// itemsEntradaEsperada.add(new SubTitulo("El Subtitulo"));
+		// itemsEntradaEsperada.add(new Section(""));
+		// itemsEntradaEsperada.add(new Titulo("Solo un titulo"));
+		// itemsEntradaEsperada.add(new Section(""));
+		// itemsEntradaEsperada.add(new TextoPlano("solo texto sin nada mas"));
+		//Formateador formateadorHTML = new FormateadorHTML();
+		String itemEsperado = "";
+		String itemEsperado1 = "Titulo 1";
+
+		// Aca estaria el mock
+		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo
+				.getItemsEntrada(formateadorHTML);
+
+		// for (int i = 0; i < itemsEntradaObtenida.size(); i++) {
+		Assert.assertEquals(itemEsperado, itemsEntradaObtenida.get(0).getTexto());
+		Assert.assertEquals(itemEsperado1, itemsEntradaObtenida.get(1).getTexto());
+	}
+
 }
