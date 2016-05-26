@@ -6,47 +6,53 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class GeneradorItemsDesdeArchivoTest {
 
-	// TODO ver si se puede mockear para no ir al file system.
-
 	@Test
-	public void seCreaListaDeItemsEntradaDelEjemploIntegrador() throws IOException {
-		String contenidoArchivo = "# Titulo 1" + "\n";
-		String archivoEntrada = "ejemploIntegrador.md";
-		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo();
-		//generadorItemsDesdeArchivo.setArchivoEntrada(archivoEntrada);
-		List<ItemEntrada> lista = new LinkedList<ItemEntrada>();
-		lista.add(new Section(""));
-		lista.add(new Titulo("Titulo 1"));
+	public void testDeEjemploIntegrador() throws IOException {
+		
+		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
+		//Items de entrada
+		ItemEntrada section1 = new Section("");
+		ItemEntrada titulo1 = new Titulo("El titulo");
+		ItemEntrada subtitulo1 = new SubTitulo("El Subtitulo");
+		section1.agregarElementoEnContenedor(titulo1);
+		section1.agregarElementoEnContenedor(subtitulo1);
+		ItemEntrada section2 = new Section("");
+		ItemEntrada titulo2 = new Titulo("Solo un titulo");
+		section2.agregarElementoEnContenedor(titulo2);
+		ItemEntrada section3 = new Section("");
+		ItemEntrada textoPlano = new TextoPlano("solo texto sin nada mas");
+		section3.agregarElementoEnContenedor(textoPlano);
+		itemsEntrada.add(section1);
+		itemsEntrada.add(section2);
+		itemsEntrada.add(section3);
+		String primerTextoFormateadoEsperado  = "<section>"
+		 											+ "<h1>El titulo</h1>"
+	 												+ "<h2>El Subtitulo</h2>"
+												+ "</section>";
+		
+		String segundoTextoFormateadoEsperado = "<section>" 
+													+ "<h1>Solo un titulo</h1>"
+												+ "</section>";
+		String tercerTextoFormateadoEsperado =  "<section>"
+													+ "solo texto sin nada mas"
+												+ "</section>";
+		//mockear
+		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo("ejemploIntegrador.md");
 		Formateador formateadorHTML = new FormateadorHTML();
-		generadorItemsDesdeArchivo = Mockito.mock(GeneradorItemsDesdeArchivo.class);
-		Mockito.when(generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML)).thenReturn(lista);
 		
-		//GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivoPasandoContenido(archivoEntrada,);
+		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML);
+		String primerTextoFormateadoObtenido = itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML);
+		String segundoTextoFormateadoObtenido = itemsEntradaObtenida.get(1).getTextoFormateado(formateadorHTML);
+		String terceroTextoFormateadoObtenido = itemsEntradaObtenida.get(2).getTextoFormateado(formateadorHTML);
 		
-		generadorItemsDesdeArchivo.setContenidoPrueba(contenidoArchivo);
-		List<ItemEntrada> itemsEntradaEsperada = new LinkedList<ItemEntrada>();
-		itemsEntradaEsperada.add(new Section(""));
-		itemsEntradaEsperada.add(new Titulo("Titulo 1"));
-		// itemsEntradaEsperada.add(new SubTitulo("El Subtitulo"));
-		// itemsEntradaEsperada.add(new Section(""));
-		// itemsEntradaEsperada.add(new Titulo("Solo un titulo"));
-		// itemsEntradaEsperada.add(new Section(""));
-		// itemsEntradaEsperada.add(new TextoPlano("solo texto sin nada mas"));
-		//Formateador formateadorHTML = new FormateadorHTML();
-		String itemEsperado = "";
-		String itemEsperado1 = "Titulo 1";
-
-		// Aca estaria el mock
-		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo
-				.getItemsEntrada(formateadorHTML);
-
-		// for (int i = 0; i < itemsEntradaObtenida.size(); i++) {
-		Assert.assertEquals(itemEsperado, itemsEntradaObtenida.get(0).getTexto());
-		Assert.assertEquals(itemEsperado1, itemsEntradaObtenida.get(1).getTexto());
+		//Assert
+		Assert.assertEquals(primerTextoFormateadoEsperado, primerTextoFormateadoObtenido);
+		Assert.assertEquals(segundoTextoFormateadoEsperado, segundoTextoFormateadoObtenido);
+		Assert.assertEquals(tercerTextoFormateadoEsperado, terceroTextoFormateadoObtenido);
+			
 	}
 
 }

@@ -7,7 +7,7 @@ public class Section extends ItemEntrada {
 	private ArrayList<ItemEntrada> listaDeItems;
 
 	public Section(String texto) {
-		super(texto);
+		super(texto, true);
 		this.listaDeItems = new ArrayList<>();
 	}
 

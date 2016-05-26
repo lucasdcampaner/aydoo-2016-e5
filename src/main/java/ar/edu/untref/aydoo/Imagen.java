@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class Imagen extends ItemEntrada {
 
 	public Imagen(String texto) {
-		super(texto);
+		super(texto, false);
 	}
 
 	@Override

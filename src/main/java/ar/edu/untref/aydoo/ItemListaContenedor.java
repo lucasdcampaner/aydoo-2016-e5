@@ -6,7 +6,7 @@ public class ItemListaContenedor extends ItemEntrada {
 	private ArrayList<ItemEntrada> listaDeItems;
 
 	public ItemListaContenedor(String texto) {
-		super(texto);
+		super(texto, true);
 		this.listaDeItems = new ArrayList<>();
 	}
 

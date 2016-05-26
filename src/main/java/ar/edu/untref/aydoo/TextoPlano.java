@@ -4,7 +4,7 @@ public class TextoPlano extends ItemEntrada {
 
 
 	public TextoPlano(String contenido) {
-		super(contenido);
+		super(contenido, false);
 	}
 
 	public String getTextoFormateado(Formateador formateador) {

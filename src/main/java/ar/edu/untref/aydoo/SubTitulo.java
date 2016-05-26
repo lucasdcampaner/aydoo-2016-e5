@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class SubTitulo extends ItemEntrada {
 
 	public SubTitulo(String texto) {
-		super(texto);
+		super(texto, false);
 	}
 
 	@Override
