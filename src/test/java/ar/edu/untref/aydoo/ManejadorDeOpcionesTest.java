@@ -139,6 +139,31 @@ public class ManejadorDeOpcionesTest {
 	}
 
 	@Test
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultConParametrosCaracterInvalidoParaOutputyParaArchivo() {
+
+		String mode = "--MODE=default";
+		String archivo = "MIPRESENTACIOÑ.MD";
+		String output = "--OUTPUT=PRESENTACION1ñ";
+
+		String[] args = { mode, archivo, output };
+
+		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
+
+		String modeEsperado = "--MODE=DEFAULT";
+		String archivoEsperado = "Nombre de archivo con caracter invalido!";
+		String outputEsperado = "Nombre de carpeta con caracter invalido!";
+
+		String modeObtenido = manejadorDeOpciones.getMode();
+		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
+		String outputObtenido = manejadorDeOpciones.getOutput();
+
+		Assert.assertEquals(modeEsperado, modeObtenido);
+		Assert.assertEquals(archivoEsperado, archivoObtenido);
+		Assert.assertEquals(outputEsperado, outputObtenido);
+
+	}
+	
+	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultConParametrosCaracterInvalidoParaOutput() {
 
 		String mode = "--MODE=default";
