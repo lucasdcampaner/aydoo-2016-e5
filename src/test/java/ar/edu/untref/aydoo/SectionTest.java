@@ -17,6 +17,22 @@ public class SectionTest {
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
 
 	}
+	
+	@Test
+	public void seObtieneDobleSectionVaciaEnFormatoHTML() {
+
+		ItemEntrada itemListaContenedor = new Section("");
+		ItemEntrada itemListaContenedor2 = new Section("");
+		String sectionEsperada = "<section></section><section></section>";
+		Formateador formateadorHTML = new FormateadorHTML();
+		
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML2 = itemListaContenedor2.getTextoFormateado(formateadorHTML);
+
+		String itemListaObtenidaFormatoHTMLfinal = itemListaObtenidaFormatoHTML + itemListaObtenidaFormatoHTML2;
+		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTMLfinal);
+
+	}
 
 	@Test
 	public void seObtieneUnTituloSoloEnUnaSectionEnFormatoHTML() {
