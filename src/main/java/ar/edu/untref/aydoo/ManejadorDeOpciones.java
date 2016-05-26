@@ -1,5 +1,10 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ManejadorDeOpciones {
 
 	private String mode = "";
@@ -9,23 +14,35 @@ public class ManejadorDeOpciones {
 	public ManejadorDeOpciones(String[] args) {
 
 		String parametroAEvaluar;
+		//Program obj = new Program();
+		//boolean valor = validarNombreArchivo(texto);
 
 		if (args.length > 0) {
 			for (int i = 0; i < args.length; i++) {
 				parametroAEvaluar = args[i].substring(0, 3).toUpperCase();
 				switch (parametroAEvaluar) {
 				case "--M":
-					this.mode = args[i];
+					//if(validarNombreArchivo(args[i]))
+						this.mode = args[i].toUpperCase();
+					//else
+						//this.mode = "Nombre de archivo con caracter invalido!";
 					break;
 				case "--O":
-					this.output = args[i];
+					this.output = args[i].toUpperCase();
 					break;
 				default:
-					this.archivoEntrada = args[i];
+					if(validarNombreArchivo(args[i]))
+						this.archivoEntrada = args[i];
+					else
+						this.archivoEntrada = "Nombre de archivo con caracter invalido!";
 					break;
 				}
 			}
 		}
+	}
+
+	public ManejadorDeOpciones() {
+		
 	}
 
 	public void validarCombinacionDeOpciones() throws ManejadorDeOpcionesException {
@@ -46,5 +63,76 @@ public class ManejadorDeOpciones {
 	public String getOutput() {
 		return this.output;
 	}
+	
+	//precondicion, no recibe espacios
+		protected boolean validarNombreArchivo(String texto) {
+			boolean retorno = false;
+
+			try {
+				List<Character> listaValidos = obtenerListaCaracteresValidos();
+
+				String textoMin = texto.toLowerCase();
+
+				char[] partida = textoMin.toCharArray();
+				Set<Character> listaTexto = new HashSet<Character>();
+				
+				for (char c : partida) {
+					listaTexto.add(c);
+				}
+				if (listaValidos.containsAll(listaTexto))
+					retorno = true;
+				else
+					retorno = false;
+
+			} catch (Exception e) {
+
+			}
+
+			return retorno;
+		}
+
+		private List<Character> obtenerListaCaracteresValidos() {
+			List<Character> listaValidos = new ArrayList<Character>();
+			listaValidos.add('a');
+			listaValidos.add('m');
+			listaValidos.add('y');
+			listaValidos.add('b');
+			listaValidos.add('n');
+			listaValidos.add('z');
+			listaValidos.add('c');
+			listaValidos.add('o');
+			listaValidos.add('0');
+			listaValidos.add('d');
+			listaValidos.add('p');
+			listaValidos.add('1');
+			listaValidos.add('e');
+			listaValidos.add('q');
+			listaValidos.add('2');
+			listaValidos.add('f');
+			listaValidos.add('r');
+			listaValidos.add('3');
+			listaValidos.add('g');
+			listaValidos.add('s');
+			listaValidos.add('4');
+			listaValidos.add('h');
+			listaValidos.add('t');
+			listaValidos.add('5');
+			listaValidos.add('i');
+			listaValidos.add('u');
+			listaValidos.add('6');
+			listaValidos.add('j');
+			listaValidos.add('v');
+			listaValidos.add('7');
+			listaValidos.add('k');
+			listaValidos.add('w');
+			listaValidos.add('8');
+			listaValidos.add('l');
+			listaValidos.add('x');
+			listaValidos.add('9');
+			listaValidos.add('-');
+			listaValidos.add('_');
+			listaValidos.add('.');
+			return listaValidos;
+		}
 
 }
