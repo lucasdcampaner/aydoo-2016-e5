@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ManejadorDeOpcionesTest {
 
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefault() {
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefault() throws Exception {
 
 		String modeParametro = "--MODE=DEFAULT";
 		String modeEsperado = "DEFAULT";
@@ -22,7 +22,18 @@ public class ManejadorDeOpcionesTest {
 
 	}
 
-//	@Test
+	@Test(expected = CombinacionParametrosEx.class)
+	public void modeNoOutputYOutputNoVacioArrojaException() throws Exception {
+
+		String mode = "--MODE=NO-OUTPUT";
+		String archivo = "MIPRESENTACION.MD";
+		String output = "--OUTPUT=carpeta";
+		String[] args = {mode, archivo, output};
+		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
+
+	}
+	
+	//	@Test
 //	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultArchivoEnPrimerParametro() {
 //
 //		String archivoEsperado = "MIPRESENTACION.MD";

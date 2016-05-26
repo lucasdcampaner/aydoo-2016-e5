@@ -11,7 +11,7 @@ public class ManejadorDeOpciones {
 	private String archivoEntrada = "";
 	private String output = "";
 
-	public ManejadorDeOpciones(String[] args) {
+	public ManejadorDeOpciones(String[] args) throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx  {
 
 		String parametroAEvaluar;
 
@@ -21,70 +21,52 @@ public class ManejadorDeOpciones {
 				switch (parametroAEvaluar) {
 				case "--M":
 					this.mode = args[i].toUpperCase().substring(7, args[i].length());
+					validarMode(this.mode);
 					break;
 				case "--O":
-					if (validarNombreArchivo(args[i].substring(9, args[i].length())))
-						this.output = args[i].toUpperCase();
-					else
-						this.output = "Nombre de carpeta con caracter invalido!";
+					this.output = args[i].toUpperCase();
 					break;
 				default:
-					if (validarNombreArchivo(args[i]))
-						this.archivoEntrada = args[i];
-					else
-						this.archivoEntrada = "Nombre de archivo con caracter invalido!";
+					this.archivoEntrada = args[i];
+					validarNombreArchivo(args[i].substring(9, args[i].length()));
 					break;
 				}
 			}
 		}
+		validarCombinacionDeOpciones();
 	}
-
-	public ManejadorDeOpciones() {
-
-	}
-
-	public void validarCombinacionDeOpciones() throws ManejadorDeOpcionesException {
-
-		if (this.mode == "--MODE=NO-OUTPUT" && this.output != "") {
-			throw new ManejadorDeOpcionesException();
+	
+	private void validarMode(String mode) throws ModeEx {
+		
+		if (!mode.isEmpty()) {
+			if ((mode.compareTo("DEFAULT") !=0) && (mode.compareTo("NO-OUTPUT") !=0)) {
+				throw new ModeEx();	
+			}
 		}
 	}
-
-	public String getMode() {
-		return this.mode;
-	}
-
-	public String getArchivoEntrada() {
-		return this.archivoEntrada;
-	}
-
-	public String getOutput() {
-		return this.output;
-	}
-
-	// precondicion, no recibe espacios
-	protected boolean validarNombreArchivo(String texto) {
-		boolean retorno = false;
-
+	private void validarNombreArchivo(String texto) throws CaracteresInvalidosEx {
+		
 		List<Character> listaValidos = obtenerListaCaracteresValidos();
-
 		String textoMin = texto.toLowerCase();
-
 		char[] partida = textoMin.toCharArray();
 		Set<Character> listaTexto = new HashSet<Character>();
-
 		for (char c : partida) {
 			listaTexto.add(c);
 		}
-		if (listaValidos.containsAll(listaTexto))
-			retorno = true;
-		else
-			retorno = false;
-
-		return retorno;
+		if (!listaValidos.containsAll(listaTexto)){
+			throw new CaracteresInvalidosEx();
+		}
 	}
 
+	private void validarCombinacionDeOpciones() throws CombinacionParametrosEx {
+
+		if ((this.mode.compareTo("NO-OUTPUT") == 0)  && (!this.output.isEmpty()) ) {
+			throw new CombinacionParametrosEx();
+		}
+	}
+	
 	private List<Character> obtenerListaCaracteresValidos() {
+		
 		List<Character> listaValidos = new ArrayList<Character>();
 		listaValidos.add('a');
 		listaValidos.add('m');
@@ -125,7 +107,20 @@ public class ManejadorDeOpciones {
 		listaValidos.add('-');
 		listaValidos.add('_');
 		listaValidos.add('.');
+		
 		return listaValidos;
 	}
 
+	public String getMode() {
+		return this.mode;
+	}
+
+	public String getArchivoEntrada() {
+		return this.archivoEntrada;
+	}
+
+	public String getOutput() {
+		return this.output;
+	}
+	
 }

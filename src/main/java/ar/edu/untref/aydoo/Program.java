@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import java.io.IOException;
 import java.util.List;
 
 public class Program {
@@ -13,7 +12,7 @@ public class Program {
 	private static String output;
 	private static String carpetaSalida;
 
-	public static final void main(String args[]) throws IOException {
+	public static final void main(String args[]) throws Exception {
 		
 		getParametrosAplicacion(args);
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -40,7 +39,7 @@ public class Program {
 		}	
 	}
 	
-	private static void getParametrosAplicacion(String[] args) {
+	private static void getParametrosAplicacion(String[] args) throws Exception {
 
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 		mode = manejadorDeOpciones.getMode();
