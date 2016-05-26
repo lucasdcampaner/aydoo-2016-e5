@@ -11,6 +11,7 @@ public class GeneradorItemsDesdeArchivo {
 
 	private FileReader archivoEntrada;
 	private Scanner scanner;
+	boolean crearListaContenedor = true;
 
 	public GeneradorItemsDesdeArchivo(String archivoEntrada) throws FileNotFoundException {
 		this.archivoEntrada = new FileReader(archivoEntrada);
@@ -21,8 +22,11 @@ public class GeneradorItemsDesdeArchivo {
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		scanner = new Scanner(archivoEntrada);
 		ItemEntrada itemConContenedor = null;
+		ItemEntrada itemListaContenedor = null; 
 		ItemEntrada itemEntrada;
 		boolean pasarASiguienteContenedor = false;
+		boolean creoElContenedorDeLista = false;
+		boolean agregarListaContenedoraEnContenedor = false;
 		
 		itemEntrada = getTipoDeItem(scanner.nextLine());
 		while (scanner.hasNextLine()) {
@@ -31,20 +35,30 @@ public class GeneradorItemsDesdeArchivo {
 				itemsEntrada.add(itemEntrada);
 			}else {
 				itemConContenedor = itemEntrada;
-				while (scanner.hasNextLine() && !pasarASiguienteContenedor) {
-					itemEntrada = getTipoDeItem(scanner.nextLine());
+				while (scanner.hasNextLine() && !pasarASiguienteContenedor ) {
+					itemEntrada = getTipoDeItem(scanner.nextLine()); 
 					if (!itemEntrada.isContieneItems()) {
-						itemConContenedor.agregarElementoEnContenedor(itemEntrada);
+						if (itemEntrada.isEsContenidoPorUnItemLista()) {
+							if (!creoElContenedorDeLista) {
+								itemListaContenedor = new ItemListaContenedor("");
+								creoElContenedorDeLista = true;
+							}
+							itemListaContenedor.agregarElementoEnContenedor(itemEntrada);
+							agregarListaContenedoraEnContenedor = true;
+						}else {						
+							itemConContenedor.agregarElementoEnContenedor(itemEntrada);
+						}
 					}else {
 						itemsEntrada.add(itemConContenedor);
 						pasarASiguienteContenedor = true;
 					}
 				}
-				
 			}
 		}
-		itemsEntrada.add(itemConContenedor);
-		
+		if (agregarListaContenedoraEnContenedor) {
+			itemConContenedor.agregarElementoEnContenedor(itemListaContenedor);
+		}
+		itemsEntrada.add(itemConContenedor);		
 		return itemsEntrada;
 	}
 
@@ -54,6 +68,7 @@ public class GeneradorItemsDesdeArchivo {
 		String caracterizadorLinea = linea.substring(0, 2);
 		String textoDesdePosicion2 = linea.substring(2);
 		String textoDesdePosicion3 = linea.substring(3);
+		
 		
 		switch (caracterizadorLinea) {
 		case "# ":

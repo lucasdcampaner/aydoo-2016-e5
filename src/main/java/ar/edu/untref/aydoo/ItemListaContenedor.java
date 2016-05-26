@@ -6,7 +6,7 @@ public class ItemListaContenedor extends ItemEntrada {
 	private ArrayList<ItemEntrada> listaDeItems;
 
 	public ItemListaContenedor(String texto) {
-		super(texto, true);
+		super(texto, true, false);
 		this.listaDeItems = new ArrayList<>();
 	}
 
@@ -22,8 +22,7 @@ public class ItemListaContenedor extends ItemEntrada {
 		Formateador formateadorHTML = new FormateadorHTML();
 
 		for (ItemEntrada item : this.listaDeItems) {
-			html += item.getTextoFormateado(formateadorHTML);
-
+			html += item.getTextoFormateado(formateadorHTML);			
 		}
 
 		return html;

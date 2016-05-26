@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 public class Titulo extends ItemEntrada {
 
 	public Titulo(String contenido) {
-		super(contenido, false);
+		super(contenido, false, false);
 	}
 
 	public String getTextoFormateado(Formateador formateador) {
