@@ -18,4 +18,19 @@ public class TextoPlanoTest {
 		Assert.assertEquals(textoPlanoEsperado, textoPlanoObtenidoFormatoHTML);
 	}
 	
+	@Test
+	public void seObtieneContenidoEnFormatoHTMLPara2TextosPlanos() {
+
+		String textoPlanoEntrada = "Texto plano de prueba1";
+		String textoPlanoEntrada2 = "Texto plano de prueba2";
+		ItemEntrada textoPlano = new TextoPlano(textoPlanoEntrada);
+		ItemEntrada textoPlano2 = new TextoPlano(textoPlanoEntrada2);
+		String textoPlanoEsperado = textoPlanoEntrada + textoPlanoEntrada2;
+
+		Formateador formateadorHTML = new FormateadorHTML();
+		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateado(formateadorHTML) + textoPlano2.getTextoFormateado(formateadorHTML);
+
+		Assert.assertEquals(textoPlanoEsperado, textoPlanoObtenidoFormatoHTML);
+	}
+	
 }
