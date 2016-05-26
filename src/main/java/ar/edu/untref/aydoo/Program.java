@@ -1,7 +1,9 @@
 package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Program {
 
@@ -34,26 +36,22 @@ public class Program {
 		output = manejadorDeOpciones.getOutput();
 	}
 
+	//precondicion, no recibe espacios
 	protected boolean validarNombreArchivo(String texto) {
-		// TODO Auto-generated method stub
 		boolean retorno = false;
 
 		try {
-			// char [] validos = {'n','a','d','u'};
-			List<Character> listaValidos = new ArrayList<Character>();
-			listaValidos.add('n');
-			listaValidos.add('a');
-			listaValidos.add('d');
-			listaValidos.add('u');
+			List<Character> listaValidos = obtenerListaCaracteresValidos();
 
 			String textoMin = texto.toLowerCase();
 
 			char[] partida = textoMin.toCharArray();
-			List<Character> listaTexto = new ArrayList<Character>();
+			Set<Character> listaTexto = new HashSet<Character>();
+			
 			for (char c : partida) {
 				listaTexto.add(c);
 			}
-			if (listaTexto.containsAll(listaValidos))
+			if (listaValidos.containsAll(listaTexto))
 				retorno = true;
 			else
 				retorno = false;
@@ -63,6 +61,49 @@ public class Program {
 		}
 
 		return retorno;
+	}
+
+	private List<Character> obtenerListaCaracteresValidos() {
+		List<Character> listaValidos = new ArrayList<Character>();
+		listaValidos.add('a');
+		listaValidos.add('m');
+		listaValidos.add('y');
+		listaValidos.add('b');
+		listaValidos.add('n');
+		listaValidos.add('z');
+		listaValidos.add('c');
+		listaValidos.add('o');
+		listaValidos.add('0');
+		listaValidos.add('d');
+		listaValidos.add('p');
+		listaValidos.add('1');
+		listaValidos.add('e');
+		listaValidos.add('q');
+		listaValidos.add('2');
+		listaValidos.add('f');
+		listaValidos.add('r');
+		listaValidos.add('3');
+		listaValidos.add('g');
+		listaValidos.add('s');
+		listaValidos.add('4');
+		listaValidos.add('h');
+		listaValidos.add('t');
+		listaValidos.add('5');
+		listaValidos.add('i');
+		listaValidos.add('u');
+		listaValidos.add('6');
+		listaValidos.add('j');
+		listaValidos.add('v');
+		listaValidos.add('7');
+		listaValidos.add('k');
+		listaValidos.add('w');
+		listaValidos.add('8');
+		listaValidos.add('l');
+		listaValidos.add('x');
+		listaValidos.add('9');
+		listaValidos.add('-');
+		listaValidos.add('_');
+		return listaValidos;
 	}
 
 }
