@@ -33,4 +33,22 @@ public class ItemListaTest {
 
 	}
 
+	@Test
+	public void seObtieneTextoPrimerySegundoElementoEnFormatoHTMLParaUnaLista() {
+
+		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+		ItemEntrada itemLista = new ItemLista("1er item de una lista");
+		ItemEntrada itemLista2 = new ItemLista("2do item de una lista");
+		itemListaContenedor.agregarElementoEnContenedor(itemLista);
+		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
+
+		String itemListaEsperada = "<ul><li>1er item de una lista</li><li>2do item de una lista</li></ul>";
+
+		Formateador formateadorHTML = new FormateadorHTML();
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+
+		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
+
+	}
+
 }
