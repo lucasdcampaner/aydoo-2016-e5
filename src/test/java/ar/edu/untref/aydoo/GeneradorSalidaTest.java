@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,6 +9,32 @@ import org.junit.Test;
 
 public class GeneradorSalidaTest {
 
+//	@Test
+//	public void obtenerDireccionDePlantilla() throws IOException {
+//		
+//		GeneradorSalida generadorSalida = new GeneradorSalida("ejemploIntegrador.md");
+//		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
+//		//Items de entrada
+//		ItemEntrada section1 = new Section("");
+//		ItemEntrada titulo1 = new Titulo("El titulo");
+//		ItemEntrada subtitulo1 = new SubTitulo("El Subtitulo");
+//		section1.agregarElementoEnContenedor(titulo1);
+//		section1.agregarElementoEnContenedor(subtitulo1);
+//		ItemEntrada section2 = new Section("");
+//		ItemEntrada titulo2 = new Titulo("Solo un titulo");
+//		section2.agregarElementoEnContenedor(titulo2);
+//		ItemEntrada section3 = new Section("");
+//		ItemEntrada textoPlano = new TextoPlano("solo texto sin nada mas");
+//		section3.agregarElementoEnContenedor(textoPlano);
+//		itemsEntrada.add(section1);
+//		itemsEntrada.add(section2);
+//		itemsEntrada.add(section3);
+//
+//		Formateador formateadorHTML = new FormateadorHTML();		
+//		
+//		generadorSalida.sobreEscribirLineaEnIndex(itemsEntrada, formateadorHTML);
+//	}
+	
 	@Test
 	public void generarStringSalidaParaEjemplo1() throws IOException {
 		

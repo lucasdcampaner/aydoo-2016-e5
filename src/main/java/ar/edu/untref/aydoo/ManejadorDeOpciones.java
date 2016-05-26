@@ -20,7 +20,7 @@ public class ManejadorDeOpciones {
 				parametroAEvaluar = args[i].substring(0, 3).toUpperCase();
 				switch (parametroAEvaluar) {
 				case "--M":
-					this.mode = args[i].toUpperCase();
+					this.mode = args[i].toUpperCase().substring(7, args[i].length());
 					break;
 				case "--O":
 					if (validarNombreArchivo(args[i].substring(9, args[i].length())))

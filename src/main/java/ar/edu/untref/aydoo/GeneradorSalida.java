@@ -8,30 +8,51 @@ import java.util.Scanner;
 
 import org.apache.commons.io.FileUtils;
 
+
 public class GeneradorSalida {
 
 	private final String lineaASobreEscribir = "[este-es-el-texto-a-reemplazar]";
-	private final File plantilla = new File("target/plantilla");
-	private String carpetaSalida;
-	private FileWriter indexNuevo;
-	private File indexHTML = new File("target/carpetaPara/index.html");
-	Scanner scanner;
+	
+	private String nombreArchivoEntrada;
+	private String nombreCarpetaSalida;
+	private Scanner scanner;
 
-	public GeneradorSalida(String carpetaSalida) {
-		this.carpetaSalida = carpetaSalida;
+	public GeneradorSalida(String nombreArchivoEntrada) {
+		this.nombreArchivoEntrada = nombreArchivoEntrada;
+	}
+	
+	public void setCarpetaSalida(String nombreCarpetaSalida) {
+		this.nombreCarpetaSalida = nombreCarpetaSalida;
+	}
+	
+	private String obtenerPathJar() {
+		File jar = new File(System.getProperty("java.class.path")); 
+		File direccionJar = jar.getAbsoluteFile().getParentFile();
+		String pathJar = direccionJar.toString();
+		return pathJar;
 	}
 
+	private File obtenerIndexHTML() {
+		File indexHTML = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/index.html");
+		return indexHTML;
+	}
+	
 	public void copiarArchivosDesdePlantilla() throws IOException {
-		FileUtils.copyDirectory(this.plantilla, new File(this.carpetaSalida));
+		
+		String pathJar = obtenerPathJar();
+		File plantilla = new File(pathJar + "/plantilla");
+		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);		
+		FileUtils.copyDirectory(plantilla, carpetaSalida);
 	}
 
 	public void sobreEscribirLineaEnIndex(List<ItemEntrada> itemsEntrada, Formateador formateador) throws IOException {
 
 		String stringSalida = generarStringSalida(itemsEntrada, formateador);
+		File indexHTML = obtenerIndexHTML();
+		FileWriter indexNuevo = crearArchivoIndexNuevoARenombrar();
 		scanner = new Scanner(indexHTML);
 		String lineaLeida = "";
 		
-		crearArchivoIndexNuevoARenombrar();
 		while (scanner.hasNextLine()) {
 			lineaLeida = scanner.nextLine();
 			if (lineaLeida.toUpperCase().trim().equals(lineaASobreEscribir.toUpperCase().trim())) {
@@ -40,20 +61,21 @@ public class GeneradorSalida {
 				escribirArchivoIndexNuevoARenombrar(indexNuevo, lineaLeida);
 			}			
 		}
-		cerrarArchivoIndexNuevoARenombrar();
-		borrarIndexHTMLActual();
-		renombrarArchivoIndexNuevo();
+		cerrarArchivoIndexNuevoARenombrar(indexNuevo);
+		borrarIndexHTMLActual(indexHTML);
+		renombrarArchivoIndexNuevo(indexHTML);
 	}
 
-	private void crearArchivoIndexNuevoARenombrar() throws IOException {
-		indexNuevo = new FileWriter("target/carpetaPara/indexNuevo.html");
+	private FileWriter crearArchivoIndexNuevoARenombrar() throws IOException {
+		FileWriter indexNuevo = new FileWriter(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
+		return indexNuevo;
 	}
 	
-	private void cerrarArchivoIndexNuevoARenombrar() throws IOException {
+	private void cerrarArchivoIndexNuevoARenombrar(FileWriter indexNuevo) throws IOException {
 		indexNuevo.close();
 	}
 
-	private void borrarIndexHTMLActual() {
+	private void borrarIndexHTMLActual(File indexHTML) {
 		indexHTML.delete();
 	}
 
@@ -61,8 +83,8 @@ public class GeneradorSalida {
 		indexNuevo.write(lineaAEscribir + "\n");
 	}
 
-	private void renombrarArchivoIndexNuevo(){
-		File archivoARenombrar = new File("target/carpetaPara/indexNuevo.html");
+	private void renombrarArchivoIndexNuevo(File indexHTML){
+		File archivoARenombrar = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
 		archivoARenombrar.renameTo(indexHTML);
 	}
 	
