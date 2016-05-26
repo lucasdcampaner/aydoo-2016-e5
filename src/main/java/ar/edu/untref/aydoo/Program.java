@@ -13,8 +13,6 @@ public class Program {
 	private static String output;
 	private static String carpetaSalida;
 
-	 //output=carpeta genero la carpeta con el nombre especificado.
-
 	public static final void main(String args[]) throws IOException {
 		
 		getParametrosAplicacion(args);
@@ -22,7 +20,7 @@ public class Program {
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
 		List<ItemEntrada> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML);
 		GeneradorSalida generadorSalida = new GeneradorSalida(archivoEntrada);
-		
+				
 		switch (mode) {
 		case modeDefault:
 			generadorSalida.setCarpetaSalida(carpetaSalida);	
@@ -49,11 +47,9 @@ public class Program {
 		archivoEntrada = manejadorDeOpciones.getArchivoEntrada();
 		output = manejadorDeOpciones.getOutput();
 		if (output.isEmpty()) { 
-			System.out.println("Output esta vacio");
 			carpetaSalida = archivoEntrada.substring(0,archivoEntrada.indexOf("."));
 		}else {
 			carpetaSalida = output.substring(9, output.length());
-			System.out.println(carpetaSalida);
 		}	
 	}
 }
