@@ -26,7 +26,7 @@ public class ProgramTest {
 		Assert.assertEquals(false, valor);
 
 	}
-	
+
 	@Test
 	public void seValidaTextoInValido1caracter() {
 
@@ -35,6 +35,17 @@ public class ProgramTest {
 		boolean valor = obj.validarNombreArchivo(texto);
 
 		Assert.assertEquals(false, valor);
+
+	}
+
+	@Test
+	public void seValidaTextoValido1caracter() {
+
+		String texto = "_";
+		Program obj = new Program();
+		boolean valor = obj.validarNombreArchivo(texto);
+
+		Assert.assertEquals(true, valor);
 
 	}
 }
