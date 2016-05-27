@@ -67,21 +67,22 @@ public class ManejadorDeOpcionesTest {
 
 	}
 
-//	@Test
-//	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutputArchivoEnPrimerParametro() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
-//
-//		String archivoEsperado = "MIPRESENTACION.MD";
-//		String modeEsperado = "NO-OUTPUT";
-//		String[] args = { archivoEsperado, modeEsperado };
-//		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
-//
-//		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
-//		String modeObtenido = manejadorDeOpciones.getMode();
-//
-//		Assert.assertEquals(archivoEsperado, archivoObtenido);
-//		Assert.assertEquals(modeEsperado, modeObtenido);
-//
-//	}
+	@Test
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutputArchivoEnPrimerParametro() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+
+		String modeParametro = "--MODE=NO-OUTPUT";
+		String archivoEsperado = "MIPRESENTACION.MD";
+		String modeEsperado = "NO-OUTPUT";
+		String[] args = { archivoEsperado, modeParametro };
+		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
+
+		String archivoObtenido = manejadorDeOpciones.getArchivoEntrada();
+		String modeObtenido = manejadorDeOpciones.getMode();
+
+		Assert.assertEquals(archivoEsperado, archivoObtenido);
+		Assert.assertEquals(modeEsperado, modeObtenido);
+
+	}
 
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosConOutput() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
