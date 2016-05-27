@@ -170,7 +170,7 @@ public class ManejadorDeOpcionesTest {
 //
 //		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 //
-//		String modeEsperado = "--MODE=DEFAULT";
+//		String modeEsperado = "DEFAULT";
 //		String archivoEsperado = "Nombre de archivo con caracter invalido!";
 //		String outputEsperado = "Nombre de carpeta con caracter invalido!";
 //
@@ -184,12 +184,12 @@ public class ManejadorDeOpcionesTest {
 //
 //	}
 	
-//	@Test(expected = CaracteresInvalidosEx.class)
+//	@Test(expected = CombinacionParametrosEx.class)
 //	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultConParametrosCaracterInvalidoParaOutput() throws Exception {
 //
 //		String mode = "--MODE=default";
 //		String archivo = "MIPRESENTACION.md";
-//		String output = "--OUTPUT=PRESENTACIÓN";
+//		String output = "--OUTPUT=PRESENTACION1�";
 //
 //		String[] args = { mode, archivo, output };
 //
