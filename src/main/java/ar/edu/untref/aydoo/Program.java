@@ -16,7 +16,7 @@ public class Program {
 		getParametrosAplicacion(args);
 		Formateador formateadorHTML = new FormateadorHTML();
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
-		List<ItemEntrada> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML);
+		List<ItemEntrada> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada();
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 
 		switch (mode) {
