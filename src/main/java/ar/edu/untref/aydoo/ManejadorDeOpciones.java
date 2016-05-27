@@ -24,7 +24,7 @@ public class ManejadorDeOpciones {
 					validarMode(this.mode);
 					break;
 				case "--O":
-					this.output = args[i].toUpperCase();
+					this.output = args[i];
 					break;
 				default:
 					this.archivoEntrada = args[i];
