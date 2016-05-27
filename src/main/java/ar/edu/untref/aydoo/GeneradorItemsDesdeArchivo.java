@@ -21,44 +21,49 @@ public class GeneradorItemsDesdeArchivo {
 
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		scanner = new Scanner(archivoEntrada);
-		ItemEntrada itemConContenedor = null;
-		ItemEntrada itemListaContenedor = null; 
+
 		ItemEntrada itemEntrada;
-		boolean pasarASiguienteContenedor = false;
-		boolean creoElContenedorDeLista = false;
-		boolean agregarListaContenedoraEnContenedor = false;
+		ItemEntrada itemContenedorActual = null;
+		ItemEntrada itemListaContenedorActual = null;
 		
-		itemEntrada = getTipoDeItem(scanner.nextLine());
 		while (scanner.hasNextLine()) {
-			pasarASiguienteContenedor = false;
-			if (!itemEntrada.isContieneItems()) {
+			
+			itemEntrada = getTipoDeItem(scanner.nextLine());
+
+			if (itemEntrada.isContieneItems()) {
+				
+				itemListaContenedorActual = null;
+
+				/* contenedor */
 				itemsEntrada.add(itemEntrada);
-			}else {
-				itemConContenedor = itemEntrada;
-				while (scanner.hasNextLine() && !pasarASiguienteContenedor ) {
-					itemEntrada = getTipoDeItem(scanner.nextLine()); 
-					if (!itemEntrada.isContieneItems()) {
-						if (itemEntrada.isEsContenidoPorUnItemLista()) {
-							if (!creoElContenedorDeLista) {
-								itemListaContenedor = new ItemListaContenedor("");
-								creoElContenedorDeLista = true;
-							}
-							itemListaContenedor.agregarElementoEnContenedor(itemEntrada);
-							agregarListaContenedoraEnContenedor = true;
-						}else {						
-							itemConContenedor.agregarElementoEnContenedor(itemEntrada);
-						}
-					}else {
-						itemsEntrada.add(itemConContenedor);
-						pasarASiguienteContenedor = true;
+				itemContenedorActual = itemEntrada;
+
+			} else if (itemContenedorActual != null) { 
+			
+				if (itemEntrada.isEsContenidoPorUnItemLista()) {
+					
+					if (itemListaContenedorActual == null) {
+						
+						itemListaContenedorActual = new ItemListaContenedor("");
+						itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
 					}
+					
+					itemListaContenedorActual.agregarElementoEnContenedor(itemEntrada);
+					
+				} else {
+					
+					itemListaContenedorActual = null;
+					
+					/* item dentro de un contenedor */
+					itemContenedorActual.agregarElementoEnContenedor(itemEntrada);
 				}
+			
+			} else {
+				
+				/* item fuera de contenedor */
+				itemsEntrada.add(itemEntrada);
 			}
 		}
-		if (agregarListaContenedoraEnContenedor) {
-			itemConContenedor.agregarElementoEnContenedor(itemListaContenedor);
-		}
-		itemsEntrada.add(itemConContenedor);		
 		
 		return itemsEntrada;
 	}
