@@ -6,23 +6,32 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-import org.apache.commons.io.FileUtils;
-
 
 public class GeneradorSalida {
 
 	private final String lineaASobreEscribir = "[este-es-el-texto-a-reemplazar]";
 	
-	private String nombreArchivoEntrada;
 	private String nombreCarpetaSalida;
 	private Scanner scanner;
 
-	public GeneradorSalida(String nombreArchivoEntrada) {
-		this.nombreArchivoEntrada = nombreArchivoEntrada;
+	public GeneradorSalida(String nombreCarpetaSalida) {
+		this.nombreCarpetaSalida = nombreCarpetaSalida;
 	}
 	
-	public void setCarpetaSalida(String nombreCarpetaSalida) {
-		this.nombreCarpetaSalida = nombreCarpetaSalida;
+	public String generarStringSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
+
+		String stringSalida = "";
+
+		for (ItemEntrada itemEntrada : itemsEntrada) {
+			stringSalida = stringSalida + itemEntrada.getTextoFormateado(formateador);
+		}
+
+		return stringSalida;
+	}
+	
+	public void generarSalidaEnCarpeta(List<ItemEntrada> itemsEntrada, Formateador formateador) throws IOException {
+		copiarArchivosDesdePlantilla();
+		sobreEscribirLineaEnIndex(itemsEntrada, formateador);
 	}
 	
 	private String obtenerPathJar() {
@@ -37,15 +46,16 @@ public class GeneradorSalida {
 		return indexHTML;
 	}
 	
-	public void copiarArchivosDesdePlantilla() throws IOException {
+	private void copiarArchivosDesdePlantilla() throws IOException {
 		
 		String pathJar = obtenerPathJar();
 		File plantilla = new File(pathJar + "/plantilla");
 		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);		
-		FileUtils.copyDirectory(plantilla, carpetaSalida);
+		
+		DirUtils.copy(plantilla.toPath(), carpetaSalida.toPath());
 	}
 
-	public void sobreEscribirLineaEnIndex(List<ItemEntrada> itemsEntrada, Formateador formateador) throws IOException {
+	private void sobreEscribirLineaEnIndex(List<ItemEntrada> itemsEntrada, Formateador formateador) throws IOException {
 
 		String stringSalida = generarStringSalida(itemsEntrada, formateador);
 		File indexHTML = obtenerIndexHTML();
@@ -87,16 +97,4 @@ public class GeneradorSalida {
 		File archivoARenombrar = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
 		archivoARenombrar.renameTo(indexHTML);
 	}
-	
-	public String generarStringSalida(List<ItemEntrada> itemsEntrada, Formateador formateador) {
-
-		String stringSalida = "";
-
-		for (ItemEntrada itemEntrada : itemsEntrada) {
-			stringSalida = stringSalida + itemEntrada.getTextoFormateado(formateador);
-		}
-
-		return stringSalida;
-	}
-
 }

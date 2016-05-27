@@ -9,7 +9,6 @@ public class Program {
 	
 	private static String mode;
 	private static String archivoEntrada;
-	private static String output;
 	private static String carpetaSalida;
 
 	public static final void main(String args[]) throws Exception {
@@ -18,23 +17,17 @@ public class Program {
 		Formateador formateadorHTML = new FormateadorHTML();
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
 		List<ItemEntrada> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada(formateadorHTML);
-		GeneradorSalida generadorSalida = new GeneradorSalida(archivoEntrada);
+		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 				
 		switch (mode) {
 		case modeDefault:
-			generadorSalida.setCarpetaSalida(carpetaSalida);	
-			generadorSalida.copiarArchivosDesdePlantilla();
-			generadorSalida.sobreEscribirLineaEnIndex(itemsEntrada, formateadorHTML);			
+			generadorSalida.generarSalidaEnCarpeta(itemsEntrada, formateadorHTML);			
 			break;
 		case noOutput:
-			String salidaPorPantallaAImprimir;
-			salidaPorPantallaAImprimir = generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML);
-			System.out.println(salidaPorPantallaAImprimir);
+			System.out.println(generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML));
 			break;
 		default:
-			generadorSalida.setCarpetaSalida(carpetaSalida);	
-			generadorSalida.copiarArchivosDesdePlantilla();
-			generadorSalida.sobreEscribirLineaEnIndex(itemsEntrada, formateadorHTML);
+			generadorSalida.generarSalidaEnCarpeta(itemsEntrada, formateadorHTML);
 			break;
 		}	
 	}
@@ -44,11 +37,6 @@ public class Program {
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 		mode = manejadorDeOpciones.getMode();
 		archivoEntrada = manejadorDeOpciones.getArchivoEntrada();
-		output = manejadorDeOpciones.getOutput();
-		if (output.isEmpty()) { 
-			carpetaSalida = archivoEntrada.substring(0,archivoEntrada.indexOf("."));
-		}else {
-			carpetaSalida = output.substring(9, output.length());
-		}	
+		carpetaSalida = manejadorDeOpciones.getCarpetaSalida();  
 	}
 }

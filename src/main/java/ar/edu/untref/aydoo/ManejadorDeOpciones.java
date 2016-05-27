@@ -36,6 +36,30 @@ public class ManejadorDeOpciones {
 		validarCombinacionDeOpciones();
 	}
 	
+	public String getMode() {
+		return this.mode;
+	}
+
+	public String getArchivoEntrada() {
+		return this.archivoEntrada;
+	}
+
+	public String getOutput() {
+		return this.output;
+	}
+
+	public String getCarpetaSalida() {
+		
+		String carpetaSalida = "";
+		
+		if (output.isEmpty()) { 
+			carpetaSalida = archivoEntrada.substring(0,archivoEntrada.indexOf("."));
+		}else {
+			carpetaSalida = output.substring(9, output.length());
+		}	
+		return carpetaSalida;
+	}
+	
 	private void validarMode(String mode) throws ModeEx {
 		
 		if (!mode.isEmpty()) {
@@ -109,18 +133,6 @@ public class ManejadorDeOpciones {
 		listaValidos.add('.');
 		
 		return listaValidos;
-	}
-
-	public String getMode() {
-		return this.mode;
-	}
-
-	public String getArchivoEntrada() {
-		return this.archivoEntrada;
-	}
-
-	public String getOutput() {
-		return this.output;
 	}
 	
 }
