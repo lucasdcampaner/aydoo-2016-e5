@@ -59,6 +59,7 @@ public class GeneradorItemsDesdeArchivo {
 			itemConContenedor.agregarElementoEnContenedor(itemListaContenedor);
 		}
 		itemsEntrada.add(itemConContenedor);		
+		
 		return itemsEntrada;
 	}
 
@@ -68,7 +69,6 @@ public class GeneradorItemsDesdeArchivo {
 		String caracterizadorLinea = linea.substring(0, 2);
 		String textoDesdePosicion2 = linea.substring(2);
 		String textoDesdePosicion3 = linea.substring(3);
-		
 		
 		switch (caracterizadorLinea) {
 		case "# ":
