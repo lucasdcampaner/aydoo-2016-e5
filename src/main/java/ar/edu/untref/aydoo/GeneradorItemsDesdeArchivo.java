@@ -65,6 +65,8 @@ public class GeneradorItemsDesdeArchivo {
 			}
 		}
 		
+		
+		scanner.close();
 		return itemsEntrada;
 	}
 

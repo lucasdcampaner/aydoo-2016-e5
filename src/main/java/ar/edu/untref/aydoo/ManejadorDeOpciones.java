@@ -28,7 +28,7 @@ public class ManejadorDeOpciones {
 					break;
 				default:
 					this.archivoEntrada = args[i];
-					validarNombreArchivo(args[i].substring(9, args[i].length()));
+					validarNombreArchivo(this.archivoEntrada);
 					break;
 				}
 			}
@@ -48,7 +48,7 @@ public class ManejadorDeOpciones {
 		return this.output;
 	}
 
-	public String getCarpetaSalida() {
+	public String getCarpetaSalida() throws CaracteresInvalidosEx {
 		
 		String carpetaSalida = "";
 		
@@ -57,6 +57,7 @@ public class ManejadorDeOpciones {
 		}else {
 			carpetaSalida = output.substring(9, output.length());
 		}	
+		validarNombreArchivo(carpetaSalida);
 		return carpetaSalida;
 	}
 	
@@ -68,10 +69,10 @@ public class ManejadorDeOpciones {
 			}
 		}
 	}
-	private void validarNombreArchivo(String texto) throws CaracteresInvalidosEx {
+	private void validarNombreArchivo(String nombreArchivo) throws CaracteresInvalidosEx {
 		
 		List<Character> listaValidos = obtenerListaCaracteresValidos();
-		String textoMin = texto.toLowerCase();
+		String textoMin = nombreArchivo.toLowerCase();
 		char[] partida = textoMin.toCharArray();
 		Set<Character> listaTexto = new HashSet<Character>();
 		for (char c : partida) {
