@@ -12,7 +12,7 @@ public class Imagen extends ItemEntrada {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(ItemEntrada item) {		
+	public void agregarElementoEnContenedor(ItemEntrada item) {
 	}
 
 }

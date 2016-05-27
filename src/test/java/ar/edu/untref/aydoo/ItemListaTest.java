@@ -48,7 +48,6 @@ public class ItemListaTest {
 		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
-
 	}
 
 }

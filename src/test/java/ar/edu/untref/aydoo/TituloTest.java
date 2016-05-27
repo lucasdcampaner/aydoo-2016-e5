@@ -41,7 +41,7 @@ public class TituloTest {
 
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
-	
+
 	@Test
 	public void seObtieneContenidoEnFormatoHTMLParaDosTitulosDePrueba() {
 
@@ -51,7 +51,8 @@ public class TituloTest {
 		ItemEntrada titulo2 = new Titulo(contenido2);
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML) + titulo2.getTextoFormateado(formateadorHTML);
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML)
+				+ titulo2.getTextoFormateado(formateadorHTML);
 		String tituloEsperado = "<h1>el titulo1</h1><h1>el titulo2</h1>";
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}

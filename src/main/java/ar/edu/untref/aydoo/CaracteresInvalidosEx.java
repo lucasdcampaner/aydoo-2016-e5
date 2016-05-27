@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class CaracteresInvalidosEx extends Exception{
+public class CaracteresInvalidosEx extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
@@ -9,5 +9,5 @@ public class CaracteresInvalidosEx extends Exception{
 	public CaracteresInvalidosEx() {
 		super(mensaje);
 	}
-	
+
 }

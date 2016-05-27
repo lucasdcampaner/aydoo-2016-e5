@@ -5,7 +5,7 @@ public abstract class ItemEntrada {
 	private String texto;
 	private boolean contieneItems;
 	private boolean esContenidoPorUnItemLista;
-	
+
 	public ItemEntrada(String texto, boolean contieneItems, boolean esContenidoPorUnItemLista) {
 		this.texto = texto;
 		this.setContieneItems(contieneItems);

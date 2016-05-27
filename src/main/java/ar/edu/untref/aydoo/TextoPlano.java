@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 public class TextoPlano extends ItemEntrada {
 
-
 	public TextoPlano(String contenido) {
 		super(contenido, false, false);
 	}

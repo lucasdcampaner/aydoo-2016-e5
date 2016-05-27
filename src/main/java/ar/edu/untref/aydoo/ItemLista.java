@@ -12,7 +12,7 @@ public class ItemLista extends ItemEntrada {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(ItemEntrada item) {		
+	public void agregarElementoEnContenedor(ItemEntrada item) {
 	}
 
 }

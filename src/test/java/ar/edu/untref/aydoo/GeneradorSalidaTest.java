@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class GeneradorSalidaTest {
-
+	
 	@Test
 	public void generarStringSalidaParaEjemplo1() throws IOException {
 		

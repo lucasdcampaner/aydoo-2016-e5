@@ -6,48 +6,49 @@ import org.junit.Test;
 public class ManejadorDeOpcionesTest {
 
 	@Test(expected = CaracteresInvalidosEx.class)
-	public void obtenerOpcionesDesdeArrayDeArgumentosConCaracteresInvalidosEnNombreDeArchivoArrojaExcepction() throws Exception {
+	public void obtenerOpcionesDesdeArrayDeArgumentosConCaracteresInvalidosEnNombreDeArchivoArrojaExcepction()
+			throws Exception {
 
 		String mode = "--MODE=default";
 		String archivo = "cariño.md";
 		String output = "--OUTPUT=PRESENTACION1";
 
-		String[] args = {mode, archivo, output};
+		String[] args = { mode, archivo, output };
 
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
-	
+
 	@Test(expected = CombinacionParametrosEx.class)
 	public void modeNoOutputYOutputNoVacioArrojaException() throws Exception {
-		
+
 		String modeEsperado = "--MODE=NO-OUTPUT";
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String output = "--OUTPUT=carpeta";
-		String[] args = {modeEsperado, archivoEsperado, output};
+		String[] args = { modeEsperado, archivoEsperado, output };
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
 
 	@Test(expected = ModeEx.class)
 	public void modeNoValidoArrojaException() throws Exception {
-		
+
 		String modeEsperado = "--MODE=PIRULO";
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String output = "--OUTPUT=carpeta";
-		String[] args = {modeEsperado, archivoEsperado, output};
+		String[] args = { modeEsperado, archivoEsperado, output };
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
-	
+
 	@Test(expected = CaracteresInvalidosEx.class)
 	public void obtenerOpcionesDesdeArrayDeArgumentosConCaracteresInvalidosEnOutputArrojaExcepction() throws Exception {
-		
+
 		String modeEsperado = "--MODE=DEFAULT";
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String output = "--OUTPUT=carpetiña";
-		String[] args = {modeEsperado, archivoEsperado, output};
+		String[] args = { modeEsperado, archivoEsperado, output };
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 		manejadorDeOpciones.getCarpetaSalida();
 	}
-	
+
 	@Test
 	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefault() throws Exception {
 
@@ -64,9 +65,9 @@ public class ManejadorDeOpcionesTest {
 		Assert.assertEquals(archivoEsperado, archivoObtenido);
 	}
 
-	
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultArchivoEnPrimerParametro() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoDefaultArchivoEnPrimerParametro()
+			throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
 
 		String modeParametro = "--MODE=DEFAULT";
 		String archivoEsperado = "MIPRESENTACION.MD";
@@ -83,8 +84,9 @@ public class ManejadorDeOpcionesTest {
 	}
 
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutput() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
-		
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutput()
+			throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+
 		String modeParametro = "--MODE=NO-OUTPUT";
 		String modeEsperado = "NO-OUTPUT";
 		String archivoEsperado = "MIPRESENTACION.MD";
@@ -99,7 +101,8 @@ public class ManejadorDeOpcionesTest {
 	}
 
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutputArchivoEnPrimerParametro() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+	public void obtenerOpcionesDesdeArrayDeArgumentosModoNoOutputArchivoEnPrimerParametro()
+			throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
 
 		String modeParametro = "--MODE=NO-OUTPUT";
 		String archivoEsperado = "MIPRESENTACION.MD";
@@ -116,7 +119,8 @@ public class ManejadorDeOpcionesTest {
 	}
 
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosConOutput() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+	public void obtenerOpcionesDesdeArrayDeArgumentosConOutput()
+			throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
 
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String outputEsperado = "--OUTPUT=PRESENTACION1";
@@ -132,7 +136,8 @@ public class ManejadorDeOpcionesTest {
 	}
 
 	@Test
-	public void obtenerOpcionesDesdeArrayDeArgumentosModeDefaultConOutput() throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
+	public void obtenerOpcionesDesdeArrayDeArgumentosModeDefaultConOutput()
+			throws ModeEx, CaracteresInvalidosEx, CombinacionParametrosEx {
 
 		String modeParametro = "--MODE=DEFAULT";
 		String modeEsperado = "DEFAULT";

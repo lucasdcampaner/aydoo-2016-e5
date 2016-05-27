@@ -15,7 +15,6 @@ public class SectionTest {
 		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
-
 	}
 
 	@Test
@@ -31,7 +30,6 @@ public class SectionTest {
 
 		String itemListaObtenidaFormatoHTMLfinal = itemListaObtenidaFormatoHTML + itemListaObtenidaFormatoHTML2;
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTMLfinal);
-
 	}
 
 	@Test

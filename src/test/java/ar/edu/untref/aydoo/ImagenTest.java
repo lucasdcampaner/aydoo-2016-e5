@@ -28,7 +28,7 @@ public class ImagenTest {
 
 		Assert.assertEquals("<img src=\"mundo.jpg\"/>", imagenObtenidoFormatoHTML);
 	}
-	
+
 	@Test
 	public void imagenx2ConHTML() {
 
@@ -38,7 +38,8 @@ public class ImagenTest {
 		ItemEntrada imagen2 = new Imagen(contenido2);
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		String imagenObtenidoFormatoHTML = imagen.getTextoFormateado(formateadorHTML) + imagen2.getTextoFormateado(formateadorHTML);
+		String imagenObtenidoFormatoHTML = imagen.getTextoFormateado(formateadorHTML)
+				+ imagen2.getTextoFormateado(formateadorHTML);
 
 		Assert.assertEquals("<img src=\"mundo.jpg\"/><img src=\"mundo2.jpg\"/>", imagenObtenidoFormatoHTML);
 	}

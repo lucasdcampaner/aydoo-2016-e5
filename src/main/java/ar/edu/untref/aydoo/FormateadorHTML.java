@@ -4,14 +4,14 @@ public class FormateadorHTML extends Formateador {
 
 	@Override
 	public String getInicioSectionFormateado() {
-		
+
 		String sectionFormateada = "<section>";
 		return sectionFormateada;
 	}
-	
+
 	@Override
 	public String getFinSectionFormateado() {
-		
+
 		String sectionFormateada = "</section>";
 		return sectionFormateada;
 	}
@@ -48,7 +48,6 @@ public class FormateadorHTML extends Formateador {
 
 		return imagenFormateado;
 	}
-
 
 	@Override
 	public String getItemListaFormateado(String texto) {

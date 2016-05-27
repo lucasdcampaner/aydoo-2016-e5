@@ -22,7 +22,7 @@ public class ItemListaContenedor extends ItemEntrada {
 		Formateador formateadorHTML = new FormateadorHTML();
 
 		for (ItemEntrada item : this.listaDeItems) {
-			html += item.getTextoFormateado(formateadorHTML);			
+			html += item.getTextoFormateado(formateadorHTML);
 		}
 
 		return html;
@@ -38,7 +38,6 @@ public class ItemListaContenedor extends ItemEntrada {
 
 	@Override
 	public void agregarElementoEnContenedor(ItemEntrada item) {
-		// TODO Auto-generated method stub
 		this.listaDeItems.add(item);
 	}
 

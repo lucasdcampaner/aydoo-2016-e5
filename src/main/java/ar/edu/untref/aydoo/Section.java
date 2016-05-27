@@ -14,16 +14,16 @@ public class Section extends ItemEntrada {
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
 		return formateador.getInicioSectionFormateado() + getElementosContenidosEnFormato()
-														+ formateador.getFinSectionFormateado();
+				+ formateador.getFinSectionFormateado();
 
 	}
-	
+
 	public void agregarElementoEnContenedor(ItemEntrada item) {
 		this.listaDeItems.add(item);
 	}
 
 	private String getElementosContenidosEnFormato() {
-		
+
 		String elementosFormateados = "";
 
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -39,6 +39,5 @@ public class Section extends ItemEntrada {
 	public ArrayList<ItemEntrada> getElementosEnContenedor() {
 		return this.listaDeItems;
 	}
-
 
 }
