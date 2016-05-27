@@ -17,55 +17,38 @@ public class GeneradorItemsDesdeArchivo {
 		this.archivoEntrada = new FileReader(archivoEntrada);
 	}
 
-	public List<ItemEntrada> getItemsEntrada(Formateador formateador) throws IOException {
+	public List<ItemEntrada> getItemsEntrada() throws IOException {
 
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
 		scanner = new Scanner(archivoEntrada);
-
 		ItemEntrada itemEntrada;
 		ItemEntrada itemContenedorActual = null;
 		ItemEntrada itemListaContenedorActual = null;
-		
+
 		while (scanner.hasNextLine()) {
-			
 			itemEntrada = getTipoDeItem(scanner.nextLine());
-
 			if (itemEntrada.isContieneItems()) {
-				
 				itemListaContenedorActual = null;
-
-				/* contenedor */
+				/* Contenedor */
 				itemsEntrada.add(itemEntrada);
 				itemContenedorActual = itemEntrada;
-
-			} else if (itemContenedorActual != null) { 
-			
+			} else if (itemContenedorActual != null) {
 				if (itemEntrada.isEsContenidoPorUnItemLista()) {
-					
 					if (itemListaContenedorActual == null) {
-						
 						itemListaContenedorActual = new ItemListaContenedor("");
 						itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
 					}
-					
 					itemListaContenedorActual.agregarElementoEnContenedor(itemEntrada);
-					
 				} else {
-					
 					itemListaContenedorActual = null;
-					
-					/* item dentro de un contenedor */
+					/* Item dentro de un contenedor */
 					itemContenedorActual.agregarElementoEnContenedor(itemEntrada);
 				}
-			
 			} else {
-				
-				/* item fuera de contenedor */
+				/* Item fuera de contenedor */
 				itemsEntrada.add(itemEntrada);
 			}
 		}
-		
-		
 		scanner.close();
 		return itemsEntrada;
 	}
@@ -76,7 +59,7 @@ public class GeneradorItemsDesdeArchivo {
 		String caracterizadorLinea = linea.substring(0, 2);
 		String textoDesdePosicion2 = linea.substring(2);
 		String textoDesdePosicion3 = linea.substring(3);
-		
+
 		switch (caracterizadorLinea) {
 		case "# ":
 			itemEntrada = new Titulo(textoDesdePosicion2);
