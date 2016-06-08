@@ -22,10 +22,10 @@ public class GeneradorItemsDesdeArchivoTest {
 			+ "<li>Uno</li>" + "<li>Dos</li>" + "</ul>" + "</section>";
 
 	protected static final String segundaListaFormateadoEsperado = "<section>" + "<h1>Segunda lista</h1>" + "<ul>"
-			+ "<li>Tres</li>" + "<li>Cuatro</li>" + "</ul>" + "Pie" + "<ul>" + "<li>Seis</li>" + "</ul>" + "</section>";
+			+ "<li>Tres</li>" + "<li>Cuatro</li>" + "<li>Cinco</li>" + "</ul>" + "</section>";
 
-	protected static final String terceraListaFormateadoEsperado = "<section>" + "<ul>" + "<li>Siete</li>"
-			+ "<li>Ocho</li>" + "</ul>" + "</section>";
+	protected static final String terceraListaFormateadoEsperado = "<section>" + "<ul>" + "<li>Seis</li>"
+			+ "<li>Siete</li>" + "</ul>" + "</section>";
 
 	@Test
 	public void seCreaListaDeItemsEntradaDelEjemploIntegrador() throws IOException {

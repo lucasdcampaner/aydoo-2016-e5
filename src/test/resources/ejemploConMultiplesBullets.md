@@ -13,8 +13,7 @@ solo texto sin nada mas
 # Segunda lista
 * Tres
 * Cuatro
-Pie
-* Seis
+* Cinco
 ---
+* Seis
 * Siete
-* Ocho

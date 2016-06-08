@@ -17,6 +17,11 @@ public class GeneradorItemsDesdeArchivo {
 		this.archivoEntrada = new FileReader(archivoEntrada);
 	}
 
+	/**
+	 * Este metodo no nos gusta como esta. Tenemos 2 opciones:
+	 * 1) Refactorizarlo y dividirlo en metodos privados
+	 * 2) Usar algun tipo de patron que resuelva esta situacion, ejemplo investigar lo recomendado por el profesor.
+	 */
 	public List<ItemEntrada> getItemsEntrada() throws IOException {
 
 		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
@@ -24,31 +29,37 @@ public class GeneradorItemsDesdeArchivo {
 		ItemEntrada itemEntrada;
 		ItemEntrada itemContenedorActual = null;
 		ItemEntrada itemListaContenedorActual = null;
+		String lineaLeida = "";
 
 		while (scanner.hasNextLine()) {
-			itemEntrada = getTipoDeItem(scanner.nextLine());
-			if (itemEntrada.isContieneItems()) {
-				itemListaContenedorActual = null;
-				/* Contenedor */
-				itemsEntrada.add(itemEntrada);
-				itemContenedorActual = itemEntrada;
-			} else if (itemContenedorActual != null) {
-				if (itemEntrada.isEsContenidoPorUnItemLista()) {
-					if (itemListaContenedorActual == null) {
-						itemListaContenedorActual = new ItemListaContenedor("");
-						itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
-					}
-					itemListaContenedorActual.agregarElementoEnContenedor(itemEntrada);
-				} else {
+			lineaLeida = scanner.nextLine();
+			if (!lineaLeida.isEmpty()) {
+				itemEntrada = getTipoDeItem(lineaLeida);	
+				lineaLeida = "";
+				if (itemEntrada.isContieneItems()) {
 					itemListaContenedorActual = null;
-					/* Item dentro de un contenedor */
-					itemContenedorActual.agregarElementoEnContenedor(itemEntrada);
+					/* Contenedor */
+					itemsEntrada.add(itemEntrada);
+					itemContenedorActual = itemEntrada;
+				} else if (itemContenedorActual != null) {
+					if (itemEntrada.isEsContenidoPorUnItemLista()) {
+						if (itemListaContenedorActual == null) {
+							itemListaContenedorActual = new ItemListaContenedor("");
+							itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
+						}
+						itemListaContenedorActual.agregarElementoEnContenedor(itemEntrada);
+					} else {
+						itemListaContenedorActual = null;
+						/* Item dentro de un contenedor */
+						itemContenedorActual.agregarElementoEnContenedor(itemEntrada);
+					}
+				} else {
+					/* Item fuera de contenedor */
+					itemsEntrada.add(itemEntrada);
 				}
-			} else {
-				/* Item fuera de contenedor */
-				itemsEntrada.add(itemEntrada);
 			}
 		}
+			
 		scanner.close();
 		return itemsEntrada;
 	}
