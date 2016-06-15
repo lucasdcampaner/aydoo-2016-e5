@@ -6,7 +6,7 @@ public class SubTitulo extends Item {
 	public Item instanciarConMD(String texto) {
 		Item subTitulo = null;
 		if (texto.startsWith("##")) {
-			subTitulo = new Titulo(texto.substring(0, 3));
+			subTitulo = new SubTitulo(texto.substring(3, texto.length()));
 		}
 		return subTitulo;
 	}

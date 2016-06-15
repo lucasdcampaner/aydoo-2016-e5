@@ -5,8 +5,8 @@ public class Titulo extends Item {
 	@Override
 	public Item instanciarConMD(String texto) {
 		Item titulo = null;
-		if (texto.startsWith("# ")) {
-			titulo = new Titulo(texto.substring(0, 2));
+		if (texto.startsWith("#")) {
+			titulo = new Titulo(texto.substring(2, texto.length()));
 		}
 		return titulo;
 	}	

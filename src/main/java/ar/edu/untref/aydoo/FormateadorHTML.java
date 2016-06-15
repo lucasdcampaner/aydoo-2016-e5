@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class FormateadorHTML extends Formateador {
@@ -20,8 +21,9 @@ public class FormateadorHTML extends Formateador {
 	public Item instanciarItemLeidoMD(String itemLeido) {
 		
 		Item itemInstanciado = null;
-		for (Item itemPermitido : itemsPermitidos) {
-			itemInstanciado = itemPermitido.instanciarConMD(itemLeido);
+		Iterator<Item> iterador = itemsPermitidos.iterator();
+		while (itemInstanciado == null && iterador.hasNext()) {
+			itemInstanciado = iterador.next().instanciarConMD(itemLeido);
 		}
 		
 		return itemInstanciado;

@@ -10,7 +10,7 @@ public class Seccion extends Item {
 	public Item instanciarConMD(String texto) {
 		Item seccion = null;
 		if (texto.startsWith("---")) {
-			seccion = new Seccion("");
+			seccion = new Seccion("---");
 		}
 		return seccion;
 	}	
