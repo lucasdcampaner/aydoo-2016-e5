@@ -18,6 +18,16 @@ public abstract class Item {
 		return texto;
 	}
 
+	public abstract String getTextoFormateadoHTML(String texto);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public abstract String getTextoFormateado(Formateador formateador);
 
 	public abstract void agregarElementoEnContenedor(Item item);

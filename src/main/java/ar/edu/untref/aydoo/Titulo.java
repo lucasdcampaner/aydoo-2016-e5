@@ -11,6 +11,24 @@ public class Titulo extends Item {
 		return titulo;
 	}	
 	
+	@Override
+	public String getTextoFormateadoHTML(String texto) {
+		
+		String tagInicio = "<h1>";
+		String tagFin = "</h1>";
+
+		String tituloFormateado = tagInicio + texto + tagFin;
+
+		return tituloFormateado;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public Titulo(String contenido) {
 		super(contenido, false, false);
 	}

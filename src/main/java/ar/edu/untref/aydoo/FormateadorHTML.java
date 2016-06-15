@@ -25,11 +25,9 @@ public class FormateadorHTML extends Formateador {
 		while (itemInstanciado == null && iterador.hasNext()) {
 			itemInstanciado = iterador.next().instanciarConMD(itemLeido);
 		}
-		
 		return itemInstanciado;
 	}	
-	
-	
+			
 	@Override
 	public String getInicioSectionFormateado() {
 

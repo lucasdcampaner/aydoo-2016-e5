@@ -6,7 +6,7 @@ public class ItemLista extends Item {
 	public Item instanciarConMD(String texto) {
 		Item itemLista = null;
 		if (texto.startsWith("* ")) {
-			itemLista = new ItemLista(texto.substring(0, 2));
+			itemLista = new ItemLista(texto.substring(2, texto.length()));
 		}
 		return itemLista;
 	}
@@ -22,5 +22,11 @@ public class ItemLista extends Item {
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {
+	}
+
+	@Override
+	public String getTextoFormateadoHTML(String texto) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
