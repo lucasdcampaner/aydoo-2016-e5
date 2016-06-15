@@ -1,12 +1,14 @@
 package ar.edu.untref.aydoo;
 
-public abstract class ItemEntrada {
+public abstract class Item {
 
 	private String texto;
 	private boolean contieneItems;
 	private boolean esContenidoPorUnItemLista;
 
-	public ItemEntrada(String texto, boolean contieneItems, boolean esContenidoPorUnItemLista) {
+	public abstract Item instanciarConMD(String texto);
+	
+	public Item(String texto, boolean contieneItems, boolean esContenidoPorUnItemLista) {
 		this.texto = texto;
 		this.setContieneItems(contieneItems);
 		this.esContenidoPorUnItemLista = esContenidoPorUnItemLista;
@@ -18,7 +20,7 @@ public abstract class ItemEntrada {
 
 	public abstract String getTextoFormateado(Formateador formateador);
 
-	public abstract void agregarElementoEnContenedor(ItemEntrada item);
+	public abstract void agregarElementoEnContenedor(Item item);
 
 	public boolean isContieneItems() {
 		return contieneItems;

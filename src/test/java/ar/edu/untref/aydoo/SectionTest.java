@@ -8,7 +8,7 @@ public class SectionTest {
 	@Test
 	public void seObtieneSectionVaciaEnFormatoHTML() {
 
-		ItemEntrada itemListaContenedor = new Section("");
+		Item itemListaContenedor = new Seccion("");
 		String sectionEsperada = "<section></section>";
 		Formateador formateadorHTML = new FormateadorHTML();
 
@@ -20,8 +20,8 @@ public class SectionTest {
 	@Test
 	public void seObtieneDobleSectionVaciaEnFormatoHTML() {
 
-		ItemEntrada itemListaContenedor = new Section("");
-		ItemEntrada itemListaContenedor2 = new Section("");
+		Item itemListaContenedor = new Seccion("");
+		Item itemListaContenedor2 = new Seccion("");
 		String sectionEsperada = "<section></section><section></section>";
 		Formateador formateadorHTML = new FormateadorHTML();
 
@@ -35,8 +35,8 @@ public class SectionTest {
 	@Test
 	public void seObtieneUnTituloSoloEnUnaSectionEnFormatoHTML() {
 
-		ItemEntrada section = new Section("");
-		ItemEntrada titulo = new Titulo("El titulo");
+		Item section = new Seccion("");
+		Item titulo = new Titulo("El titulo");
 		section.agregarElementoEnContenedor(titulo);
 		String sectionConTituloEsperada = "<section><h1>El titulo</h1></section>";
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -49,9 +49,9 @@ public class SectionTest {
 	@Test
 	public void seObtieneDobleTituloEnUnaSectionEnFormatoHTML() {
 
-		ItemEntrada itemListaContenedor = new Section("");
-		ItemEntrada itemLista = new Titulo("El titulo1");
-		ItemEntrada itemLista2 = new Titulo("El titulo2");
+		Item itemListaContenedor = new Seccion("");
+		Item itemLista = new Titulo("El titulo1");
+		Item itemLista2 = new Titulo("El titulo2");
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 		String sectionEsperada = "<section><h1>El titulo1</h1><h1>El titulo2</h1></section>";
@@ -65,9 +65,9 @@ public class SectionTest {
 	@Test
 	public void seObtieneTituloYSubtituloEnUnaSectionEnFormatoHTML() {
 
-		ItemEntrada itemListaContenedor = new Section("");
-		ItemEntrada itemLista = new Titulo("El titulo1");
-		ItemEntrada itemLista2 = new SubTitulo("El subtitulo2");
+		Item itemListaContenedor = new Seccion("");
+		Item itemLista = new Titulo("El titulo1");
+		Item itemLista2 = new SubTitulo("El subtitulo2");
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 		String sectionEsperada = "<section><h1>El titulo1</h1><h2>El subtitulo2</h2></section>";
@@ -81,18 +81,18 @@ public class SectionTest {
 	@Test
 	public void seVerificanTresSeccionesConDistintosItems() {
 
-		ItemEntrada section1 = new Section("");
-		ItemEntrada titulo1 = new Titulo("El titulo");
-		ItemEntrada subtitulo1 = new SubTitulo("El subtitulo");
+		Item section1 = new Seccion("");
+		Item titulo1 = new Titulo("El titulo");
+		Item subtitulo1 = new SubTitulo("El subtitulo");
 		section1.agregarElementoEnContenedor(titulo1);
 		section1.agregarElementoEnContenedor(subtitulo1);
 
-		ItemEntrada section2 = new Section("");
-		ItemEntrada titulo2 = new Titulo("Solo un titulo");
+		Item section2 = new Seccion("");
+		Item titulo2 = new Titulo("Solo un titulo");
 		section2.agregarElementoEnContenedor(titulo2);
 
-		ItemEntrada section3 = new Section("");
-		ItemEntrada imagen = new Imagen("imagen.png");
+		Item section3 = new Seccion("");
+		Item imagen = new Imagen("imagen.png");
 		section3.agregarElementoEnContenedor(imagen);
 
 		String sectionesEsperada = "<section>" + "<h1>El titulo</h1>" + "<h2>El subtitulo</h2>" + "</section>"
@@ -111,14 +111,14 @@ public class SectionTest {
 	@Test
 	public void seObtieneUnElementoDeCadaTipoEnUnaSectionEnFormatoHTML() {
 
-		ItemEntrada itemListaContenedor = new Section("");
-		ItemEntrada itemLista = new Titulo("El titulo1");
-		ItemEntrada itemLista2 = new SubTitulo("El subtitulo2");
-		ItemEntrada itemLista3 = new Imagen("imagen.png");
-		ItemEntrada itemLista4 = new TextoPlano("linea sin nada en especial");
-		ItemEntrada itemLista5 = new ItemListaContenedor("");
+		Item itemListaContenedor = new Seccion("");
+		Item itemLista = new Titulo("El titulo1");
+		Item itemLista2 = new SubTitulo("El subtitulo2");
+		Item itemLista3 = new Imagen("imagen.png");
+		Item itemLista4 = new TextoPlano("linea sin nada en especial");
+		Item itemLista5 = new ItemListaContenedor("");
 
-		ItemEntrada itemLista6 = new ItemLista("un item de una lista");
+		Item itemLista6 = new ItemLista("un item de una lista");
 		itemLista5.agregarElementoEnContenedor(itemLista6);
 
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);

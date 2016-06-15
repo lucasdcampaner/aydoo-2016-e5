@@ -1,7 +1,16 @@
 package ar.edu.untref.aydoo;
 
-public class Titulo extends ItemEntrada {
+public class Titulo extends Item {
 
+	@Override
+	public Item instanciarConMD(String texto) {
+		Item titulo = null;
+		if (texto.startsWith("# ")) {
+			titulo = new Titulo(texto.substring(0, 2));
+		}
+		return titulo;
+	}	
+	
 	public Titulo(String contenido) {
 		super(contenido, false, false);
 	}
@@ -11,7 +20,6 @@ public class Titulo extends ItemEntrada {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(ItemEntrada item) {
+	public void agregarElementoEnContenedor(Item item) {
 	}
-
 }

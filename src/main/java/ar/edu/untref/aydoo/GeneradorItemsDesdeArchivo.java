@@ -22,13 +22,13 @@ public class GeneradorItemsDesdeArchivo {
 	 * 1) Refactorizarlo y dividirlo en metodos privados
 	 * 2) Usar algun tipo de patron que resuelva esta situacion, ejemplo investigar lo recomendado por el profesor.
 	 */
-	public List<ItemEntrada> getItemsEntrada() throws IOException {
+	public List<Item> getItemsEntrada() throws IOException {
 
-		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
+		List<Item> itemsEntrada = new LinkedList<Item>();
 		scanner = new Scanner(archivoEntrada);
-		ItemEntrada itemEntrada;
-		ItemEntrada itemContenedorActual = null;
-		ItemEntrada itemListaContenedorActual = null;
+		Item itemEntrada;
+		Item itemContenedorActual = null;
+		Item itemListaContenedorActual = null;
 		String lineaLeida = "";
 
 		while (scanner.hasNextLine()) {
@@ -64,9 +64,9 @@ public class GeneradorItemsDesdeArchivo {
 		return itemsEntrada;
 	}
 
-	private ItemEntrada getTipoDeItem(String linea) {
+	private Item getTipoDeItem(String linea) {
 
-		ItemEntrada itemEntrada = null;
+		Item itemEntrada = null;
 		String caracterizadorLinea = linea.substring(0, 2);
 		String textoDesdePosicion2 = linea.substring(2);
 		String textoDesdePosicion3 = linea.substring(3);
@@ -85,7 +85,7 @@ public class GeneradorItemsDesdeArchivo {
 			itemEntrada = new ItemLista(textoDesdePosicion2);
 			break;
 		case "--":
-			itemEntrada = new Section("");
+			itemEntrada = new Seccion("");
 			break;
 		default:
 			itemEntrada = new TextoPlano(linea);

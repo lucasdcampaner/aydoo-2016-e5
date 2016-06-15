@@ -2,11 +2,20 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 
-public class Section extends ItemEntrada {
+public class Seccion extends Item {
 
-	private ArrayList<ItemEntrada> listaDeItems;
+	private ArrayList<Item> listaDeItems;
 
-	public Section(String texto) {
+	@Override
+	public Item instanciarConMD(String texto) {
+		Item seccion = null;
+		if (texto.startsWith("---")) {
+			seccion = new Seccion("");
+		}
+		return seccion;
+	}	
+	
+	public Seccion(String texto) {
 		super(texto, true, false);
 		this.listaDeItems = new ArrayList<>();
 	}
@@ -18,7 +27,7 @@ public class Section extends ItemEntrada {
 
 	}
 
-	public void agregarElementoEnContenedor(ItemEntrada item) {
+	public void agregarElementoEnContenedor(Item item) {
 		this.listaDeItems.add(item);
 	}
 
@@ -28,7 +37,7 @@ public class Section extends ItemEntrada {
 
 		Formateador formateadorHTML = new FormateadorHTML();
 
-		for (ItemEntrada itemEntrada : this.listaDeItems) {
+		for (Item itemEntrada : this.listaDeItems) {
 			elementosFormateados += itemEntrada.getTextoFormateado(formateadorHTML);
 
 		}
@@ -36,7 +45,7 @@ public class Section extends ItemEntrada {
 		return elementosFormateados;
 	}
 
-	public ArrayList<ItemEntrada> getElementosEnContenedor() {
+	public ArrayList<Item> getElementosEnContenedor() {
 		return this.listaDeItems;
 	}
 

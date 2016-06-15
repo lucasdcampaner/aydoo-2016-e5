@@ -9,7 +9,7 @@ public class ImagenTest {
 	public void seCreaImagenDeTextoEspecificadoRecuperandoSuNombre() {
 
 		String contenido = "mundo.jpg";
-		ItemEntrada imagen = new Imagen(contenido);
+		Item imagen = new Imagen(contenido);
 
 		String textoDeLaImagen = imagen.getTexto();
 
@@ -21,7 +21,7 @@ public class ImagenTest {
 	public void imagenConHTML() {
 
 		String contenido = "mundo.jpg";
-		ItemEntrada imagen = new Imagen(contenido);
+		Item imagen = new Imagen(contenido);
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String imagenObtenidoFormatoHTML = imagen.getTextoFormateado(formateadorHTML);
@@ -33,9 +33,9 @@ public class ImagenTest {
 	public void imagenx2ConHTML() {
 
 		String contenido = "mundo.jpg";
-		ItemEntrada imagen = new Imagen(contenido);
+		Item imagen = new Imagen(contenido);
 		String contenido2 = "mundo2.jpg";
-		ItemEntrada imagen2 = new Imagen(contenido2);
+		Item imagen2 = new Imagen(contenido2);
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String imagenObtenidoFormatoHTML = imagen.getTextoFormateado(formateadorHTML)

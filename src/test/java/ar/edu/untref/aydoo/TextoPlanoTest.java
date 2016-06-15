@@ -9,7 +9,7 @@ public class TextoPlanoTest {
 	public void seObtieneContenidoEnFormatoHTMLParaUnTextoPlano() {
 
 		String textoPlanoEntrada = "Texto plano de prueba";
-		ItemEntrada textoPlano = new TextoPlano(textoPlanoEntrada);
+		Item textoPlano = new TextoPlano(textoPlanoEntrada);
 		String textoPlanoEsperado = textoPlanoEntrada;
 
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -23,8 +23,8 @@ public class TextoPlanoTest {
 
 		String textoPlanoEntrada = "Texto plano de prueba1";
 		String textoPlanoEntrada2 = "Texto plano de prueba2";
-		ItemEntrada textoPlano = new TextoPlano(textoPlanoEntrada);
-		ItemEntrada textoPlano2 = new TextoPlano(textoPlanoEntrada2);
+		Item textoPlano = new TextoPlano(textoPlanoEntrada);
+		Item textoPlano2 = new TextoPlano(textoPlanoEntrada2);
 		String textoPlanoEsperado = textoPlanoEntrada + textoPlanoEntrada2;
 
 		Formateador formateadorHTML = new FormateadorHTML();

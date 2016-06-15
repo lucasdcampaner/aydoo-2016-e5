@@ -1,7 +1,33 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FormateadorHTML extends Formateador {
 
+	private List<Item> itemsPermitidos = new ArrayList<Item>();
+	
+	public FormateadorHTML() {
+		itemsPermitidos.add(new Imagen(""));
+		itemsPermitidos.add(new ItemLista(""));
+		itemsPermitidos.add(new Seccion(""));
+		itemsPermitidos.add(new SubTitulo(""));
+		itemsPermitidos.add(new TextoPlano(""));
+		itemsPermitidos.add(new Titulo(""));
+	}
+	
+	@Override
+	public Item instanciarItemLeidoMD(String itemLeido) {
+		
+		Item itemInstanciado = null;
+		for (Item itemPermitido : itemsPermitidos) {
+			itemInstanciado = itemPermitido.instanciarConMD(itemLeido);
+		}
+		
+		return itemInstanciado;
+	}	
+	
+	
 	@Override
 	public String getInicioSectionFormateado() {
 
@@ -76,5 +102,5 @@ public class FormateadorHTML extends Formateador {
 	public String getTextoPlanoFormateado(String texto) {
 		return texto;
 	}
-
+	
 }

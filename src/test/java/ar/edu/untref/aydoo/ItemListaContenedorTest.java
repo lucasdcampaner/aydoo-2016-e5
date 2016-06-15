@@ -9,7 +9,7 @@ public class ItemListaContenedorTest {
 	public void seCreaItemListaEspecificadaRecuperandoSuNombre() {
 
 		String contenido = "un item de una lista";
-		ItemEntrada itemLista = new ItemListaContenedor(contenido);
+		Item itemLista = new ItemListaContenedor(contenido);
 
 		String textoLista = itemLista.getTexto();
 
@@ -20,7 +20,7 @@ public class ItemListaContenedorTest {
 	@Test
 	public void seObtieneVacioEnFormatoHTMLParaUnaLista() {
 
-		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+		Item itemListaContenedor = new ItemListaContenedor("");
 
 		String itemListaEsperada = "<ul></ul>";
 

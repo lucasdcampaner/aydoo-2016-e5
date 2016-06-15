@@ -12,18 +12,18 @@ public class GeneradorSalidaTest {
 	@Test
 	public void generarStringSalidaParaEjemplo1() throws IOException {
 		
-		List<ItemEntrada> itemsEntrada = new LinkedList<ItemEntrada>();
+		List<Item> itemsEntrada = new LinkedList<Item>();
 		//Items de entrada
-		ItemEntrada section1 = new Section("");
-		ItemEntrada titulo1 = new Titulo("El titulo");
-		ItemEntrada subtitulo1 = new SubTitulo("El subtitulo");
+		Item section1 = new Seccion("");
+		Item titulo1 = new Titulo("El titulo");
+		Item subtitulo1 = new SubTitulo("El subtitulo");
 		section1.agregarElementoEnContenedor(titulo1);
 		section1.agregarElementoEnContenedor(subtitulo1);
-		ItemEntrada section2 = new Section("");
-		ItemEntrada titulo2 = new Titulo("Solo un titulo");
+		Item section2 = new Seccion("");
+		Item titulo2 = new Titulo("Solo un titulo");
 		section2.agregarElementoEnContenedor(titulo2);
-		ItemEntrada section3 = new Section("");
-		ItemEntrada imagen = new Imagen("imagen.png");
+		Item section3 = new Seccion("");
+		Item imagen = new Imagen("imagen.png");
 		section3.agregarElementoEnContenedor(imagen);
 		itemsEntrada.add(section1);
 		itemsEntrada.add(section2);

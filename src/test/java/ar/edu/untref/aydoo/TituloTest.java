@@ -9,7 +9,7 @@ public class TituloTest {
 	public void seObtieneContenidoEnFormatoHTMLParaUnTituloDePrueba() {
 
 		String tituloEntrada = "Titulo de prueba";
-		ItemEntrada titulo = new Titulo(tituloEntrada);
+		Item titulo = new Titulo(tituloEntrada);
 		String tituloEsperado = "<h1>Titulo de prueba</h1>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -22,7 +22,7 @@ public class TituloTest {
 	public void seCreaTituloyRecuperaTexto() {
 
 		String contenido = "el titulo";
-		ItemEntrada titulo = new Titulo(contenido);
+		Item titulo = new Titulo(contenido);
 
 		String textoDelTitulo = titulo.getTexto();
 
@@ -33,7 +33,7 @@ public class TituloTest {
 	public void seObtieneContenidoEnFormatoHTMLParaUnTituloDePruebaVacio() {
 
 		String tituloEntrada = "";
-		ItemEntrada titulo = new Titulo(tituloEntrada);
+		Item titulo = new Titulo(tituloEntrada);
 		String tituloEsperado = "<h1></h1>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -46,9 +46,9 @@ public class TituloTest {
 	public void seObtieneContenidoEnFormatoHTMLParaDosTitulosDePrueba() {
 
 		String contenido = "el titulo1";
-		ItemEntrada titulo = new Titulo(contenido);
+		Item titulo = new Titulo(contenido);
 		String contenido2 = "el titulo2";
-		ItemEntrada titulo2 = new Titulo(contenido2);
+		Item titulo2 = new Titulo(contenido2);
 
 		Formateador formateadorHTML = new FormateadorHTML();
 		String tituloObtenidoFormatoHTML = titulo.getTextoFormateado(formateadorHTML)

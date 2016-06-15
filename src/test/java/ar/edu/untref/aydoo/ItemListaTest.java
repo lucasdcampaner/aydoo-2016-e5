@@ -9,7 +9,7 @@ public class ItemListaTest {
 	public void seCreaItemListaEspecificadaRecuperandoSuNombre() {
 
 		String contenido = "un item de una lista";
-		ItemEntrada itemLista = new ItemLista(contenido);
+		Item itemLista = new ItemLista(contenido);
 
 		String textoLista = itemLista.getTexto();
 
@@ -20,8 +20,8 @@ public class ItemListaTest {
 	@Test
 	public void seObtieneTextoPrimerElementoEnFormatoHTMLParaUnaLista() {
 
-		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
-		ItemEntrada itemLista = new ItemLista("un item de una lista");
+		Item itemListaContenedor = new ItemListaContenedor("");
+		Item itemLista = new ItemLista("un item de una lista");
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 
 		String itemListaEsperada = "<ul><li>un item de una lista</li></ul>";
@@ -36,9 +36,9 @@ public class ItemListaTest {
 	@Test
 	public void seObtieneTextoPrimerySegundoElementoEnFormatoHTMLParaUnaLista() {
 
-		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
-		ItemEntrada itemLista = new ItemLista("1er item de una lista");
-		ItemEntrada itemLista2 = new ItemLista("2do item de una lista");
+		Item itemListaContenedor = new ItemListaContenedor("");
+		Item itemLista = new ItemLista("1er item de una lista");
+		Item itemLista2 = new ItemLista("2do item de una lista");
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 

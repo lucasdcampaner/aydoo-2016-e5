@@ -34,7 +34,7 @@ public class GeneradorItemsDesdeArchivoTest {
 				"src/test/resources/ejemplo1.md");
 		Formateador formateadorHTML = new FormateadorHTML();
 
-		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
+		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(3, itemsEntradaObtenida.size());
 		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML));
@@ -52,7 +52,7 @@ public class GeneradorItemsDesdeArchivoTest {
 				"src/test/resources/ejemploConEncabezadoSinSeccion.md");
 		Formateador formateadorHTML = new FormateadorHTML();
 
-		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
+		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(4, itemsEntradaObtenida.size());
 		Assert.assertEquals(encabezadoFormateadoEsperado,
@@ -72,7 +72,7 @@ public class GeneradorItemsDesdeArchivoTest {
 				"src/test/resources/ejemploConBullets.md");
 		Formateador formateadorHTML = new FormateadorHTML();
 
-		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
+		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(4, itemsEntradaObtenida.size());
 
@@ -93,7 +93,7 @@ public class GeneradorItemsDesdeArchivoTest {
 				"src/test/resources/ejemploConMultiplesBullets.md");
 		Formateador formateadorHTML = new FormateadorHTML();
 
-		List<ItemEntrada> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
+		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(6, itemsEntradaObtenida.size());
 

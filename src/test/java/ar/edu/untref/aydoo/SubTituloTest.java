@@ -9,7 +9,7 @@ public class SubTituloTest {
 	public void seObtieneContenidoEnFormatoHTMLParaUnSubTituloDePrueba() {
 
 		String subTituloEntrada = "SubTitulo de prueba";
-		ItemEntrada subTitulo = new SubTitulo(subTituloEntrada);
+		Item subTitulo = new SubTitulo(subTituloEntrada);
 		String subTituloEsperado = "<h2>SubTitulo de prueba</h2>";
 
 		Formateador formateadorHTML = new FormateadorHTML();
@@ -22,7 +22,7 @@ public class SubTituloTest {
 	public void seCreaSubTituloyRecuperaTexto() {
 
 		String contenido = "el SubTitulo";
-		ItemEntrada subTitulo = new SubTitulo(contenido);
+		Item subTitulo = new SubTitulo(contenido);
 
 		String textoDelTitulo = subTitulo.getTexto();
 
@@ -33,7 +33,7 @@ public class SubTituloTest {
 	public void seObtieneContenidoEnFormatoHTMLParaUnSubTituloDePruebaVacio() {
 
 		String subTituloEntrada = "";
-		ItemEntrada subTitulo = new SubTitulo(subTituloEntrada);
+		Item subTitulo = new SubTitulo(subTituloEntrada);
 		String subTituloEsperado = "<h2></h2>";
 
 		Formateador formateadorHTML = new FormateadorHTML();

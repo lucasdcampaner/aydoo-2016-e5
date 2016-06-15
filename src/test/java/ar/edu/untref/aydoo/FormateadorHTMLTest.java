@@ -9,9 +9,9 @@ public class FormateadorHTMLTest {
 	public void obtenerItemsFormateados() {
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		ItemEntrada itemLista1 = new ItemLista("un item de una lista");
-		ItemEntrada itemLista2 = new ItemLista("otro item de una lista");
-		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+		Item itemLista1 = new ItemLista("un item de una lista");
+		Item itemLista2 = new ItemLista("otro item de una lista");
+		Item itemListaContenedor = new ItemListaContenedor("");
 		itemListaContenedor.agregarElementoEnContenedor(itemLista1);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 		String textoFormateadoEsperado = "<ul>" + "<li>un item de una lista</li>" + "<li>otro item de una lista</li>"
@@ -27,10 +27,10 @@ public class FormateadorHTMLTest {
 	public void obtenerItemsFormateadosDeUnaSectionConLista() {
 
 		Formateador formateadorHTML = new FormateadorHTML();
-		ItemEntrada section1 = new Section("");
-		ItemEntrada itemLista1 = new ItemLista("un item de una lista");
-		ItemEntrada itemLista2 = new ItemLista("otro item de una lista");
-		ItemEntrada itemListaContenedor = new ItemListaContenedor("");
+		Item section1 = new Seccion("");
+		Item itemLista1 = new ItemLista("un item de una lista");
+		Item itemLista2 = new ItemLista("otro item de una lista");
+		Item itemListaContenedor = new ItemListaContenedor("");
 		section1.agregarElementoEnContenedor(itemListaContenedor);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista1);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
