@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class FormateadorHTML extends Formateador {
@@ -28,6 +29,40 @@ public class FormateadorHTML extends Formateador {
 		return itemInstanciado;
 	}	
 			
+	public List<Item> crearListaParaSalidaHTML(List<Item> itemsObtenidos) {
+	
+		List<Item> listaParaSalida = new LinkedList<Item>();
+		
+		Item itemContenedorActual = null;
+		Item itemListaContenedorActual = null;
+		for (Item item : itemsObtenidos) {
+			if (item.isContieneItems()) {
+				itemListaContenedorActual = null;
+				/* Contenedor */
+				listaParaSalida.add(item);
+				itemContenedorActual = item;
+			} else if (itemContenedorActual != null) {
+				if (item.isEsContenidoPorUnItemLista()) {
+					if (itemListaContenedorActual == null) {
+						itemListaContenedorActual = new ItemListaContenedor("");
+						itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
+					}
+					itemListaContenedorActual.agregarElementoEnContenedor(item);
+				} else {
+					itemListaContenedorActual = null;
+					/* Item dentro de un contenedor */
+					itemContenedorActual.agregarElementoEnContenedor(item);
+				}
+			} else {
+				/* Item fuera de contenedor */
+				listaParaSalida.add(item);
+			}
+		}
+		return listaParaSalida;
+	}
+	
+	
+	
 	@Override
 	public String getInicioSectionFormateado() {
 

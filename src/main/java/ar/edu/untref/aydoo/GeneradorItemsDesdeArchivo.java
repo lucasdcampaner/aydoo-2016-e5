@@ -19,37 +19,10 @@ public class GeneradorItemsDesdeArchivo {
 		LectorDeArchivoDeEntrada lectorDeArchivoDeEntrada = new LectorDeArchivoDeEntrada(archivoEntrada);
 		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsEntrada();
 		List<Item> itemsObtenidos = generadorConFormatos.getItemsInstanciadosMD(itemsLeidos);		
-		List<Item> listaParaSalida = new LinkedList<Item>();
-
-		Item itemContenedorActual = null;
-		Item itemListaContenedorActual = null;
-
-		for (Item item : itemsObtenidos) {
-			if (item.isContieneItems()) {
-				itemListaContenedorActual = null;
-				/* Contenedor */
-				listaParaSalida.add(item);
-				itemContenedorActual = item;
-			} else if (itemContenedorActual != null) {
-				if (item.isEsContenidoPorUnItemLista()) {
-					if (itemListaContenedorActual == null) {
-						itemListaContenedorActual = new ItemListaContenedor("");
-						itemContenedorActual.agregarElementoEnContenedor(itemListaContenedorActual);
-					}
-					itemListaContenedorActual.agregarElementoEnContenedor(item);
-				} else {
-					itemListaContenedorActual = null;
-					/* Item dentro de un contenedor */
-					itemContenedorActual.agregarElementoEnContenedor(item);
-				}
-			} else {
-				/* Item fuera de contenedor */
-				listaParaSalida.add(item);
-			}
+		
+		List<Item> listaParaSalida = formateadorHTML.crearListaParaSalidaHTML(itemsObtenidos);
+		
 			
-		}
-			
-
 		return listaParaSalida;
 	}
 }
