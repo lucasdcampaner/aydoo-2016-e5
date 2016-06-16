@@ -16,12 +16,16 @@ public class SubTitulo extends Item {
 		super(texto, false, false);
 	}
 
-	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getSubTituloFormateado(this.getTexto());
+		
+		String tagInicio = "<h2>";
+		String tagFin = "</h2>";
+
+		String subTituloFormateado = tagInicio + super.getTexto() + tagFin;
+
+		return subTituloFormateado;
 	}
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {}
-
 }

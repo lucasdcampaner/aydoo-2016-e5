@@ -76,29 +76,6 @@ public class FormateadorHTML extends Formateador {
 		String sectionFormateada = "</section>";
 		return sectionFormateada;
 	}
-
-	@Override
-	public String getTituloFormateado(String texto) {
-
-		String tagInicio = "<h1>";
-		String tagFin = "</h1>";
-
-		String tituloFormateado = tagInicio + texto + tagFin;
-
-		return tituloFormateado;
-	}
-
-	@Override
-	public String getSubTituloFormateado(String texto) {
-
-		String tagInicio = "<h2>";
-		String tagFin = "</h2>";
-
-		String subTituloFormateado = tagInicio + texto + tagFin;
-
-		return subTituloFormateado;
-	}
-
 	@Override
 	public String getImagenFormateado(String texto) {
 
