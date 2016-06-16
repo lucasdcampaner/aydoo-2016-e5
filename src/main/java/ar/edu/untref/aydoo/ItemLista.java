@@ -17,7 +17,13 @@ public class ItemLista extends Item {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getItemListaFormateado(this.getTexto());
+		
+		String tagInicio = "<li>";
+		String tagFin = "</li>";
+
+		String imagenFormateado = tagInicio + super.getTexto() + tagFin;
+
+		return imagenFormateado;
 	}
 
 	@Override

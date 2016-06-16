@@ -78,17 +78,6 @@ public class FormateadorHTML extends Formateador {
 	}
 
 	@Override
-	public String getItemListaFormateado(String texto) {
-
-		String tagInicio = "<li>";
-		String tagFin = "</li>";
-
-		String imagenFormateado = tagInicio + texto + tagFin;
-
-		return imagenFormateado;
-	}
-
-	@Override
 	public String getInicioItemListaContenedorFormateado() {
 		String itemListaFormateada = "<ul>";
 		return itemListaFormateada;

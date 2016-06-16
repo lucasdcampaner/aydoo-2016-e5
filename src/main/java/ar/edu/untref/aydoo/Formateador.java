@@ -8,8 +8,6 @@ public abstract class Formateador {
 
 	public abstract List<Item> crearListaParaSalidaHTML(List<Item> itemsObtenidos);
 	
-	public abstract String getItemListaFormateado(String texto);
-
 	public abstract String getInicioSectionFormateado();
 
 	public abstract String getFinSectionFormateado();
