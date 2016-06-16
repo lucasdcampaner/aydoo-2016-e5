@@ -20,7 +20,7 @@ public class TextoPlano extends Item {
 	}
 
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getTextoPlanoFormateado(this.getTexto());
+		return super.getTexto();
 	}
 
 	@Override

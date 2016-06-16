@@ -98,11 +98,5 @@ public class FormateadorHTML extends Formateador {
 	public String getFinItemListaContenedorFormateado() {
 		String itemListaFormateada = "</ul>";
 		return itemListaFormateada;
-	}
-
-	@Override
-	public String getTextoPlanoFormateado(String texto) {
-		return texto;
-	}
-	
+	}	
 }
