@@ -10,14 +10,14 @@ public class ItemLista extends Item {
 		}
 		return itemLista;
 	}
-	
+
 	public ItemLista(String texto) {
 		super(texto, false, true);
 	}
 
 	@Override
 	public String getTextoFormateadoHTML() {
-		
+
 		String tagInicio = "<li>";
 		String tagFin = "</li>";
 
@@ -27,6 +27,6 @@ public class ItemLista extends Item {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {}
-
+	public void agregarElementoEnContenedor(Item item) {
+	}
 }

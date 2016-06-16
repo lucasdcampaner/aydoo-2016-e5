@@ -5,7 +5,7 @@ public class Titulo extends Item {
 	public Titulo(String contenido) {
 		super(contenido, false, false);
 	}
-	
+
 	@Override
 	public Item instanciarConMD(String texto) {
 		Item titulo = null;
@@ -14,18 +14,19 @@ public class Titulo extends Item {
 		}
 		return titulo;
 	}
-	
+
 	@Override
 	public String getTextoFormateadoHTML() {
-		
+
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
-		
+
 		String tituloFormateado = tagInicio + super.getTexto() + tagFin;
-		
+
 		return tituloFormateado;
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {}
+	public void agregarElementoEnContenedor(Item item) {
+	}
 }

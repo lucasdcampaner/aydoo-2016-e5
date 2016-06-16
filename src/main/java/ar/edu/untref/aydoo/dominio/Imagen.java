@@ -10,14 +10,14 @@ public class Imagen extends Item {
 		}
 		return imagen;
 	}
-	
+
 	public Imagen(String texto) {
 		super(texto, false, false);
 	}
 
 	@Override
 	public String getTextoFormateadoHTML() {
-		
+
 		String tagInicio = "<img src=\"";
 		String tagFin = "\"/>";
 
@@ -27,5 +27,6 @@ public class Imagen extends Item {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {}
+	public void agregarElementoEnContenedor(Item item) {
+	}
 }

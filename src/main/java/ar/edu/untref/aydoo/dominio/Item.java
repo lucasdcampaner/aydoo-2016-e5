@@ -7,7 +7,7 @@ public abstract class Item {
 	private boolean esContenidoPorUnItemLista;
 
 	public abstract Item instanciarConMD(String texto);
-	
+
 	public Item(String texto, boolean contieneItems, boolean esContenidoPorUnItemLista) {
 		this.texto = texto;
 		this.setContieneItems(contieneItems);
@@ -18,15 +18,7 @@ public abstract class Item {
 		return texto;
 	}
 
-	public abstract String getTextoFormateadoHTML();	
-	
-	
-	
-	
-	
-	
-	
-
+	public abstract String getTextoFormateadoHTML();
 
 	public abstract void agregarElementoEnContenedor(Item item);
 
@@ -45,5 +37,4 @@ public abstract class Item {
 	public void setEsContenidoPorUnItem(boolean esContenidoPorUnItem) {
 		this.esContenidoPorUnItemLista = esContenidoPorUnItem;
 	}
-
 }

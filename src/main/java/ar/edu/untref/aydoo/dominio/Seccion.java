@@ -10,7 +10,7 @@ public class Seccion extends Item {
 		super(texto, true, false);
 		this.listaDeItems = new ArrayList<>();
 	}
-	
+
 	@Override
 	public Item instanciarConMD(String texto) {
 		Item seccion = null;
@@ -18,14 +18,14 @@ public class Seccion extends Item {
 			seccion = new Seccion("---");
 		}
 		return seccion;
-	}	
-	
+	}
+
 	@Override
 	public String getTextoFormateadoHTML() {
-	
-		String inicioSeccionFormateada = "<section>";	
+
+		String inicioSeccionFormateada = "<section>";
 		String finSeccionFormateada = "</section>";
-		
+
 		return inicioSeccionFormateada + getElementosContenidosEnFormato() + finSeccionFormateada;
 	}
 

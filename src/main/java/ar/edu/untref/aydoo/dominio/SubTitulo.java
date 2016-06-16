@@ -10,14 +10,13 @@ public class SubTitulo extends Item {
 		}
 		return subTitulo;
 	}
-	
-	
+
 	public SubTitulo(String texto) {
 		super(texto, false, false);
 	}
 
 	public String getTextoFormateadoHTML() {
-		
+
 		String tagInicio = "<h2>";
 		String tagFin = "</h2>";
 
@@ -27,5 +26,6 @@ public class SubTitulo extends Item {
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {}
+	public void agregarElementoEnContenedor(Item item) {
+	}
 }

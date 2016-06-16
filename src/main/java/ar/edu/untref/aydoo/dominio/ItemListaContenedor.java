@@ -3,15 +3,14 @@ package ar.edu.untref.aydoo.dominio;
 import java.util.ArrayList;
 
 public class ItemListaContenedor extends Item {
-	
+
 	private ArrayList<Item> listaDeItems;
-	
-	
+
 	@Override
 	public Item instanciarConMD(String texto) {
 		return null;
 	}
-	
+
 	public ItemListaContenedor(String texto) {
 		super(texto, true, false);
 		this.listaDeItems = new ArrayList<>();
@@ -19,10 +18,10 @@ public class ItemListaContenedor extends Item {
 
 	@Override
 	public String getTextoFormateadoHTML() {
-		
+
 		String inicioItemListaFormateada = "<ul>";
 		String finItemListaFormateada = "</ul>";
-		
+
 		return inicioItemListaFormateada + getItemsListaEnHTML() + finItemListaFormateada;
 	}
 
