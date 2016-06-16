@@ -18,7 +18,7 @@ public class ItemListaContenedor extends Item {
 	}
 
 	@Override
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateadoHTML() {
 		
 		String inicioItemListaFormateada = "<ul>";
 		String finItemListaFormateada = "</ul>";
@@ -30,10 +30,8 @@ public class ItemListaContenedor extends Item {
 
 		String itemsListaEnHTML = "";
 
-		Formateador formateadorHTML = new FormateadorHTML();
-
 		for (Item item : this.listaDeItems) {
-			itemsListaEnHTML += item.getTextoFormateado(formateadorHTML);
+			itemsListaEnHTML += item.getTextoFormateadoHTML();
 		}
 		return itemsListaEnHTML;
 	}

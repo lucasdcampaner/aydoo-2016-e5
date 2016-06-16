@@ -17,20 +17,20 @@ public class GeneradorSalida {
 		this.nombreCarpetaSalida = nombreCarpetaSalida;
 	}
 
-	public String generarStringSalida(List<Item> itemsEntrada, Formateador formateador) {
+	public String generarStringSalidaHTML(List<Item> itemsEntrada) {
 
 		String stringSalida = "";
 
 		for (Item itemEntrada : itemsEntrada) {
-			stringSalida = stringSalida + itemEntrada.getTextoFormateado(formateador);
+			stringSalida = stringSalida + itemEntrada.getTextoFormateadoHTML();
 		}
 
 		return stringSalida;
 	}
 
-	public void generarSalidaEnCarpeta(List<Item> itemsEntrada, Formateador formateador) throws IOException {
+	public void generarSalidaEnCarpeta(List<Item> itemsEntrada) throws IOException {
 		copiarArchivosDesdePlantilla();
-		sobreEscribirLineaEnIndex(itemsEntrada, formateador);
+		sobreEscribirLineaEnIndex(itemsEntrada);
 	}
 
 	private String obtenerPathJar() {
@@ -54,9 +54,9 @@ public class GeneradorSalida {
 		DirUtils.copy(plantilla.toPath(), carpetaSalida.toPath());
 	}
 
-	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada, Formateador formateador) throws IOException {
+	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada) throws IOException {
 
-		String stringSalida = generarStringSalida(itemsEntrada, formateador);
+		String stringSalida = generarStringSalidaHTML(itemsEntrada);
 		File indexHTML = obtenerIndexHTML();
 		FileWriter indexNuevo = crearArchivoIndexNuevoARenombrar();
 		scanner = new Scanner(indexHTML);

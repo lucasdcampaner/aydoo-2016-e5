@@ -14,7 +14,7 @@ public class GeneradorItemsDesdeArchivo {
 	
 	public List<Item> getItemsEntrada() throws IOException {
 
-		Formateador formateadorHTML = new FormateadorHTML();
+		FormateadorHTML formateadorHTML = new FormateadorHTML();
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(formateadorHTML); 
 		LectorDeArchivoDeEntrada lectorDeArchivoDeEntrada = new LectorDeArchivoDeEntrada(archivoEntrada);
 		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsEntrada();

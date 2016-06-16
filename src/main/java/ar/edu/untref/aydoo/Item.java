@@ -18,8 +18,7 @@ public abstract class Item {
 		return texto;
 	}
 
-	//Renombrar a ...HTML
-	public abstract String getTextoFormateado(Formateador formateador);	
+	public abstract String getTextoFormateadoHTML();	
 	
 	
 	

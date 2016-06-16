@@ -18,8 +18,9 @@ public class TextoPlano extends Item {
 	public TextoPlano(String contenido) {
 		super(contenido, false, false);
 	}
-
-	public String getTextoFormateado(Formateador formateador) {
+	
+	@Override
+	public String getTextoFormateadoHTML() {
 		return super.getTexto();
 	}
 

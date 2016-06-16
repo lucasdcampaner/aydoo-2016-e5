@@ -26,8 +26,7 @@ public class ItemListaTest {
 
 		String itemListaEsperada = "<ul><li>un item de una lista</li></ul>";
 
-		Formateador formateadorHTML = new FormateadorHTML();
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
 
@@ -44,8 +43,7 @@ public class ItemListaTest {
 
 		String itemListaEsperada = "<ul><li>1er item de una lista</li><li>2do item de una lista</li></ul>";
 
-		Formateador formateadorHTML = new FormateadorHTML();
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
 	}

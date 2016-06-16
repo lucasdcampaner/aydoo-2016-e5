@@ -31,7 +31,6 @@ public class GeneradorSalidaTest {
 		//Generador de salida
 		String carpetaSalida = "presentacion";
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
-		Formateador formateadorHTML = new FormateadorHTML();
 		String salidaPorPantallaEsperada = "<section>"
 										 		+ "<h1>El titulo</h1>"
 										 		+ "<h2>El subtitulo</h2>"
@@ -43,7 +42,7 @@ public class GeneradorSalidaTest {
 								 				+ "<img src=\"imagen.png\"/>"
 						 				 + "</section>";
 		
-		String salidaPorPantallaObtenida = generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML);
+		String salidaPorPantallaObtenida = generadorSalida.generarStringSalidaHTML(itemsEntrada);
 		
 		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);
 	

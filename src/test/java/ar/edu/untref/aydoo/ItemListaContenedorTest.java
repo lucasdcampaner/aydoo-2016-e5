@@ -24,8 +24,7 @@ public class ItemListaContenedorTest {
 
 		String itemListaEsperada = "<ul></ul>";
 
-		Formateador formateadorHTML = new FormateadorHTML();
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(itemListaEsperada, itemListaObtenidaFormatoHTML);
 

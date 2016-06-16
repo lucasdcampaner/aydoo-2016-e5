@@ -5,9 +5,9 @@ import java.util.List;
 
 public class GeneradorConFormatos {
 
-	private Formateador formateador;
+	private FormateadorHTML formateador;
 	
-	public GeneradorConFormatos(Formateador formateador) {
+	public GeneradorConFormatos(FormateadorHTML formateador) {
 		this.formateador = formateador;
 	}
 	

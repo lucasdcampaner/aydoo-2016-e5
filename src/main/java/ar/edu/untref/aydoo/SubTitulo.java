@@ -16,7 +16,7 @@ public class SubTitulo extends Item {
 		super(texto, false, false);
 	}
 
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateadoHTML() {
 		
 		String tagInicio = "<h2>";
 		String tagFin = "</h2>";

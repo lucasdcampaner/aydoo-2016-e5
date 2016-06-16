@@ -15,7 +15,8 @@ public class Titulo extends Item {
 		return titulo;
 	}
 	
-	public String getTextoFormateado(Formateador formateador) {
+	@Override
+	public String getTextoFormateadoHTML() {
 		
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
@@ -27,5 +28,4 @@ public class Titulo extends Item {
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {}
-
 }

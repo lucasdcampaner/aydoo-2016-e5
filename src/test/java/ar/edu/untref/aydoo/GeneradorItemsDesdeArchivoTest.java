@@ -30,19 +30,14 @@ public class GeneradorItemsDesdeArchivoTest {
 	@Test
 	public void seCreaListaDeItemsEntradaDelEjemploIntegrador() throws IOException {
 
-		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(
-				"src/test/resources/ejemplo1.md");
-		Formateador formateadorHTML = new FormateadorHTML();
+		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo("src/test/resources/ejemplo1.md");
 
 		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(3, itemsEntradaObtenida.size());
-		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(soloUnTituloFormateadoEsperado,
-				itemsEntradaObtenida.get(1).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(soloTextoFormateadoEsperado,
-				itemsEntradaObtenida.get(2).getTextoFormateado(formateadorHTML));
-
+		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateadoHTML());
+		Assert.assertEquals(soloUnTituloFormateadoEsperado,itemsEntradaObtenida.get(1).getTextoFormateadoHTML());
+		Assert.assertEquals(soloTextoFormateadoEsperado,itemsEntradaObtenida.get(2).getTextoFormateadoHTML());
 	}
 
 	@Test
@@ -50,18 +45,17 @@ public class GeneradorItemsDesdeArchivoTest {
 
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(
 				"src/test/resources/ejemploConEncabezadoSinSeccion.md");
-		Formateador formateadorHTML = new FormateadorHTML();
 
 		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(4, itemsEntradaObtenida.size());
 		Assert.assertEquals(encabezadoFormateadoEsperado,
-				itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(1).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(0).getTextoFormateadoHTML());
+		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(1).getTextoFormateadoHTML());
 		Assert.assertEquals(soloUnTituloFormateadoEsperado,
-				itemsEntradaObtenida.get(2).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(2).getTextoFormateadoHTML());
 		Assert.assertEquals(soloTextoFormateadoEsperado,
-				itemsEntradaObtenida.get(3).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(3).getTextoFormateadoHTML());
 
 	}
 
@@ -70,19 +64,18 @@ public class GeneradorItemsDesdeArchivoTest {
 
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(
 				"src/test/resources/ejemploConBullets.md");
-		Formateador formateadorHTML = new FormateadorHTML();
 
 		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(4, itemsEntradaObtenida.size());
 
-		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML));
+		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateadoHTML());
 		Assert.assertEquals(soloUnTituloFormateadoEsperado,
-				itemsEntradaObtenida.get(1).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(1).getTextoFormateadoHTML());
 		Assert.assertEquals(soloTextoFormateadoEsperado,
-				itemsEntradaObtenida.get(2).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(2).getTextoFormateadoHTML());
 		Assert.assertEquals(listaUnicaFormateadoEsperado,
-				itemsEntradaObtenida.get(3).getTextoFormateado(formateadorHTML));
+				itemsEntradaObtenida.get(3).getTextoFormateadoHTML());
 
 	}
 
@@ -91,20 +84,19 @@ public class GeneradorItemsDesdeArchivoTest {
 
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(
 				"src/test/resources/ejemploConMultiplesBullets.md");
-		Formateador formateadorHTML = new FormateadorHTML();
 
 		List<Item> itemsEntradaObtenida = generadorItemsDesdeArchivo.getItemsEntrada();
 
 		Assert.assertEquals(6, itemsEntradaObtenida.size());
 
-		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateado(formateadorHTML));
+		Assert.assertEquals(tituloFormateadoEsperado, itemsEntradaObtenida.get(0).getTextoFormateadoHTML());
 		
-		Assert.assertEquals(primeraListaFormateadoEsperado, itemsEntradaObtenida.get(1).getTextoFormateado(formateadorHTML));
+		Assert.assertEquals(primeraListaFormateadoEsperado, itemsEntradaObtenida.get(1).getTextoFormateadoHTML());
 		
-		Assert.assertEquals(soloUnTituloFormateadoEsperado, itemsEntradaObtenida.get(2).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(soloTextoFormateadoEsperado, itemsEntradaObtenida.get(3).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(segundaListaFormateadoEsperado, itemsEntradaObtenida.get(4).getTextoFormateado(formateadorHTML));
-		Assert.assertEquals(terceraListaFormateadoEsperado, itemsEntradaObtenida.get(5).getTextoFormateado(formateadorHTML));
+		Assert.assertEquals(soloUnTituloFormateadoEsperado, itemsEntradaObtenida.get(2).getTextoFormateadoHTML());
+		Assert.assertEquals(soloTextoFormateadoEsperado, itemsEntradaObtenida.get(3).getTextoFormateadoHTML());
+		Assert.assertEquals(segundaListaFormateadoEsperado, itemsEntradaObtenida.get(4).getTextoFormateadoHTML());
+		Assert.assertEquals(terceraListaFormateadoEsperado, itemsEntradaObtenida.get(5).getTextoFormateadoHTML());
 
 	}
 

@@ -12,8 +12,7 @@ public class TextoPlanoTest {
 		Item textoPlano = new TextoPlano(textoPlanoEntrada);
 		String textoPlanoEsperado = textoPlanoEntrada;
 
-		Formateador formateadorHTML = new FormateadorHTML();
-		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateado(formateadorHTML);
+		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateadoHTML();
 
 		Assert.assertEquals(textoPlanoEsperado, textoPlanoObtenidoFormatoHTML);
 	}
@@ -27,9 +26,8 @@ public class TextoPlanoTest {
 		Item textoPlano2 = new TextoPlano(textoPlanoEntrada2);
 		String textoPlanoEsperado = textoPlanoEntrada + textoPlanoEntrada2;
 
-		Formateador formateadorHTML = new FormateadorHTML();
-		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateado(formateadorHTML)
-				+ textoPlano2.getTextoFormateado(formateadorHTML);
+		String textoPlanoObtenidoFormatoHTML = textoPlano.getTextoFormateadoHTML()
+				+ textoPlano2.getTextoFormateadoHTML();
 
 		Assert.assertEquals(textoPlanoEsperado, textoPlanoObtenidoFormatoHTML);
 	}

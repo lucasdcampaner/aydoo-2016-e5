@@ -21,7 +21,7 @@ public class Seccion extends Item {
 	}	
 	
 	@Override
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateadoHTML() {
 	
 		String inicioSeccionFormateada = "<section>";	
 		String finSeccionFormateada = "</section>";
@@ -37,10 +37,8 @@ public class Seccion extends Item {
 
 		String elementosFormateados = "";
 
-		Formateador formateadorHTML = new FormateadorHTML();
-
 		for (Item itemEntrada : this.listaDeItems) {
-			elementosFormateados += itemEntrada.getTextoFormateado(formateadorHTML);
+			elementosFormateados += itemEntrada.getTextoFormateadoHTML();
 
 		}
 		return elementosFormateados;

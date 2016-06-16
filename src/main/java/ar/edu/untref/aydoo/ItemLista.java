@@ -16,7 +16,7 @@ public class ItemLista extends Item {
 	}
 
 	@Override
-	public String getTextoFormateado(Formateador formateador) {
+	public String getTextoFormateadoHTML() {
 		
 		String tagInicio = "<li>";
 		String tagFin = "</li>";

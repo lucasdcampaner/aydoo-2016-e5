@@ -14,20 +14,19 @@ public class Program {
 	public static final void main(String args[]) throws Exception {
 
 		getParametrosAplicacion(args);
-		Formateador formateadorHTML = new FormateadorHTML();
 		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
 		List<Item> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada();
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 
 		switch (mode) {
 		case modeDefault:
-			generadorSalida.generarSalidaEnCarpeta(itemsEntrada, formateadorHTML);
+			generadorSalida.generarSalidaEnCarpeta(itemsEntrada);
 			break;
 		case noOutput:
-			System.out.println(generadorSalida.generarStringSalida(itemsEntrada, formateadorHTML));
+			System.out.println(generadorSalida.generarStringSalidaHTML(itemsEntrada));
 			break;
 		default:
-			generadorSalida.generarSalidaEnCarpeta(itemsEntrada, formateadorHTML);
+			generadorSalida.generarSalidaEnCarpeta(itemsEntrada);
 			break;
 		}
 	}

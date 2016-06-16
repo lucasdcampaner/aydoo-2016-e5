@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FormateadorHTML extends Formateador {
+public class FormateadorHTML {
 
 	private List<Item> itemsPermitidos = new ArrayList<Item>();
 	
@@ -18,7 +18,6 @@ public class FormateadorHTML extends Formateador {
 		itemsPermitidos.add(new Titulo(""));
 	}
 	
-	@Override
 	public Item instanciarItemLeidoMD(String itemLeido) {
 		
 		Item itemInstanciado = null;

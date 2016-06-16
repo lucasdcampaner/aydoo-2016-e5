@@ -10,9 +10,8 @@ public class SectionTest {
 
 		Item itemListaContenedor = new Seccion("");
 		String sectionEsperada = "<section></section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
 	}
@@ -23,10 +22,9 @@ public class SectionTest {
 		Item itemListaContenedor = new Seccion("");
 		Item itemListaContenedor2 = new Seccion("");
 		String sectionEsperada = "<section></section><section></section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
-		String itemListaObtenidaFormatoHTML2 = itemListaContenedor2.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
+		String itemListaObtenidaFormatoHTML2 = itemListaContenedor2.getTextoFormateadoHTML();
 
 		String itemListaObtenidaFormatoHTMLfinal = itemListaObtenidaFormatoHTML + itemListaObtenidaFormatoHTML2;
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTMLfinal);
@@ -39,9 +37,8 @@ public class SectionTest {
 		Item titulo = new Titulo("El titulo");
 		section.agregarElementoEnContenedor(titulo);
 		String sectionConTituloEsperada = "<section><h1>El titulo</h1></section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String seccionConTituloObtenida = section.getTextoFormateado(formateadorHTML);
+		String seccionConTituloObtenida = section.getTextoFormateadoHTML();
 
 		Assert.assertEquals(sectionConTituloEsperada, seccionConTituloObtenida);
 	}
@@ -55,9 +52,8 @@ public class SectionTest {
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 		String sectionEsperada = "<section><h1>El titulo1</h1><h1>El titulo2</h1></section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
 	}
@@ -71,9 +67,8 @@ public class SectionTest {
 		itemListaContenedor.agregarElementoEnContenedor(itemLista);
 		itemListaContenedor.agregarElementoEnContenedor(itemLista2);
 		String sectionEsperada = "<section><h1>El titulo1</h1><h2>El subtitulo2</h2></section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
 	}
@@ -98,11 +93,10 @@ public class SectionTest {
 		String sectionesEsperada = "<section>" + "<h1>El titulo</h1>" + "<h2>El subtitulo</h2>" + "</section>"
 				+ "<section>" + "<h1>Solo un titulo</h1>" + "</section>" + "<section>" + "<img src=\"imagen.png\"/>"
 				+ "</section>";
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String sectionFormateada1 = section1.getTextoFormateado(formateadorHTML);
-		String sectionFormateada2 = section2.getTextoFormateado(formateadorHTML);
-		String sectionFormateada3 = section3.getTextoFormateado(formateadorHTML);
+		String sectionFormateada1 = section1.getTextoFormateadoHTML();
+		String sectionFormateada2 = section2.getTextoFormateadoHTML();
+		String sectionFormateada3 = section3.getTextoFormateadoHTML();
 		String sectionesObtenidas = sectionFormateada1 + sectionFormateada2 + sectionFormateada3;
 
 		Assert.assertEquals(sectionesEsperada, sectionesObtenidas);
@@ -130,9 +124,8 @@ public class SectionTest {
 		String sectionEsperada = "<section><h1>El titulo1</h1><h2>El subtitulo2</h2>" + "<img src=\"imagen.png\"/>"
 				+ "linea sin nada en especial" + "<ul><li>un item de una lista</li></ul></section>";
 
-		Formateador formateadorHTML = new FormateadorHTML();
 
-		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateado(formateadorHTML);
+		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 
 		Assert.assertEquals(sectionEsperada, itemListaObtenidaFormatoHTML);
 	}
