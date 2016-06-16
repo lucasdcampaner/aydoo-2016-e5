@@ -41,6 +41,30 @@ public class ConstructoraDeItemsTest {
 	}
 	
 	@Test
+	public void instanciarTextoPlanoMD() {
+		
+		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		String textoPlano = "Texto plano";
+		Item itemEsperado = new TextoPlano(textoPlano);
+		
+		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(textoPlano);
+		
+		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+	}
+	
+	@Test
+	public void instanciarImagenMD() {
+		
+		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		String imagen = "i:imagen.jpg";
+		Item itemEsperado = new Imagen(imagen);
+		
+		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(imagen);
+		
+		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+	}
+	
+	@Test
 	public void seCreaListaDeItemsParaSalidaDelEjemplo1() {		
 		
 		Item seccion1 = new Seccion("---");
