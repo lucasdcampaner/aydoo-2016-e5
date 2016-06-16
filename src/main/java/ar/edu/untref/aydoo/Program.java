@@ -2,6 +2,11 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
+import ar.edu.untref.aydoo.arquitectura.GeneradorItemsDesdeArchivo;
+import ar.edu.untref.aydoo.arquitectura.GeneradorSalida;
+import ar.edu.untref.aydoo.arquitectura.ManejadorDeOpciones;
+import ar.edu.untref.aydoo.dominio.Item;
+
 public class Program {
 
 	private final static String modeDefault = "DEFAULT";
