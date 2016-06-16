@@ -49,10 +49,5 @@ public class Seccion extends Item {
 		return this.listaDeItems;
 	}
 
-	@Override
-	public String getTextoFormateadoHTML(String texto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

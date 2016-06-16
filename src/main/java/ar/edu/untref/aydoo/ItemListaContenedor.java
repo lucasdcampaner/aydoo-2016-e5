@@ -51,11 +51,4 @@ public class ItemListaContenedor extends Item {
 	public ArrayList<Item> getElementosEnColeccion() {
 		return this.listaDeItems;
 	}
-
-	@Override
-	public String getTextoFormateadoHTML(String texto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

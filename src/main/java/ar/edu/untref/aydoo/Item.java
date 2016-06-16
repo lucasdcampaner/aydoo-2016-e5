@@ -18,7 +18,8 @@ public abstract class Item {
 		return texto;
 	}
 
-	public abstract String getTextoFormateadoHTML(String texto);
+	//Renombrar a ...HTML
+	public abstract String getTextoFormateado(Formateador formateador);	
 	
 	
 	
@@ -26,9 +27,7 @@ public abstract class Item {
 	
 	
 	
-	
-	
-	public abstract String getTextoFormateado(Formateador formateador);
+
 
 	public abstract void agregarElementoEnContenedor(Item item);
 

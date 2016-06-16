@@ -2,6 +2,10 @@ package ar.edu.untref.aydoo;
 
 public class Titulo extends Item {
 
+	public Titulo(String contenido) {
+		super(contenido, false, false);
+	}
+	
 	@Override
 	public Item instanciarConMD(String texto) {
 		Item titulo = null;
@@ -9,35 +13,19 @@ public class Titulo extends Item {
 			titulo = new Titulo(texto.substring(2, texto.length()));
 		}
 		return titulo;
-	}	
+	}
 	
-	@Override
-	public String getTextoFormateadoHTML(String texto) {
+	public String getTextoFormateado(Formateador formateador) {
 		
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
-
-		String tituloFormateado = tagInicio + texto + tagFin;
-
+		
+		String tituloFormateado = tagInicio + super.getTexto() + tagFin;
+		
 		return tituloFormateado;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	public Titulo(String contenido) {
-		super(contenido, false, false);
-	}
-
-	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getTituloFormateado(this.getTexto());
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {
-	}
+	public void agregarElementoEnContenedor(Item item) {}
+
 }

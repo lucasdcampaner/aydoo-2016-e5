@@ -24,10 +24,4 @@ public class Imagen extends Item {
 	public void agregarElementoEnContenedor(Item item) {
 	}
 
-	@Override
-	public String getTextoFormateadoHTML(String texto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

@@ -14,15 +14,7 @@ public class TextoPlano extends Item {
 		}
 		return textoPlano;
 	}
-	
-	@Override
-	public String getTextoFormateadoHTML(String texto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	
+		
 	public TextoPlano(String contenido) {
 		super(contenido, false, false);
 	}
