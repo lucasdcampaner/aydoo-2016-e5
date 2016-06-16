@@ -27,6 +27,10 @@ public class FormateadorHTML {
 		itemsPermitidos.add(new Titulo(""));
 	}
 	
+	public void agregarItemPermitido(Item itemPermitidoNuevo) {
+		itemsPermitidos.add(itemPermitidoNuevo);
+	}
+	
 	public Item instanciarItemLeidoMD(String itemLeido) {
 		
 		Item itemInstanciado = null;
@@ -37,6 +41,10 @@ public class FormateadorHTML {
 		return itemInstanciado;
 	}	
 			
+	/**
+	 *	Este metodo necesita refactorizarse! 
+	 */
+	
 	public List<Item> crearListaParaSalidaHTML(List<Item> itemsObtenidos) {
 	
 		List<Item> listaParaSalida = new LinkedList<Item>();

@@ -53,7 +53,7 @@ public class GeneradorSalida {
 		File plantilla = new File(pathJar + "/plantilla");
 		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);
 
-		DirUtils.copy(plantilla.toPath(), carpetaSalida.toPath());
+		CopiadorDeDirectorios.copiarDirectorio(plantilla.toPath(), carpetaSalida.toPath());
 	}
 
 	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada) throws IOException {
