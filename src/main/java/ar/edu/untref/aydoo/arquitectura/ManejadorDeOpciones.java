@@ -98,42 +98,16 @@ public class ManejadorDeOpciones {
 	private List<Character> obtenerListaCaracteresValidos() {
 
 		List<Character> listaValidos = new ArrayList<Character>();
-		listaValidos.add('a');
-		listaValidos.add('m');
-		listaValidos.add('y');
-		listaValidos.add('b');
-		listaValidos.add('n');
-		listaValidos.add('z');
-		listaValidos.add('c');
-		listaValidos.add('o');
-		listaValidos.add('0');
-		listaValidos.add('d');
-		listaValidos.add('p');
-		listaValidos.add('1');
-		listaValidos.add('e');
-		listaValidos.add('q');
-		listaValidos.add('2');
-		listaValidos.add('f');
-		listaValidos.add('r');
-		listaValidos.add('3');
-		listaValidos.add('g');
-		listaValidos.add('s');
-		listaValidos.add('4');
-		listaValidos.add('h');
-		listaValidos.add('t');
-		listaValidos.add('5');
-		listaValidos.add('i');
-		listaValidos.add('u');
-		listaValidos.add('6');
-		listaValidos.add('j');
-		listaValidos.add('v');
-		listaValidos.add('7');
-		listaValidos.add('k');
-		listaValidos.add('w');
-		listaValidos.add('8');
-		listaValidos.add('l');
-		listaValidos.add('x');
-		listaValidos.add('9');
+
+		for(char letra = 'a'; letra <= 'z'; letra++) {
+			listaValidos.add(letra);
+			listaValidos.add(Character.toUpperCase(letra));
+		}
+		
+		for(char digito = '0'; digito <= '9'; digito++) {
+			listaValidos.add(digito);
+		}
+
 		listaValidos.add('-');
 		listaValidos.add('_');
 		listaValidos.add('.');

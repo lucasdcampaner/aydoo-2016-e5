@@ -19,7 +19,7 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarTituloMD() {
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String titulo = "# Titulo";
 		Item itemEsperado = new Titulo(titulo);
 		
@@ -31,7 +31,7 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarSubTituloMD() {
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String subTitulo = "## SubTitulo";
 		Item itemEsperado = new SubTitulo(subTitulo);
 		
@@ -43,7 +43,7 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarTextoPlanoMD() {
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String textoPlano = "Texto plano";
 		Item itemEsperado = new TextoPlano(textoPlano);
 		
@@ -55,7 +55,7 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarImagenMD() {
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String imagen = "i:imagen.jpg";
 		Item itemEsperado = new Imagen(imagen);
 		
@@ -67,7 +67,7 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void seAgregarOtroItemPermitidoMD() {
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		Item nuevoItemPermitido = new Titulo("# Titulo2");
 		
 		contructoraDeItems.agregarItemPermitido(nuevoItemPermitido);
@@ -95,7 +95,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(soloUnTitulo);
 		itemsInstanciados.add(seccion3);
 		itemsInstanciados.add(soloTexto);
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
@@ -128,7 +128,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(soloUnTitulo);
 		itemsInstanciados.add(seccion3);
 		itemsInstanciados.add(soloTexto);
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String encabezadoSinSeccion = "Encabezado";
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
@@ -168,7 +168,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(unItemDeUnaLista);
 		itemsInstanciados.add(otroItem);
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
@@ -226,7 +226,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(listaSeis);
 		itemsInstanciados.add(listaSiete);
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Primera lista</h1><ul><li>Uno</li><li>Dos</li></ul></section>";
 		String terceraSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
@@ -274,7 +274,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(seccion5);
 		itemsInstanciados.add(imagen);
 		
-		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";

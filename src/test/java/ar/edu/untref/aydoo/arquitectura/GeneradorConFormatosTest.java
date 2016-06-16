@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.arquitectura.ConstructoraDeItems;
+import ar.edu.untref.aydoo.arquitectura.ConstructoraDeItem;
 import ar.edu.untref.aydoo.arquitectura.GeneradorConFormatos;
 import ar.edu.untref.aydoo.dominio.Item;
 import ar.edu.untref.aydoo.dominio.ItemLista;
@@ -22,7 +22,7 @@ public class GeneradorConFormatosTest {
 	public void seGeneraListaConInstanciasCorrectasDelEjemplo1() throws IOException {
 
 		//Preparacion
-		ConstructoraDeItems formateadorHTML = new ConstructoraDeItems(); 
+		ConstructoraDeItem formateadorHTML = new ConstructoraDeItem(); 
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(formateadorHTML);
 		List<String> itemsLeidos = new ArrayList<String>();
 		itemsLeidos.add("---");
@@ -51,7 +51,7 @@ public class GeneradorConFormatosTest {
 	public void seGeneraListaConInstanciasCorrectasDelEjemploConBullets() throws IOException {
 
 		//Preparacion
-		ConstructoraDeItems formateadorHTML = new ConstructoraDeItems(); 
+		ConstructoraDeItem formateadorHTML = new ConstructoraDeItem(); 
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(formateadorHTML);
 		List<String> itemsLeidos = new ArrayList<String>();
 		itemsLeidos.add("---");
@@ -86,7 +86,7 @@ public class GeneradorConFormatosTest {
 	public void seGeneraListaConInstanciasCorrectasDelEjemploConEncabezadoSinSeccion() throws IOException {
 
 		//Preparacion
-		ConstructoraDeItems formateadorHTML = new ConstructoraDeItems(); 
+		ConstructoraDeItem formateadorHTML = new ConstructoraDeItem(); 
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(formateadorHTML);
 		List<String> itemsLeidos = new ArrayList<String>();
 		itemsLeidos.add("Encabezado");
@@ -117,7 +117,7 @@ public class GeneradorConFormatosTest {
 	public void seGeneraListaConInstanciasCorrectasDelEjemploConMultiplesBullets() throws IOException {
 
 		//Preparacion
-		ConstructoraDeItems formateadorHTML = new ConstructoraDeItems(); 
+		ConstructoraDeItem formateadorHTML = new ConstructoraDeItem(); 
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(formateadorHTML);
 		List<String> itemsLeidos = new ArrayList<String>();
 		itemsLeidos.add("---");

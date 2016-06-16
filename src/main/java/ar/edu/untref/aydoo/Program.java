@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-import ar.edu.untref.aydoo.arquitectura.ConstructoraDeItems;
+import ar.edu.untref.aydoo.arquitectura.ConstructoraDeItem;
 import ar.edu.untref.aydoo.arquitectura.GeneradorConFormatos;
 import ar.edu.untref.aydoo.arquitectura.GeneradorSalida;
 import ar.edu.untref.aydoo.arquitectura.LectorDeArchivoDeEntrada;
@@ -23,7 +23,7 @@ public class Program {
 		getParametrosAplicacion(args);
 		LectorDeArchivoDeEntrada lectorDeArchivoDeEntrada = new LectorDeArchivoDeEntrada(archivoEntrada);
 		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsLeidos();
-		ConstructoraDeItems constructoraDeItems = new ConstructoraDeItems();
+		ConstructoraDeItem constructoraDeItems = new ConstructoraDeItem();
 		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(constructoraDeItems); 
 		List<Item> itemsObtenidos = generadorConFormatos.getItemsInstanciadosMD(itemsLeidos);		
 		List<Item> listaParaSalida = constructoraDeItems.crearListaParaSalidaHTML(itemsObtenidos);
