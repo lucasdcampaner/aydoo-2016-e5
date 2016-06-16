@@ -7,8 +7,4 @@ public abstract class Formateador {
 	public abstract Item instanciarItemLeidoMD(String itemLeido);
 
 	public abstract List<Item> crearListaParaSalidaHTML(List<Item> itemsObtenidos);
-	
-	public abstract String getInicioItemListaContenedorFormateado();
-
-	public abstract String getFinItemListaContenedorFormateado();
 }

@@ -19,28 +19,23 @@ public class ItemListaContenedor extends Item {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getInicioItemListaContenedorFormateado() + getFormatoListoEnHTML()
-				+ formateador.getFinItemListaContenedorFormateado();
+		
+		String inicioItemListaFormateada = "<ul>";
+		String finItemListaFormateada = "</ul>";
+		
+		return inicioItemListaFormateada + getItemsListaEnHTML() + finItemListaFormateada;
 	}
 
-	private String getFormatoListoEnHTML() {
-		String html = "";
+	private String getItemsListaEnHTML() {
+
+		String itemsListaEnHTML = "";
 
 		Formateador formateadorHTML = new FormateadorHTML();
 
 		for (Item item : this.listaDeItems) {
-			html += item.getTextoFormateado(formateadorHTML);
+			itemsListaEnHTML += item.getTextoFormateado(formateadorHTML);
 		}
-
-		return html;
-	}
-
-	public String getInicioFormateado(Formateador formateador) {
-		return formateador.getInicioItemListaContenedorFormateado();
-	}
-
-	public String getFinFormateado(Formateador formateador) {
-		return formateador.getFinItemListaContenedorFormateado();
+		return itemsListaEnHTML;
 	}
 
 	@Override

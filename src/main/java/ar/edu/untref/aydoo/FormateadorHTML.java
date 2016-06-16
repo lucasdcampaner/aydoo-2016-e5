@@ -59,17 +59,5 @@ public class FormateadorHTML extends Formateador {
 			}
 		}
 		return listaParaSalida;
-	}
-	
-	@Override
-	public String getInicioItemListaContenedorFormateado() {
-		String itemListaFormateada = "<ul>";
-		return itemListaFormateada;
-	}
-
-	@Override
-	public String getFinItemListaContenedorFormateado() {
-		String itemListaFormateada = "</ul>";
-		return itemListaFormateada;
 	}	
 }
