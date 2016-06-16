@@ -6,6 +6,11 @@ public class Seccion extends Item {
 
 	private ArrayList<Item> listaDeItems;
 
+	public Seccion(String texto) {
+		super(texto, true, false);
+		this.listaDeItems = new ArrayList<>();
+	}
+	
 	@Override
 	public Item instanciarConMD(String texto) {
 		Item seccion = null;
@@ -15,16 +20,13 @@ public class Seccion extends Item {
 		return seccion;
 	}	
 	
-	public Seccion(String texto) {
-		super(texto, true, false);
-		this.listaDeItems = new ArrayList<>();
-	}
-
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getInicioSectionFormateado() + getElementosContenidosEnFormato()
-				+ formateador.getFinSectionFormateado();
-
+	
+		String inicioSeccionFormateada = "<section>";	
+		String finSeccionFormateada = "</section>";
+		
+		return inicioSeccionFormateada + getElementosContenidosEnFormato() + finSeccionFormateada;
 	}
 
 	public void agregarElementoEnContenedor(Item item) {
@@ -41,13 +43,10 @@ public class Seccion extends Item {
 			elementosFormateados += itemEntrada.getTextoFormateado(formateadorHTML);
 
 		}
-
 		return elementosFormateados;
 	}
 
 	public ArrayList<Item> getElementosEnContenedor() {
 		return this.listaDeItems;
 	}
-
-
 }

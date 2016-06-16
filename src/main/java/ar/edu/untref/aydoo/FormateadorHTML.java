@@ -61,22 +61,6 @@ public class FormateadorHTML extends Formateador {
 		return listaParaSalida;
 	}
 	
-	
-	
-	@Override
-	public String getInicioSectionFormateado() {
-
-		String sectionFormateada = "<section>";
-		return sectionFormateada;
-	}
-
-	@Override
-	public String getFinSectionFormateado() {
-
-		String sectionFormateada = "</section>";
-		return sectionFormateada;
-	}
-
 	@Override
 	public String getInicioItemListaContenedorFormateado() {
 		String itemListaFormateada = "<ul>";
