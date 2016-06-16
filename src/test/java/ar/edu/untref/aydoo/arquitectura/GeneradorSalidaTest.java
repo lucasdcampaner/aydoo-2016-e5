@@ -36,7 +36,7 @@ public class GeneradorSalidaTest {
 		itemsEntrada.add(section2);
 		itemsEntrada.add(section3);
 		//Generador de salida
-		String carpetaSalida = "presentacion";
+		String carpetaSalida = "ejemplo1";
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 		String salidaPorPantallaEsperada = "<section>"
 										 		+ "<h1>El titulo</h1>"
@@ -51,7 +51,6 @@ public class GeneradorSalidaTest {
 		
 		String salidaPorPantallaObtenida = generadorSalida.generarStringSalidaHTML(itemsEntrada);
 		
-		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);
-	
+		Assert.assertEquals(salidaPorPantallaEsperada, salidaPorPantallaObtenida);	
 	}
 }

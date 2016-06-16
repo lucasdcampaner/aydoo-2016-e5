@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo.arquitectura;
+ package ar.edu.untref.aydoo.arquitectura;
 
 import java.io.File;
 import java.io.FileWriter;
