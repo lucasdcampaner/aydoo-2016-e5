@@ -2,8 +2,10 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-import ar.edu.untref.aydoo.arquitectura.GeneradorItemsDesdeArchivo;
+import ar.edu.untref.aydoo.arquitectura.ConstructoraDeItems;
+import ar.edu.untref.aydoo.arquitectura.GeneradorConFormatos;
 import ar.edu.untref.aydoo.arquitectura.GeneradorSalida;
+import ar.edu.untref.aydoo.arquitectura.LectorDeArchivoDeEntrada;
 import ar.edu.untref.aydoo.arquitectura.ManejadorDeOpciones;
 import ar.edu.untref.aydoo.dominio.Item;
 
@@ -19,19 +21,24 @@ public class Program {
 	public static final void main(String args[]) throws Exception {
 
 		getParametrosAplicacion(args);
-		GeneradorItemsDesdeArchivo generadorItemsDesdeArchivo = new GeneradorItemsDesdeArchivo(archivoEntrada);
-		List<Item> itemsEntrada = generadorItemsDesdeArchivo.getItemsEntrada();
+		LectorDeArchivoDeEntrada lectorDeArchivoDeEntrada = new LectorDeArchivoDeEntrada(archivoEntrada);
+		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsLeidos();
+		ConstructoraDeItems constructoraDeItems = new ConstructoraDeItems();
+		GeneradorConFormatos generadorConFormatos = new GeneradorConFormatos(constructoraDeItems); 
+		List<Item> itemsObtenidos = generadorConFormatos.getItemsInstanciadosMD(itemsLeidos);		
+		List<Item> listaParaSalida = constructoraDeItems.crearListaParaSalidaHTML(itemsObtenidos);
+		
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 
 		switch (mode) {
 		case modeDefault:
-			generadorSalida.generarSalidaEnCarpeta(itemsEntrada);
+			generadorSalida.generarSalidaEnCarpeta(listaParaSalida);
 			break;
 		case noOutput:
-			System.out.println(generadorSalida.generarStringSalidaHTML(itemsEntrada));
+			System.out.println(generadorSalida.generarStringSalidaHTML(listaParaSalida));
 			break;
 		default:
-			generadorSalida.generarSalidaEnCarpeta(itemsEntrada);
+			generadorSalida.generarSalidaEnCarpeta(listaParaSalida);
 			break;
 		}
 	}

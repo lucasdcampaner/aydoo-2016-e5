@@ -26,7 +26,7 @@ public class LectorDeArchivoDeEntradaTest {
 		itemsEsperados.add("solo texto sin nada mas");		
 
 		//Invocacion
-		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsEntrada(); 
+		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsLeidos(); 
 
 		//Asserts
 		for (int i = 0; i < itemsEsperados.size(); i++) {
@@ -52,7 +52,7 @@ public class LectorDeArchivoDeEntradaTest {
 		itemsEsperados.add("* Otro item");
 
 		//Invocacion
-		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsEntrada(); 
+		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsLeidos(); 
 
 		//Asserts
 		for (int i = 0; i < itemsEsperados.size(); i++) {
@@ -76,7 +76,7 @@ public class LectorDeArchivoDeEntradaTest {
 		itemsEsperados.add("solo texto sin nada mas");
 		
 		//Invocacion
-		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsEntrada(); 
+		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsLeidos(); 
 
 		//Asserts
 		for (int i = 0; i < itemsEsperados.size(); i++) {
@@ -111,7 +111,7 @@ public class LectorDeArchivoDeEntradaTest {
 		itemsEsperados.add("* Siete");
 		
 		//Invocacion
-		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsEntrada(); 
+		List<String> itemsObtenidos = lectorDeArchivoDeEntrada.getListaItemsLeidos(); 
 
 		//Asserts
 		for (int i = 0; i < itemsEsperados.size(); i++) {

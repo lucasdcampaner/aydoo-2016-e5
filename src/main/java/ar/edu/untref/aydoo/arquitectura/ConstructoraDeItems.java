@@ -14,11 +14,11 @@ import ar.edu.untref.aydoo.dominio.SubTitulo;
 import ar.edu.untref.aydoo.dominio.TextoPlano;
 import ar.edu.untref.aydoo.dominio.Titulo;
 
-public class FormateadorHTML {
+public class ConstructoraDeItems {
 
 	private List<Item> itemsPermitidos = new ArrayList<Item>();
 	
-	public FormateadorHTML() {
+	public ConstructoraDeItems() {
 		itemsPermitidos.add(new Imagen(""));
 		itemsPermitidos.add(new ItemLista(""));
 		itemsPermitidos.add(new Seccion(""));

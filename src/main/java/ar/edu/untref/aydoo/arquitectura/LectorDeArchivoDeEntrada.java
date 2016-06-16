@@ -19,7 +19,7 @@ public class LectorDeArchivoDeEntrada {
 		this.scanner = new Scanner(this.archivoEntrada);
 	}
 
-	public List<String> getListaItemsEntrada() {
+	public List<String> getListaItemsLeidos() {
 		
 		String lineaLeida = "";
 		while (scanner.hasNextLine()) {

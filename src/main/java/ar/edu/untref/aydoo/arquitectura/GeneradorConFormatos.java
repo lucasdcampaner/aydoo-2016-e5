@@ -7,9 +7,9 @@ import ar.edu.untref.aydoo.dominio.Item;
 
 public class GeneradorConFormatos {
 
-	private FormateadorHTML formateador;
+	private ConstructoraDeItems formateador;
 	
-	public GeneradorConFormatos(FormateadorHTML formateador) {
+	public GeneradorConFormatos(ConstructoraDeItems formateador) {
 		this.formateador = formateador;
 	}
 	
