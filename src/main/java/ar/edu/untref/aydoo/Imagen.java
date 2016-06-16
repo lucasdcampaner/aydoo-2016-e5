@@ -6,7 +6,7 @@ public class Imagen extends Item {
 	public Item instanciarConMD(String texto) {
 		Item imagen = null;
 		if (texto.startsWith("i:")) {
-			imagen = new Imagen(texto.substring(0, 3));
+			imagen = new Imagen(texto.substring(3, texto.length()));
 		}
 		return imagen;
 	}
@@ -17,11 +17,15 @@ public class Imagen extends Item {
 
 	@Override
 	public String getTextoFormateado(Formateador formateador) {
-		return formateador.getImagenFormateado(this.getTexto());
+		
+		String tagInicio = "<img src=\"";
+		String tagFin = "\"/>";
+
+		String imagenFormateado = tagInicio + super.getTexto() + tagFin;
+
+		return imagenFormateado;
 	}
 
 	@Override
-	public void agregarElementoEnContenedor(Item item) {
-	}
-
+	public void agregarElementoEnContenedor(Item item) {}
 }
