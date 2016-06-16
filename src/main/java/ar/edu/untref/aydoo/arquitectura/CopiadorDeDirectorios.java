@@ -9,9 +9,12 @@ public class CopiadorDeDirectorios {
 
 	private CopiadorDeDirectorios() {}
 
-	public static void copiarDirectorio(Path from, Path to) throws IOException {
+	public static boolean copiarDirectorio(Path from, Path to) throws IOException {
+		
+		boolean copioCorrectamente = true;
 		validar(from);
 		Files.walkFileTree(from, EnumSet.of(FileVisitOption.FOLLOW_LINKS), Integer.MAX_VALUE, new CopiadorDeDirectoriosVisitor(from, to));
+		return copioCorrectamente;
 	}
 
 	private static void validar(Path... paths) {
