@@ -65,6 +65,19 @@ public class ConstructoraDeItemsTest {
 	}
 	
 	@Test
+	public void seAgregarOtroItemPermitidoMD() {
+		
+		ConstructoraDeItems contructoraDeItems = new ConstructoraDeItems();
+		Item nuevoItemPermitido = new Titulo("# Titulo2");
+		
+		contructoraDeItems.agregarItemPermitido(nuevoItemPermitido);
+		boolean esPermitido = contructoraDeItems.permiteItem(nuevoItemPermitido);
+		
+		Assert.assertTrue(esPermitido);
+	}
+	
+	
+	@Test
 	public void seCreaListaDeItemsParaSalidaDelEjemplo1() {		
 		
 		Item seccion1 = new Seccion("---");

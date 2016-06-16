@@ -31,6 +31,10 @@ public class ConstructoraDeItems {
 		itemsPermitidos.add(itemPermitidoNuevo);
 	}
 	
+	public boolean permiteItem(Item item) {
+		return itemsPermitidos.contains(item);
+	}
+	
 	public Item instanciarItemLeidoMD(String itemLeido) {
 		
 		Item itemInstanciado = null;
