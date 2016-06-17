@@ -14,16 +14,16 @@ import ar.edu.untref.aydoo.dominio.SubTitulo;
 import ar.edu.untref.aydoo.dominio.TextoPlano;
 import ar.edu.untref.aydoo.dominio.Titulo;
 
-public class ConstructoraDeItemsTest {
+public class FabricaDeItemsTest {
 
 	@Test
 	public void instanciarTituloMD() {
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String titulo = "# Titulo";
 		Item itemEsperado = new Titulo(titulo);
 		
-		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(titulo);
+		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(titulo);
 		
 		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
 	}
@@ -31,11 +31,11 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarSubTituloMD() {
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String subTitulo = "## SubTitulo";
 		Item itemEsperado = new SubTitulo(subTitulo);
 		
-		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(subTitulo);
+		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(subTitulo);
 		
 		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
 	}
@@ -43,11 +43,11 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarTextoPlanoMD() {
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String textoPlano = "Texto plano";
 		Item itemEsperado = new TextoPlano(textoPlano);
 		
-		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(textoPlano);
+		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(textoPlano);
 		
 		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
 	}
@@ -55,11 +55,11 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void instanciarImagenMD() {
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String imagen = "i:imagen.jpg";
 		Item itemEsperado = new Imagen(imagen);
 		
-		Item itemObtenido = contructoraDeItems.instanciarItemLeidoMD(imagen);
+		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(imagen);
 		
 		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
 	}
@@ -67,11 +67,11 @@ public class ConstructoraDeItemsTest {
 	@Test
 	public void seAgregarOtroItemPermitidoMD() {
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		Item nuevoItemPermitido = new Titulo("# Titulo2");
 		
-		contructoraDeItems.agregarItemPermitido(nuevoItemPermitido);
-		boolean esPermitido = contructoraDeItems.permiteItem(nuevoItemPermitido);
+		fabricaDeItems.agregarItemPermitido(nuevoItemPermitido);
+		boolean esPermitido = fabricaDeItems.permiteItem(nuevoItemPermitido);
 		
 		Assert.assertTrue(esPermitido);
 	}
@@ -95,12 +95,12 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(soloUnTitulo);
 		itemsInstanciados.add(seccion3);
 		itemsInstanciados.add(soloTexto);
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
 
-		List<Item> listaParaSalida = contructoraDeItems.crearListaParaSalidaHTML(itemsInstanciados);
+		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
 
 		Assert.assertEquals(3, listaParaSalida.size());
 		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
@@ -128,13 +128,13 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(soloUnTitulo);
 		itemsInstanciados.add(seccion3);
 		itemsInstanciados.add(soloTexto);
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String encabezadoSinSeccion = "Encabezado";
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
 
-		List<Item> listaParaSalida = contructoraDeItems.crearListaParaSalidaHTML(itemsInstanciados);
+		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
 
 		Assert.assertEquals(4, listaParaSalida.size());
 		Assert.assertEquals(encabezadoSinSeccion, listaParaSalida.get(0).getTextoFormateadoHTML());
@@ -168,13 +168,13 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(unItemDeUnaLista);
 		itemsInstanciados.add(otroItem);
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
 		String cuartaSeccionEsperada = "<section><ul><li>Un item de una lista</li><li>Otro item</li></ul></section>";
 
-		List<Item> listaParaSalida = contructoraDeItems.crearListaParaSalidaHTML(itemsInstanciados);
+		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
 
 		Assert.assertEquals(4, listaParaSalida.size());
 		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
@@ -226,7 +226,7 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(listaSeis);
 		itemsInstanciados.add(listaSiete);
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Primera lista</h1><ul><li>Uno</li><li>Dos</li></ul></section>";
 		String terceraSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
@@ -234,7 +234,7 @@ public class ConstructoraDeItemsTest {
 		String quintaSeccionEsperada = "<section><h1>Segunda lista</h1><ul><li>Tres</li><li>Cuatro</li><li>Cinco</li></ul></section>";
 		String sextaSeccionEsperada = "<section><ul><li>Seis</li><li>Siete</li></ul></section>";
 
-		List<Item> listaParaSalida = contructoraDeItems.crearListaParaSalidaHTML(itemsInstanciados);
+		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
 
 		Assert.assertEquals(6, listaParaSalida.size());
 		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
@@ -274,14 +274,14 @@ public class ConstructoraDeItemsTest {
 		itemsInstanciados.add(seccion5);
 		itemsInstanciados.add(imagen);
 		
-		ConstructoraDeItem contructoraDeItems = new ConstructoraDeItem();
+		FabricaDeItem fabricaDeItems = new FabricaDeItem();
 		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
 		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
 		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
 		String cuartaSeccionEsperada = "<section><ul><li>Un item de una lista</li><li>Otro item</li></ul></section>";
 		String quintaSeccionEsperada = "<section><img src=\"/home/lucas/aydoo-2016-e5/src/test/resources/winteriscoming.jpg\"/></section>";
 
-		List<Item> listaParaSalida = contructoraDeItems.crearListaParaSalidaHTML(itemsInstanciados);
+		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
 
 		Assert.assertEquals(5, listaParaSalida.size());
 		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());

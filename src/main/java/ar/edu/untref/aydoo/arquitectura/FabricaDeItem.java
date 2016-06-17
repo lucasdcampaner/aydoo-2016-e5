@@ -14,11 +14,11 @@ import ar.edu.untref.aydoo.dominio.SubTitulo;
 import ar.edu.untref.aydoo.dominio.TextoPlano;
 import ar.edu.untref.aydoo.dominio.Titulo;
 
-public class ConstructoraDeItem {
+public class FabricaDeItem {
 
 	private List<Item> itemsPermitidos = new ArrayList<Item>();
 	
-	public ConstructoraDeItem() {
+	public FabricaDeItem() {
 		itemsPermitidos.add(new Imagen(""));
 		itemsPermitidos.add(new ItemLista(""));
 		itemsPermitidos.add(new Seccion(""));

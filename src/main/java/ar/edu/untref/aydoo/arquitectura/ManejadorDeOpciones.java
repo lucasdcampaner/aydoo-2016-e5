@@ -99,12 +99,12 @@ public class ManejadorDeOpciones {
 
 		List<Character> listaValidos = new ArrayList<Character>();
 
-		for(char letra = 'a'; letra <= 'z'; letra++) {
+		for (char letra = 'a'; letra <= 'z'; letra++) {
 			listaValidos.add(letra);
 			listaValidos.add(Character.toUpperCase(letra));
 		}
-		
-		for(char digito = '0'; digito <= '9'; digito++) {
+
+		for (char digito = '0'; digito <= '9'; digito++) {
 			listaValidos.add(digito);
 		}
 
