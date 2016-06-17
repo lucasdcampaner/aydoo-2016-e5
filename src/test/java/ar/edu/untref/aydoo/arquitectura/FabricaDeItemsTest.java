@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.constructores.FabricaDeItem;
 import ar.edu.untref.aydoo.dominio.Imagen;
 import ar.edu.untref.aydoo.dominio.Item;
 import ar.edu.untref.aydoo.dominio.ItemLista;

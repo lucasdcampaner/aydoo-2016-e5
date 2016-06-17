@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.arquitectura.FabricaDeItem;
 import ar.edu.untref.aydoo.arquitectura.GeneradorConFormatos;
+import ar.edu.untref.aydoo.constructores.FabricaDeItem;
 import ar.edu.untref.aydoo.dominio.Item;
 import ar.edu.untref.aydoo.dominio.ItemLista;
 import ar.edu.untref.aydoo.dominio.Seccion;
