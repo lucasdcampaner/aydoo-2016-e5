@@ -1,18 +1,18 @@
 package ar.edu.untref.aydoo.constructores;
 
 import ar.edu.untref.aydoo.dominio.Item;
-import ar.edu.untref.aydoo.dominio.Titulo;
+import ar.edu.untref.aydoo.dominio.ItemLista;
 
-public class ConstructorDeTitulo extends ConstructorDeItem {
+public class ConstructorDeItemLista extends ConstructorDeItem {
 
 	@Override
 	public Item construir(String texto) {
 
 		Item resultado = null;
 
-		if (texto.startsWith("#")) {
+		if (texto.startsWith("* ")) {
 
-			resultado = new Titulo(texto.substring(2, texto.length()));
+			resultado = new ItemLista(texto.substring(2, texto.length()));
 			this.detenerConstruccion();
 		} else {
 

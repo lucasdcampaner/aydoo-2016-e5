@@ -1,15 +1,17 @@
 package ar.edu.untref.aydoo.dominio;
 
+import java.util.List;
+
 public class Imagen extends Item {
 
-	@Override
-	public Item instanciarConMD(String texto) {
-		Item imagen = null;
-		if (texto.startsWith("i:")) {
-			imagen = new Imagen(texto.substring(3, texto.length()));
-		}
-		return imagen;
-	}
+//	@Override
+//	public Item instanciarConMD(String texto) {
+//		Item imagen = null;
+//		if (texto.startsWith("i:")) {
+//			imagen = new Imagen(texto.substring(3, texto.length()));
+//		}
+//		return imagen;
+//	}
 
 	public Imagen(String texto) {
 		super(texto, false, false);
@@ -28,5 +30,11 @@ public class Imagen extends Item {
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {
+	}
+
+	@Override
+	public List<Item> getElementosEnContenedor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

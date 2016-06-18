@@ -1,15 +1,11 @@
 package ar.edu.untref.aydoo.dominio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemListaContenedor extends Item {
 
 	private ArrayList<Item> listaDeItems;
-
-	@Override
-	public Item instanciarConMD(String texto) {
-		return null;
-	}
 
 	public ItemListaContenedor(String texto) {
 		super(texto, true, false);
@@ -40,7 +36,8 @@ public class ItemListaContenedor extends Item {
 		this.listaDeItems.add(item);
 	}
 
-	public ArrayList<Item> getElementosEnColeccion() {
+	@Override
+	public List<Item> getElementosEnContenedor() {
 		return this.listaDeItems;
 	}
 }

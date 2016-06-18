@@ -1,18 +1,13 @@
 package ar.edu.untref.aydoo.dominio;
 
+import java.util.List;
+
+import ar.edu.untref.aydoo.constructores.ConstructorDeTitulo;
+
 public class Titulo extends Item {
 
 	public Titulo(String contenido) {
 		super(contenido, false, false);
-	}
-
-	@Override
-	public Item instanciarConMD(String texto) {
-		Item titulo = null;
-		if (texto.startsWith("#")) {
-			titulo = new Titulo(texto.substring(2, texto.length()));
-		}
-		return titulo;
 	}
 
 	@Override
@@ -29,4 +24,11 @@ public class Titulo extends Item {
 	@Override
 	public void agregarElementoEnContenedor(Item item) {
 	}
+
+	@Override
+	public List<Item> getElementosEnContenedor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

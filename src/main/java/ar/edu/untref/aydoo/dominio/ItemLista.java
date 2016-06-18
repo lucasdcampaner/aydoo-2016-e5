@@ -1,15 +1,8 @@
 package ar.edu.untref.aydoo.dominio;
 
-public class ItemLista extends Item {
+import java.util.List;
 
-	@Override
-	public Item instanciarConMD(String texto) {
-		Item itemLista = null;
-		if (texto.startsWith("* ")) {
-			itemLista = new ItemLista(texto.substring(2, texto.length()));
-		}
-		return itemLista;
-	}
+public class ItemLista extends Item {
 
 	public ItemLista(String texto) {
 		super(texto, false, true);
@@ -28,5 +21,11 @@ public class ItemLista extends Item {
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {
+	}
+
+	@Override
+	public List<Item> getElementosEnContenedor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

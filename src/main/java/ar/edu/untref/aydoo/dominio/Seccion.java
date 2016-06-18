@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo.dominio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Seccion extends Item {
 
@@ -9,15 +10,6 @@ public class Seccion extends Item {
 	public Seccion(String texto) {
 		super(texto, true, false);
 		this.listaDeItems = new ArrayList<>();
-	}
-
-	@Override
-	public Item instanciarConMD(String texto) {
-		Item seccion = null;
-		if (texto.startsWith("---")) {
-			seccion = new Seccion("---");
-		}
-		return seccion;
 	}
 
 	@Override
@@ -44,7 +36,7 @@ public class Seccion extends Item {
 		return elementosFormateados;
 	}
 
-	public ArrayList<Item> getElementosEnContenedor() {
+	public List<Item> getElementosEnContenedor() {
 		return this.listaDeItems;
 	}
 }

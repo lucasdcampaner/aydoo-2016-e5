@@ -1,294 +1,200 @@
 package ar.edu.untref.aydoo.constructores;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.constructores.FabricaDeItem;
-import ar.edu.untref.aydoo.dominio.Imagen;
 import ar.edu.untref.aydoo.dominio.Item;
 import ar.edu.untref.aydoo.dominio.ItemLista;
+import ar.edu.untref.aydoo.dominio.ItemListaContenedor;
 import ar.edu.untref.aydoo.dominio.Seccion;
-import ar.edu.untref.aydoo.dominio.SubTitulo;
 import ar.edu.untref.aydoo.dominio.TextoPlano;
 import ar.edu.untref.aydoo.dominio.Titulo;
 
 public class FabricaDeItemsTest {
 
+	private FabricaDeItem fabricaDeItem = new FabricaDeItem();
+	private List<String> listaLeida;
+	private List<Item> listaSalida;
+	
 	@Test
-	public void instanciarTituloMD() {
+	public void crearDosItemsTextoPlano() {
+				
+		listaLeida = Arrays.asList("TextoPlano1", "TextoPlano2");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String titulo = "# Titulo";
-		Item itemEsperado = new Titulo(titulo);
-		
-		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(titulo);
-		
-		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+		Assert.assertEquals(2, listaSalida.size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(listaLeida.get(0), listaSalida.get(0).getTexto());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(1).getClass());
+		Assert.assertEquals(listaLeida.get(1), listaSalida.get(1).getTexto());
 	}
 	
 	@Test
-	public void instanciarSubTituloMD() {
+	public void crearUnItemsSeccion() {
+				
+		listaLeida = Arrays.asList("---");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String subTitulo = "## SubTitulo";
-		Item itemEsperado = new SubTitulo(subTitulo);
-		
-		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(subTitulo);
-		
-		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
 	}
 	
 	@Test
-	public void instanciarTextoPlanoMD() {
+	public void crearUnItemsSeccionConUnTextoPlano() {
+				
+		listaLeida = Arrays.asList("---", "TextoPlano1");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String textoPlano = "Texto plano";
-		Item itemEsperado = new TextoPlano(textoPlano);
-		
-		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(textoPlano);
-		
-		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
 	}
 	
 	@Test
-	public void instanciarImagenMD() {
+	public void crearUnItemsSeccionConTresTextosPlano() {
+				
+		listaLeida = Arrays.asList("---", "TextoPlano1", "TextoPlano2", "TextoPlano3");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String imagen = "i:imagen.jpg";
-		Item itemEsperado = new Imagen(imagen);
-		
-		Item itemObtenido = fabricaDeItems.instanciarItemLeidoMD(imagen);
-		
-		Assert.assertEquals(itemEsperado.getClass(), itemObtenido.getClass());
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(3, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getElementosEnContenedor().get(1).getClass());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getElementosEnContenedor().get(2).getClass());
 	}
 	
 	@Test
-	public void seAgregarOtroItemPermitidoMD() {
-		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		Item nuevoItemPermitido = new Titulo("# Titulo2");
-		
-		fabricaDeItems.agregarItemPermitido(nuevoItemPermitido);
-		boolean esPermitido = fabricaDeItems.permiteItem(nuevoItemPermitido);
-		
-		Assert.assertTrue(esPermitido);
-	}
+	public void crearUnItemsSeccionConUnTitulo() {
+				
+		listaLeida = Arrays.asList("---", "# Titulo1");
 	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
+		
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+	}
+
+	@Test
+	public void crearUnItemsSeccionConDosTitulos() {
+				
+		listaLeida = Arrays.asList("---", "# Titulo1", "# Titulo2");
 	
-	@Test
-	public void seCreaListaDeItemsParaSalidaDelEjemplo1() {		
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		Item seccion1 = new Seccion("---");
-		Item elTitulo = new Titulo("El titulo");
-		Item elSubTitulo = new SubTitulo("El subtitulo");
-		Item seccion2 = new Seccion("---");
-		Item soloUnTitulo = new Titulo("Solo un titulo");
-		Item seccion3 = new Seccion("---");
-		Item soloTexto = new TextoPlano("solo texto sin nada mas");
-		List<Item> itemsInstanciados = new ArrayList<Item>();
-		itemsInstanciados.add(seccion1);
-		itemsInstanciados.add(elTitulo);
-		itemsInstanciados.add(elSubTitulo);
-		itemsInstanciados.add(seccion2);
-		itemsInstanciados.add(soloUnTitulo);
-		itemsInstanciados.add(seccion3);
-		itemsInstanciados.add(soloTexto);
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
-		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
-		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
-
-		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
-
-		Assert.assertEquals(3, listaParaSalida.size());
-		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
-		Assert.assertEquals(segundaSeccionEsperada,listaParaSalida.get(1).getTextoFormateadoHTML());
-		Assert.assertEquals(terceraSeccionEsperada,listaParaSalida.get(2).getTextoFormateadoHTML());
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(Titulo.class, listaSalida.get(0).getElementosEnContenedor().get(1).getClass());
 	}
 
 	@Test
-	public void seCreaListaDeItemsParaSalidaDelEjemploConEncabezadoSinSeccion()  {
-
-		Item encabezado = new TextoPlano("Encabezado");
-		Item seccion1 = new Seccion("---");
-		Item elTitulo = new Titulo("El titulo");
-		Item elSubTitulo = new SubTitulo("El subtitulo");
-		Item seccion2 = new Seccion("---");
-		Item soloUnTitulo = new Titulo("Solo un titulo");
-		Item seccion3 = new Seccion("---");
-		Item soloTexto = new TextoPlano("solo texto sin nada mas");
-		List<Item> itemsInstanciados = new ArrayList<Item>();
-		itemsInstanciados.add(encabezado);
-		itemsInstanciados.add(seccion1);
-		itemsInstanciados.add(elTitulo);
-		itemsInstanciados.add(elSubTitulo);
-		itemsInstanciados.add(seccion2);
-		itemsInstanciados.add(soloUnTitulo);
-		itemsInstanciados.add(seccion3);
-		itemsInstanciados.add(soloTexto);
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String encabezadoSinSeccion = "Encabezado";
-		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
-		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
-		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
-
-		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
-
-		Assert.assertEquals(4, listaParaSalida.size());
-		Assert.assertEquals(encabezadoSinSeccion, listaParaSalida.get(0).getTextoFormateadoHTML());
-		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(1).getTextoFormateadoHTML());
-		Assert.assertEquals(segundaSeccionEsperada,listaParaSalida.get(2).getTextoFormateadoHTML());
-		Assert.assertEquals(terceraSeccionEsperada,listaParaSalida.get(3).getTextoFormateadoHTML());
-	}
-
-	@Test
-	public void seCreaListaDeItemsParaSalidaDelEjemploConBullets()  {
-
-		Item seccion1 = new Seccion("---");
-		Item elTitulo = new Titulo("El titulo");
-		Item elSubTitulo = new SubTitulo("El subtitulo");
-		Item seccion2 = new Seccion("---");
-		Item soloUnTitulo = new Titulo("Solo un titulo");
-		Item seccion3 = new Seccion("---");
-		Item soloTexto = new TextoPlano("solo texto sin nada mas");
-		Item seccion4 = new Seccion("---");
-		Item unItemDeUnaLista = new ItemLista("Un item de una lista");
-		Item otroItem = new ItemLista("Otro item");
-		List<Item> itemsInstanciados = new ArrayList<Item>();
-		itemsInstanciados.add(seccion1);
-		itemsInstanciados.add(elTitulo);
-		itemsInstanciados.add(elSubTitulo);
-		itemsInstanciados.add(seccion2);
-		itemsInstanciados.add(soloUnTitulo);
-		itemsInstanciados.add(seccion3);
-		itemsInstanciados.add(soloTexto);
-		itemsInstanciados.add(seccion4);
-		itemsInstanciados.add(unItemDeUnaLista);
-		itemsInstanciados.add(otroItem);
-		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
-		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
-		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
-		String cuartaSeccionEsperada = "<section><ul><li>Un item de una lista</li><li>Otro item</li></ul></section>";
-
-		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
-
-		Assert.assertEquals(4, listaParaSalida.size());
-		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
-		Assert.assertEquals(segundaSeccionEsperada,listaParaSalida.get(1).getTextoFormateadoHTML());
-		Assert.assertEquals(terceraSeccionEsperada,listaParaSalida.get(2).getTextoFormateadoHTML());
-		Assert.assertEquals(cuartaSeccionEsperada,listaParaSalida.get(3).getTextoFormateadoHTML());
-	}
+	public void crearTextoPlanoLuegoSeccionConTitulo() {
+				
+		listaLeida = Arrays.asList("TextoPlano", "---", "# Titulo1");
 	
-	@Test
-	public void seCreaListaDeItemsParaSalidaDelEjemploConMultiplesBullets()  {
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		Item seccion1 = new Seccion("---");
-		Item elTitulo = new Titulo("El titulo");
-		Item elSubTitulo = new SubTitulo("El subtitulo");
-		Item seccion2 = new Seccion("---");
-		Item primeraLista = new Titulo("Primera lista");
-		Item listaUno = new ItemLista("Uno");
-		Item listaDos = new ItemLista("Dos");
-		Item seccion3 = new Seccion("---");
-		Item soloUntitulo = new Titulo("Solo un titulo");
-		Item seccion4 = new Seccion("---");		
-		Item soloTexto = new TextoPlano("solo texto sin nada mas");
-		Item seccion5 = new Seccion("---");
-		Item segundaLista = new Titulo("Segunda lista");
-		Item listaTres = new ItemLista("Tres");
-		Item listaCuatro = new ItemLista("Cuatro");
-		Item listaCinco = new ItemLista("Cinco");
-		Item seccion6 = new Seccion("---");
-		Item listaSeis = new ItemLista("Seis");
-		Item listaSiete = new ItemLista("Siete");
-		List<Item> itemsInstanciados = new ArrayList<Item>();
-		itemsInstanciados.add(seccion1);
-		itemsInstanciados.add(elTitulo);
-		itemsInstanciados.add(elSubTitulo);
-		itemsInstanciados.add(seccion2);
-		itemsInstanciados.add(primeraLista);
-		itemsInstanciados.add(listaUno);
-		itemsInstanciados.add(listaDos);
-		itemsInstanciados.add(seccion3);
-		itemsInstanciados.add(soloUntitulo);
-		itemsInstanciados.add(seccion4);
-		itemsInstanciados.add(soloTexto);
-		itemsInstanciados.add(seccion5);
-		itemsInstanciados.add(segundaLista);
-		itemsInstanciados.add(listaTres);
-		itemsInstanciados.add(listaCuatro);
-		itemsInstanciados.add(listaCinco);
-		itemsInstanciados.add(seccion6);
-		itemsInstanciados.add(listaSeis);
-		itemsInstanciados.add(listaSiete);
-		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
-		String segundaSeccionEsperada = "<section><h1>Primera lista</h1><ul><li>Uno</li><li>Dos</li></ul></section>";
-		String terceraSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
-		String cuartaSeccionEsperada = "<section>solo texto sin nada mas</section>";
-		String quintaSeccionEsperada = "<section><h1>Segunda lista</h1><ul><li>Tres</li><li>Cuatro</li><li>Cinco</li></ul></section>";
-		String sextaSeccionEsperada = "<section><ul><li>Seis</li><li>Siete</li></ul></section>";
-
-		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
-
-		Assert.assertEquals(6, listaParaSalida.size());
-		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
-		Assert.assertEquals(segundaSeccionEsperada,listaParaSalida.get(1).getTextoFormateadoHTML());
-		Assert.assertEquals(terceraSeccionEsperada,listaParaSalida.get(2).getTextoFormateadoHTML());
-		Assert.assertEquals(cuartaSeccionEsperada,listaParaSalida.get(3).getTextoFormateadoHTML());
-		Assert.assertEquals(quintaSeccionEsperada,listaParaSalida.get(4).getTextoFormateadoHTML());
-		Assert.assertEquals(sextaSeccionEsperada,listaParaSalida.get(5).getTextoFormateadoHTML());
+		Assert.assertEquals(2, listaSalida.size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(Seccion.class, listaSalida.get(1).getClass());
+		Assert.assertEquals(1, listaSalida.get(1).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(1).getElementosEnContenedor().get(0).getClass());
 	}	
 
 	@Test
-	public void seCreaListaDeItemsParaSalidaDelEjemploConImagen()  {
-
-		Item seccion1 = new Seccion("---");
-		Item elTitulo = new Titulo("El titulo");
-		Item elSubTitulo = new SubTitulo("El subtitulo");
-		Item seccion2 = new Seccion("---");
-		Item soloUnTitulo = new Titulo("Solo un titulo");
-		Item seccion3 = new Seccion("---");
-		Item soloTexto = new TextoPlano("solo texto sin nada mas");
-		Item seccion4 = new Seccion("---");
-		Item unItemDeUnaLista = new ItemLista("Un item de una lista");
-		Item otroItem = new ItemLista("Otro item");
-		Item seccion5 = new Seccion("---");
-		Item imagen = new Imagen("/home/lucas/aydoo-2016-e5/src/test/resources/winteriscoming.jpg");
-		List<Item> itemsInstanciados = new ArrayList<Item>();
-		itemsInstanciados.add(seccion1);
-		itemsInstanciados.add(elTitulo);
-		itemsInstanciados.add(elSubTitulo);
-		itemsInstanciados.add(seccion2);
-		itemsInstanciados.add(soloUnTitulo);
-		itemsInstanciados.add(seccion3);
-		itemsInstanciados.add(soloTexto);
-		itemsInstanciados.add(seccion4);
-		itemsInstanciados.add(unItemDeUnaLista);
-		itemsInstanciados.add(otroItem);
-		itemsInstanciados.add(seccion5);
-		itemsInstanciados.add(imagen);
+	public void crearUnaSeccionConUnItemLista() {
+				
+		listaLeida = Arrays.asList("---", "* Item lista 1");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 		
-		FabricaDeItem fabricaDeItems = new FabricaDeItem();
-		String primeraSeccionEsperada = "<section><h1>El titulo</h1><h2>El subtitulo</h2></section>";
-		String segundaSeccionEsperada = "<section><h1>Solo un titulo</h1></section>";
-		String terceraSeccionEsperada = "<section>solo texto sin nada mas</section>";
-		String cuartaSeccionEsperada = "<section><ul><li>Un item de una lista</li><li>Otro item</li></ul></section>";
-		String quintaSeccionEsperada = "<section><img src=\"/home/lucas/aydoo-2016-e5/src/test/resources/winteriscoming.jpg\"/></section>";
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+	}	
 
-		List<Item> listaParaSalida = fabricaDeItems.crearListaParaSalidaHTML(itemsInstanciados);
-
-		Assert.assertEquals(5, listaParaSalida.size());
-		Assert.assertEquals(primeraSeccionEsperada, listaParaSalida.get(0).getTextoFormateadoHTML());
-		Assert.assertEquals(segundaSeccionEsperada,listaParaSalida.get(1).getTextoFormateadoHTML());
-		Assert.assertEquals(terceraSeccionEsperada,listaParaSalida.get(2).getTextoFormateadoHTML());
-		Assert.assertEquals(cuartaSeccionEsperada,listaParaSalida.get(3).getTextoFormateadoHTML());
-		Assert.assertEquals(quintaSeccionEsperada,listaParaSalida.get(4).getTextoFormateadoHTML());
+	@Test
+	public void crearUnaSeccionConDosItemLista() {
+				
+		listaLeida = Arrays.asList("---", "* Item lista 1", "* Item lista 2");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
+		
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
 	}
+	
+	@Test
+	public void crearUnaSeccionDosItemListaSeparadasPorUnTitulo() {
+				
+		listaLeida = Arrays.asList("---", "* Item lista 1", "* Item lista 2", "# Titulo1", "* Item lista 3", "* Item lista 4");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
+		
+		Assert.assertEquals(1, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(3, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
+		
+		Assert.assertEquals(Titulo.class, listaSalida.get(0).getElementosEnContenedor().get(1).getClass());
+
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(0).getElementosEnContenedor().get(2).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().get(2).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(2).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(2).getElementosEnContenedor().get(1).getClass());
+		
+	}
+
+	@Test
+	public void crearDosSeccionesCadaUnaConUnaLista() {
+				
+		listaLeida = Arrays.asList("---", "* Item lista 1", "* Item lista 2", "---", "* Item lista 3", "* Item lista 4");
+	
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
+		
+		Assert.assertEquals(2, listaSalida.size());
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(Seccion.class, listaSalida.get(1).getClass());
+		
+		//Seccion 1
+		Assert.assertEquals(1, listaSalida.get(0).getElementosEnContenedor().size());
+		//Item lista contenedor 1
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(0).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
+		
+		//Seccion 2
+		Assert.assertEquals(1, listaSalida.get(1).getElementosEnContenedor().size());
+		//Item lista contenedor 1
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(1).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(1).getElementosEnContenedor().get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(1).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(1).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
+	}
+	
+
 }

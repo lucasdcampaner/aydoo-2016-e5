@@ -1,12 +1,12 @@
 package ar.edu.untref.aydoo.dominio;
 
+import java.util.List;
+
 public abstract class Item {
 
 	private String texto;
 	private boolean contieneItems;
 	private boolean esContenidoPorUnItemLista;
-
-	public abstract Item instanciarConMD(String texto);
 
 	public Item(String texto, boolean contieneItems, boolean esContenidoPorUnItemLista) {
 		this.texto = texto;
@@ -22,6 +22,8 @@ public abstract class Item {
 
 	public abstract void agregarElementoEnContenedor(Item item);
 
+	public abstract List<Item> getElementosEnContenedor();
+	
 	public boolean isContieneItems() {
 		return contieneItems;
 	}

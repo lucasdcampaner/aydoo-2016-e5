@@ -1,15 +1,17 @@
 package ar.edu.untref.aydoo.dominio;
 
+import java.util.List;
+
 public class SubTitulo extends Item {
 
-	@Override
-	public Item instanciarConMD(String texto) {
-		Item subTitulo = null;
-		if (texto.startsWith("##")) {
-			subTitulo = new SubTitulo(texto.substring(3, texto.length()));
-		}
-		return subTitulo;
-	}
+//	@Override
+//	public Item instanciarConMD(String texto) {
+//		Item subTitulo = null;
+//		if (texto.startsWith("##")) {
+//			subTitulo = new SubTitulo(texto.substring(3, texto.length()));
+//		}
+//		return subTitulo;
+//	}
 
 	public SubTitulo(String texto) {
 		super(texto, false, false);
@@ -27,5 +29,11 @@ public class SubTitulo extends Item {
 
 	@Override
 	public void agregarElementoEnContenedor(Item item) {
+	}
+
+	@Override
+	public List<Item> getElementosEnContenedor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

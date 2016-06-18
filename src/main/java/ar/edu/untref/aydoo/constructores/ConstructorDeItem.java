@@ -6,22 +6,35 @@ public abstract class ConstructorDeItem {
 
 	private ConstructorDeItem siguiente;
 
-	public void encadenarCon(ConstructorDeItem siguiente) {
-
-		this.siguiente = siguiente;
-	}
-
-	public Item construirSiguienteSiExiste(String linea) {
-
+	//Todo poner comentarios
+	
+	protected Item continuarConstruccion(String texto) {
+		
 		Item resultado = null;
 
 		if (this.siguiente != null) {
 
-			resultado = this.siguiente.construir(linea);
+			resultado = this.siguiente.construir(texto);
 		}
 
 		return resultado;
 	}
+		
+	protected void detenerConstruccion(){
+		
+		if (this.siguiente != null) {
 
-	public abstract Item construir(String linea);
+			this.siguiente.itemConstruido();
+		}
+	}
+	
+	protected void itemConstruido() {
+	}	
+	
+	public abstract Item construir(String texto);
+	
+	public void encadenarCon(ConstructorDeItem siguiente) {
+
+		this.siguiente = siguiente;
+	}
 }
