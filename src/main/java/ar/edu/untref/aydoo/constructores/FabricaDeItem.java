@@ -17,12 +17,14 @@ public class FabricaDeItem {
 		ConstructorDeItem constructorDeItemLista = new ConstructorDeItemLista();
 		ConstructorDeItem constructorDeItemListaContenedor = new ConstructorDeItemListaContenedor();
 		ConstructorDeItem constructorDeSubTitulo = new ConstructorDeSubTitulo();
+		ConstructorDeItem constructorDeImagen = new ConstructorDeImagen();
 
 		constructoDeSeccion.encadenarCon(constructorDeItemListaContenedor);
 		constructorDeItemListaContenedor.encadenarCon(constructorDeItemLista);
 		constructorDeItemLista.encadenarCon(constructorDeTitulo);
 		constructorDeTitulo.encadenarCon(constructorDeSubTitulo);
-		constructorDeSubTitulo.encadenarCon(constructoTextoPlano);
+		constructorDeSubTitulo.encadenarCon(constructorDeImagen);
+		constructorDeImagen.encadenarCon(constructoTextoPlano);
 
 		constructorDeItem = constructoDeSeccion;
 	}
