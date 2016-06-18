@@ -235,7 +235,7 @@ public class FabricaDeItemsTest {
 	}	
 
 	@Test
-	public void seGeneraListaConInstanciasCorrectasDelEjemploConBullets() {
+	public void crearItemsDelEjemploConBullets() {
 		
 		listaLeida = Arrays.asList("---", "# El titulo", "## El subtitulo", "---", "# Solo un titulo", "---", "solo texto sin nada mas", "---", "* Un item de una lista", "* Otro item");		
 		
@@ -260,8 +260,34 @@ public class FabricaDeItemsTest {
 		Assert.assertEquals(1, listaSalida.get(3).getElementosEnContenedor().size());
 		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(3).getElementosEnContenedor().get(0).getClass());
 		Assert.assertEquals(ItemLista.class, listaSalida.get(3).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
-		Assert.assertEquals(ItemLista.class, listaSalida.get(3).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());		
+		Assert.assertEquals(ItemLista.class, listaSalida.get(3).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
+		Assert.assertEquals("Otro item", listaSalida.get(3).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getTexto());
 	}
 
+	@Test
+	public void crearItemsDelEjemploConEncabezadoSinSeccion() {
+		
+		listaLeida = Arrays.asList("Encabezado", "---", "# El titulo", "## El subtitulo", "---", "# Solo un titulo", "---", "solo texto sin nada mas");		
+		
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
 
+		Assert.assertEquals(4, listaSalida.size());
+		//Encabezado
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(0).getClass());
+		
+		//Seccion 1
+		Assert.assertEquals(Seccion.class, listaSalida.get(1).getClass());
+		Assert.assertEquals(2, listaSalida.get(1).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(1).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(SubTitulo.class, listaSalida.get(1).getElementosEnContenedor().get(1).getClass());
+		//Seccion 2
+		Assert.assertEquals(Seccion.class, listaSalida.get(2).getClass());
+		Assert.assertEquals(1, listaSalida.get(2).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(2).getElementosEnContenedor().get(0).getClass());
+		//Seccion 3
+		Assert.assertEquals(Seccion.class, listaSalida.get(3).getClass());
+		Assert.assertEquals(1, listaSalida.get(3).getElementosEnContenedor().size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(3).getElementosEnContenedor().get(0).getClass());
+	}		
+	
 }
