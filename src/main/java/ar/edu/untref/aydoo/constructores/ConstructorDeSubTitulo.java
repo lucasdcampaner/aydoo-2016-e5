@@ -10,7 +10,7 @@ public class ConstructorDeSubTitulo extends ConstructorDeItem {
 
 		Item resultado = null;
 
-		if (texto.startsWith("##")) {
+		if (texto.startsWith("## ")) {
 
 			resultado = new SubTitulo(texto.substring(3, texto.length()));
 			this.detenerConstruccion();
