@@ -288,6 +288,63 @@ public class FabricaDeItemsTest {
 		Assert.assertEquals(Seccion.class, listaSalida.get(3).getClass());
 		Assert.assertEquals(1, listaSalida.get(3).getElementosEnContenedor().size());
 		Assert.assertEquals(TextoPlano.class, listaSalida.get(3).getElementosEnContenedor().get(0).getClass());
-	}		
+	}	
 	
+	@Test
+	public void crearItemsDelEjemploConMultiplesBullets() {
+		
+		listaLeida = Arrays.asList("---", "# El titulo", "## El subtitulo", 
+								   "---", "# Primera lista", "* Uno", "* Dos", 
+								   "---", "# Solo un titulo", 
+								   "---", "solo texto sin nada mas", 
+								   "---", 	"# Segunda lista", "* Tres", "* Cuatro", "* Cinco", 
+								   "---", 	"* Seis", "* Siete");		
+
+		listaSalida = fabricaDeItem.crearItems(listaLeida);
+
+		Assert.assertEquals(6, listaSalida.size());
+		
+		//Seccion 1
+		Assert.assertEquals(Seccion.class, listaSalida.get(0).getClass());
+		Assert.assertEquals(2, listaSalida.get(0).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(SubTitulo.class, listaSalida.get(0).getElementosEnContenedor().get(1).getClass());
+		//Seccion 2
+		Assert.assertEquals(Seccion.class, listaSalida.get(1).getClass());
+		Assert.assertEquals(2, listaSalida.get(1).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(1).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(1).getElementosEnContenedor().get(1).getClass());
+		//Dentro del contenedor de listas
+		Assert.assertEquals(ItemLista.class, listaSalida.get(1).getElementosEnContenedor().get(1).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals("Uno", listaSalida.get(1).getElementosEnContenedor().get(1).getElementosEnContenedor().get(0).getTexto());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(1).getElementosEnContenedor().get(1).getElementosEnContenedor().get(1).getClass());
+		Assert.assertEquals("Dos", listaSalida.get(1).getElementosEnContenedor().get(1).getElementosEnContenedor().get(1).getTexto());
+		//Seccion 3
+		Assert.assertEquals(Seccion.class, listaSalida.get(2).getClass());
+		Assert.assertEquals(1, listaSalida.get(2).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(2).getElementosEnContenedor().get(0).getClass());		
+		//Seccion 4
+		Assert.assertEquals(Seccion.class, listaSalida.get(3).getClass());
+		Assert.assertEquals(1, listaSalida.get(3).getElementosEnContenedor().size());
+		Assert.assertEquals(TextoPlano.class, listaSalida.get(3).getElementosEnContenedor().get(0).getClass());
+		//Seccion 5
+		Assert.assertEquals(Seccion.class, listaSalida.get(4).getClass());
+		Assert.assertEquals(2, listaSalida.get(4).getElementosEnContenedor().size());
+		Assert.assertEquals(Titulo.class, listaSalida.get(4).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(4).getElementosEnContenedor().get(1).getClass());
+		//Dentro del contenedor de listas
+		Assert.assertEquals(ItemLista.class, listaSalida.get(4).getElementosEnContenedor().get(1).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals("Tres", listaSalida.get(4).getElementosEnContenedor().get(1).getElementosEnContenedor().get(0).getTexto());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(4).getElementosEnContenedor().get(1).getElementosEnContenedor().get(1).getClass());
+		Assert.assertEquals("Cuatro", listaSalida.get(4).getElementosEnContenedor().get(1).getElementosEnContenedor().get(1).getTexto());
+		//Seccion 6
+		Assert.assertEquals(Seccion.class, listaSalida.get(5).getClass());
+		Assert.assertEquals(1, listaSalida.get(5).getElementosEnContenedor().size());
+		Assert.assertEquals(ItemListaContenedor.class, listaSalida.get(5).getElementosEnContenedor().get(0).getClass());
+		//Dentro del contenedor de listas
+		Assert.assertEquals(ItemLista.class, listaSalida.get(5).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getClass());
+		Assert.assertEquals("Seis", listaSalida.get(5).getElementosEnContenedor().get(0).getElementosEnContenedor().get(0).getTexto());
+		Assert.assertEquals(ItemLista.class, listaSalida.get(5).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getClass());
+		Assert.assertEquals("Siete", listaSalida.get(5).getElementosEnContenedor().get(0).getElementosEnContenedor().get(1).getTexto());
+	}	
 }
