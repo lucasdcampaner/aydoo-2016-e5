@@ -1,9 +1,9 @@
-package ar.edu.untref.aydoo.arquitectura;
+package ar.edu.untref.aydoo.entradasalida;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.arquitectura.ManejadorDeOpciones;
+import ar.edu.untref.aydoo.entradasalida.ManejadorDeOpciones;
 import ar.edu.untref.aydoo.excepciones.CaracteresInvalidosEx;
 import ar.edu.untref.aydoo.excepciones.CombinacionParametrosEx;
 import ar.edu.untref.aydoo.excepciones.ModoEjecucionEx;

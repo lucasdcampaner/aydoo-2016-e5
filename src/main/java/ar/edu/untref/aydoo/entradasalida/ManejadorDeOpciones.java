@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo.arquitectura;
+package ar.edu.untref.aydoo.entradasalida;
 
 import java.util.ArrayList;
 import java.util.HashSet;

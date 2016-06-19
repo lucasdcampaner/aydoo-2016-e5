@@ -1,4 +1,4 @@
- package ar.edu.untref.aydoo.arquitectura;
+ package ar.edu.untref.aydoo.entradasalida;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -19,6 +19,10 @@ public class GeneradorSalida {
 		this.nombreCarpetaSalida = nombreCarpetaSalida;
 	}
 
+	/**
+	 * Este metodo se utiliza para imprimir la salida por pantalla y para imprimirla en el archivo de salida. 
+	 */
+	
 	public String generarStringSalidaHTML(List<Item> itemsEntrada) {
 
 		String stringSalida = "";
@@ -29,7 +33,7 @@ public class GeneradorSalida {
 
 		return stringSalida;
 	}
-
+	
 	public void generarSalidaEnCarpeta(List<Item> itemsEntrada) throws IOException {
 		copiarArchivosDesdePlantilla();
 		sobreEscribirLineaEnIndex(itemsEntrada);

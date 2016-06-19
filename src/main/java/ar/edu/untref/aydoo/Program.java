@@ -2,11 +2,11 @@ package ar.edu.untref.aydoo;
 
 import java.util.List;
 
-import ar.edu.untref.aydoo.arquitectura.GeneradorSalida;
-import ar.edu.untref.aydoo.arquitectura.LectorDeArchivoDeEntrada;
-import ar.edu.untref.aydoo.arquitectura.ManejadorDeOpciones;
 import ar.edu.untref.aydoo.constructores.FabricaDeItem;
 import ar.edu.untref.aydoo.dominio.Item;
+import ar.edu.untref.aydoo.entradasalida.GeneradorSalida;
+import ar.edu.untref.aydoo.entradasalida.LectorDeArchivoDeEntrada;
+import ar.edu.untref.aydoo.entradasalida.ManejadorDeOpciones;
 
 public class Program {
 

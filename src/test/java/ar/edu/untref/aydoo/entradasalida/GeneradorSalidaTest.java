@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo.arquitectura;
+package ar.edu.untref.aydoo.entradasalida;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -7,12 +7,12 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.arquitectura.GeneradorSalida;
 import ar.edu.untref.aydoo.dominio.Imagen;
 import ar.edu.untref.aydoo.dominio.Item;
 import ar.edu.untref.aydoo.dominio.Seccion;
 import ar.edu.untref.aydoo.dominio.SubTitulo;
 import ar.edu.untref.aydoo.dominio.Titulo;
+import ar.edu.untref.aydoo.entradasalida.GeneradorSalida;
 
 public class GeneradorSalidaTest {
 	

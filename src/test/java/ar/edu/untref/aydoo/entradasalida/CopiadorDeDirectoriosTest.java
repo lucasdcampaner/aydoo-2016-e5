@@ -1,10 +1,12 @@
-package ar.edu.untref.aydoo.arquitectura;
+package ar.edu.untref.aydoo.entradasalida;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import ar.edu.untref.aydoo.entradasalida.CopiadorDeDirectorios;
 
 public class CopiadorDeDirectoriosTest {
 	
