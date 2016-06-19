@@ -20,6 +20,7 @@ public class ManejadorDeOpcionesTest {
 
 		String[] args = { mode, archivo, output };
 
+		@SuppressWarnings("unused")
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
 
@@ -30,6 +31,7 @@ public class ManejadorDeOpcionesTest {
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String output = "--OUTPUT=carpeta";
 		String[] args = { modeEsperado, archivoEsperado, output };
+		@SuppressWarnings("unused")
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
 
@@ -40,6 +42,7 @@ public class ManejadorDeOpcionesTest {
 		String archivoEsperado = "MIPRESENTACION.MD";
 		String output = "--OUTPUT=carpeta";
 		String[] args = { modeEsperado, archivoEsperado, output };
+		@SuppressWarnings("unused")
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 	}
 
