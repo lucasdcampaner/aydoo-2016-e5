@@ -3,22 +3,18 @@ package ar.edu.untref.aydoo.dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.Item;
-import ar.edu.untref.aydoo.dominio.TextoPlano;
-
 public class TextoPlanoTest {
-
 
 	@Test
 	public void obtenerElementosDeContenedorRetornaNulo() {
-		
+
 		String textoPlanoEntrada = "Texto plano";
 
 		Item textoPlano = new TextoPlano(textoPlanoEntrada);
-		
+
 		Assert.assertEquals(null, textoPlano.getElementosEnContenedor());
 	}
-	
+
 	@Test
 	public void seObtieneContenidoEnFormatoHTMLParaUnTextoPlano() {
 

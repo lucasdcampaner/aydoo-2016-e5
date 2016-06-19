@@ -3,22 +3,18 @@ package ar.edu.untref.aydoo.dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.Item;
-import ar.edu.untref.aydoo.dominio.ItemListaContenedor;
-
 public class ItemListaContenedorTest {
 
 	@Test
 	public void obtenerElementosDeContenedorRetornaCero() {
-		
+
 		String texto = "";
 
 		Item itemListaContenedor = new ItemListaContenedor(texto);
-		
+
 		Assert.assertEquals(0, itemListaContenedor.getElementosEnContenedor().size());
 	}
-	
-	
+
 	@Test
 	public void seCreaItemListaEspecificadaRecuperandoSuNombre() {
 

@@ -3,27 +3,18 @@ package ar.edu.untref.aydoo.dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.Imagen;
-import ar.edu.untref.aydoo.dominio.Item;
-import ar.edu.untref.aydoo.dominio.ItemLista;
-import ar.edu.untref.aydoo.dominio.ItemListaContenedor;
-import ar.edu.untref.aydoo.dominio.Seccion;
-import ar.edu.untref.aydoo.dominio.SubTitulo;
-import ar.edu.untref.aydoo.dominio.TextoPlano;
-import ar.edu.untref.aydoo.dominio.Titulo;
-
 public class SectionTest {
 
 	@Test
 	public void obtenerElementosDeContenedorRetornaCero() {
-		
+
 		String texto = "---";
 
 		Item seccion = new Seccion(texto);
-		
+
 		Assert.assertEquals(0, seccion.getElementosEnContenedor().size());
 	}
-	
+
 	@Test
 	public void seObtieneSectionVaciaEnFormatoHTML() {
 
@@ -142,7 +133,6 @@ public class SectionTest {
 
 		String sectionEsperada = "<section><h1>El titulo1</h1><h2>El subtitulo2</h2>" + "<img src=\"imagen.png\"/>"
 				+ "linea sin nada en especial" + "<ul><li>un item de una lista</li></ul></section>";
-
 
 		String itemListaObtenidaFormatoHTML = itemListaContenedor.getTextoFormateadoHTML();
 

@@ -3,21 +3,18 @@ package ar.edu.untref.aydoo.dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.Item;
-import ar.edu.untref.aydoo.dominio.Titulo;
-
 public class TituloTest {
 
 	@Test
 	public void obtenerElementosDeContenedorRetornaNulo() {
-		
+
 		String texto = "# Titulo";
 
 		Item titulo = new Titulo(texto);
-		
+
 		Assert.assertEquals(null, titulo.getElementosEnContenedor());
 	}
-	
+
 	@Test
 	public void seObtieneContenidoEnFormatoHTMLParaUnTituloDePrueba() {
 
@@ -61,8 +58,7 @@ public class TituloTest {
 		String contenido2 = "el titulo2";
 		Item titulo2 = new Titulo(contenido2);
 
-		String tituloObtenidoFormatoHTML = titulo.getTextoFormateadoHTML()
-				+ titulo2.getTextoFormateadoHTML();
+		String tituloObtenidoFormatoHTML = titulo.getTextoFormateadoHTML() + titulo2.getTextoFormateadoHTML();
 		String tituloEsperado = "<h1>el titulo1</h1><h1>el titulo2</h1>";
 		Assert.assertEquals(tituloEsperado, tituloObtenidoFormatoHTML);
 	}
