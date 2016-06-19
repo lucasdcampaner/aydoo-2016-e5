@@ -2,12 +2,10 @@ package ar.edu.untref.aydoo.dominio;
 
 import java.util.List;
 
-import ar.edu.untref.aydoo.constructores.ConstructorDeTitulo;
-
 public class Titulo extends Item {
 
-	public Titulo(String contenido) {
-		super(contenido, false, false);
+	public Titulo(String texto) {
+		super(texto);
 	}
 
 	@Override
@@ -15,9 +13,7 @@ public class Titulo extends Item {
 
 		String tagInicio = "<h1>";
 		String tagFin = "</h1>";
-
 		String tituloFormateado = tagInicio + super.getTexto() + tagFin;
-
 		return tituloFormateado;
 	}
 
@@ -27,8 +23,6 @@ public class Titulo extends Item {
 
 	@Override
 	public List<Item> getElementosEnContenedor() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

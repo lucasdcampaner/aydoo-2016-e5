@@ -15,6 +15,16 @@ import ar.edu.untref.aydoo.dominio.Titulo;
 public class SectionTest {
 
 	@Test
+	public void obtenerElementosDeContenedorRetornaCero() {
+		
+		String texto = "---";
+
+		Item seccion = new Seccion(texto);
+		
+		Assert.assertEquals(0, seccion.getElementosEnContenedor().size());
+	}
+	
+	@Test
 	public void seObtieneSectionVaciaEnFormatoHTML() {
 
 		Item itemListaContenedor = new Seccion("");

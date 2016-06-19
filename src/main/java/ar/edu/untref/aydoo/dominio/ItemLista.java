@@ -5,7 +5,7 @@ import java.util.List;
 public class ItemLista extends Item {
 
 	public ItemLista(String texto) {
-		super(texto, false, true);
+		super(texto);
 	}
 
 	@Override
@@ -13,9 +13,7 @@ public class ItemLista extends Item {
 
 		String tagInicio = "<li>";
 		String tagFin = "</li>";
-
 		String imagenFormateado = tagInicio + super.getTexto() + tagFin;
-
 		return imagenFormateado;
 	}
 
@@ -25,7 +23,6 @@ public class ItemLista extends Item {
 
 	@Override
 	public List<Item> getElementosEnContenedor() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

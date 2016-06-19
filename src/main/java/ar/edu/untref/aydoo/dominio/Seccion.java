@@ -8,7 +8,7 @@ public class Seccion extends Item {
 	private ArrayList<Item> listaDeItems;
 
 	public Seccion(String texto) {
-		super(texto, true, false);
+		super(texto);
 		this.listaDeItems = new ArrayList<>();
 	}
 
@@ -17,7 +17,6 @@ public class Seccion extends Item {
 
 		String inicioSeccionFormateada = "<section>";
 		String finSeccionFormateada = "</section>";
-
 		return inicioSeccionFormateada + getElementosContenidosEnFormato() + finSeccionFormateada;
 	}
 
@@ -28,7 +27,6 @@ public class Seccion extends Item {
 	private String getElementosContenidosEnFormato() {
 
 		String elementosFormateados = "";
-
 		for (Item itemEntrada : this.listaDeItems) {
 			elementosFormateados += itemEntrada.getTextoFormateadoHTML();
 

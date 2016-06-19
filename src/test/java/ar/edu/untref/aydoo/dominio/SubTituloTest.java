@@ -8,6 +8,17 @@ import ar.edu.untref.aydoo.dominio.SubTitulo;
 
 public class SubTituloTest {
 
+	
+	@Test
+	public void obtenerElementosDeContenedorRetornaNulo() {
+		
+		String texto = "## SubTitulo";
+
+		Item subTitulo = new SubTitulo(texto);
+		
+		Assert.assertEquals(null, subTitulo.getElementosEnContenedor());
+	}
+	
 	@Test
 	public void seObtieneContenidoEnFormatoHTMLParaUnSubTituloDePrueba() {
 

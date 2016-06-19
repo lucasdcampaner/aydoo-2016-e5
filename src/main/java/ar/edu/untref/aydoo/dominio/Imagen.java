@@ -4,17 +4,8 @@ import java.util.List;
 
 public class Imagen extends Item {
 
-//	@Override
-//	public Item instanciarConMD(String texto) {
-//		Item imagen = null;
-//		if (texto.startsWith("i:")) {
-//			imagen = new Imagen(texto.substring(3, texto.length()));
-//		}
-//		return imagen;
-//	}
-
 	public Imagen(String texto) {
-		super(texto, false, false);
+		super(texto);
 	}
 
 	@Override
@@ -22,9 +13,7 @@ public class Imagen extends Item {
 
 		String tagInicio = "<img src=\"";
 		String tagFin = "\"/>";
-
 		String imagenFormateado = tagInicio + super.getTexto() + tagFin;
-
 		return imagenFormateado;
 	}
 
@@ -34,7 +23,6 @@ public class Imagen extends Item {
 
 	@Override
 	public List<Item> getElementosEnContenedor() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

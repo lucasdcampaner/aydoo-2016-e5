@@ -8,7 +8,7 @@ public class ItemListaContenedor extends Item {
 	private ArrayList<Item> listaDeItems;
 
 	public ItemListaContenedor(String texto) {
-		super(texto, true, false);
+		super(texto);
 		this.listaDeItems = new ArrayList<>();
 	}
 
@@ -17,14 +17,12 @@ public class ItemListaContenedor extends Item {
 
 		String inicioItemListaFormateada = "<ul>";
 		String finItemListaFormateada = "</ul>";
-
 		return inicioItemListaFormateada + getItemsListaEnHTML() + finItemListaFormateada;
 	}
 
 	private String getItemsListaEnHTML() {
 
 		String itemsListaEnHTML = "";
-
 		for (Item item : this.listaDeItems) {
 			itemsListaEnHTML += item.getTextoFormateadoHTML();
 		}

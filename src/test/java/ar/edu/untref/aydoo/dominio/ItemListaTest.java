@@ -9,6 +9,17 @@ import ar.edu.untref.aydoo.dominio.ItemListaContenedor;
 
 public class ItemListaTest {
 
+	
+	@Test
+	public void obtenerElementosDeContenedorRetornaNulo() {
+		
+		String texto = "* Item lista";
+
+		Item itemLista = new ItemLista(texto);
+		
+		Assert.assertEquals(null, itemLista.getElementosEnContenedor());
+	}
+	
 	@Test
 	public void seCreaItemListaEspecificadaRecuperandoSuNombre() {
 

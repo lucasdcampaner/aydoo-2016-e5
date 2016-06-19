@@ -9,6 +9,16 @@ import ar.edu.untref.aydoo.dominio.Titulo;
 public class TituloTest {
 
 	@Test
+	public void obtenerElementosDeContenedorRetornaNulo() {
+		
+		String texto = "# Titulo";
+
+		Item titulo = new Titulo(texto);
+		
+		Assert.assertEquals(null, titulo.getElementosEnContenedor());
+	}
+	
+	@Test
 	public void seObtieneContenidoEnFormatoHTMLParaUnTituloDePrueba() {
 
 		String tituloEntrada = "Titulo de prueba";

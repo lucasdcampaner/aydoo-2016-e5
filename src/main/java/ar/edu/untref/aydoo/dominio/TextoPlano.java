@@ -4,8 +4,8 @@ import java.util.List;
 
 public class TextoPlano extends Item {
 
-	public TextoPlano(String contenido) {
-		super(contenido, false, false);
+	public TextoPlano(String texto) {
+		super(texto);
 	}
 
 	@Override
@@ -19,7 +19,6 @@ public class TextoPlano extends Item {
 
 	@Override
 	public List<Item> getElementosEnContenedor() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

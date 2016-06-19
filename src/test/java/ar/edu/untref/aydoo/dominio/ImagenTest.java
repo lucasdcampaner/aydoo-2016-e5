@@ -8,6 +8,17 @@ import ar.edu.untref.aydoo.dominio.Item;
 
 public class ImagenTest {
 
+	
+	@Test
+	public void obtenerElementosDeContenedorRetornaNulo() {
+		
+		String texto = "i: Imagen.jpg";
+
+		Item imagen = new Imagen(texto);
+		
+		Assert.assertEquals(null, imagen.getElementosEnContenedor());
+	}
+	
 	@Test
 	public void seCreaImagenDeTextoEspecificadoRecuperandoSuNombre() {
 
