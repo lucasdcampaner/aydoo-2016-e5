@@ -55,14 +55,17 @@ public class Program {
 	/**
 	 * Estos metodos existen para poder testear.
 	 */
+	@SuppressWarnings("static-access")
 	public String getMode() {
 		return this.mode;
 	}
 
+	@SuppressWarnings("static-access")
 	public String getArchivoEntrada() {
 		return this.archivoEntrada;
 	}
 	
+	@SuppressWarnings("static-access")
 	public String getCarpetaSalida() {
 		return this.carpetaSalida;
 	}	
