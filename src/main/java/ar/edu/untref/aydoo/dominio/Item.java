@@ -5,7 +5,7 @@ import java.util.List;
 public abstract class Item {
 
 	private String texto;
-	
+
 	public Item(String texto) {
 		this.texto = texto;
 	}
