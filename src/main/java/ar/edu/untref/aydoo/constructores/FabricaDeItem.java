@@ -10,10 +10,9 @@ public class FabricaDeItem {
 	private ConstructorDeItem constructorDeItem;
 
 	/**
-	 * La FabricaDeItem implementa una cadena de responsabilidades. Quedo pendiente
-	 * crear un metodo que instancie y encadene nuevos constructores.
+	 * La FabricaDeItem implementa una cadena de responsabilidades. Quedo
+	 * pendiente crear un metodo que instancie y encadene nuevos constructores.
 	 */
-	
 	public FabricaDeItem() {
 
 		ConstructorDeItem constructoTextoPlano = new ConstructorDeTextoPlano();

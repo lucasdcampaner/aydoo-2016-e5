@@ -15,18 +15,17 @@ public class ConstructorDeSeccion extends ConstructorDeItem {
 		if (texto.startsWith("---")) {
 
 			this.seccionActual = new Seccion("---");
-
 			resultado = this.seccionActual;
 			this.detenerConstruccion();
 		} else {
 
 			resultado = this.continuarConstruccion(texto);
-
 			if (this.seccionActual != null && resultado != null) {
 
 				this.seccionActual.agregarElementoEnContenedor(resultado);
 				/*
-				 * /Este item se agrega a la seccion por lo tanto no debe ser agregado a la lista ppal de items.
+				 * /Este item se agrega a la seccion por lo tanto no debe ser
+				 * agregado a la lista ppal de items.
 				 */
 				resultado = null;
 			}
@@ -34,6 +33,5 @@ public class ConstructorDeSeccion extends ConstructorDeItem {
 
 		return resultado;
 	}
-	
-	
+
 }
