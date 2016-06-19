@@ -24,7 +24,7 @@ public class Program {
 		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsLeidos();
 		FabricaDeItem fabricaDeItem = new FabricaDeItem();
 		List<Item> listaParaSalida = fabricaDeItem.crearItems(itemsLeidos);
-		
+
 		GeneradorSalida generadorSalida = new GeneradorSalida(carpetaSalida);
 
 		switch (mode) {
@@ -43,7 +43,7 @@ public class Program {
 	/**
 	 * Este metodo es publico para poder testearse.
 	 */
-	
+
 	public static void getParametrosAplicacion(String[] args) throws Exception {
 
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
@@ -51,7 +51,7 @@ public class Program {
 		archivoEntrada = manejadorDeOpciones.getArchivoEntrada();
 		carpetaSalida = manejadorDeOpciones.getCarpetaSalida();
 	}
-	
+
 	/**
 	 * Estos metodos existen para poder testear.
 	 */
@@ -64,10 +64,9 @@ public class Program {
 	public String getArchivoEntrada() {
 		return this.archivoEntrada;
 	}
-	
+
 	@SuppressWarnings("static-access")
 	public String getCarpetaSalida() {
 		return this.carpetaSalida;
-	}	
-	
+	}
 }
