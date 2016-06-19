@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo.constructores;
 import ar.edu.untref.aydoo.dominio.Imagen;
 import ar.edu.untref.aydoo.dominio.Item;
 
-public class ConstructorDeImagen extends ConstructorDeItem{
+public class ConstructorDeImagen extends ConstructorDeItem {
 
 	@Override
 	public Item construir(String texto) {
@@ -21,5 +21,4 @@ public class ConstructorDeImagen extends ConstructorDeItem{
 
 		return resultado;
 	}
-	
 }
