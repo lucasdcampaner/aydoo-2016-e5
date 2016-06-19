@@ -9,6 +9,11 @@ public class FabricaDeItem {
 
 	private ConstructorDeItem constructorDeItem;
 
+	/**
+	 * La FabricaDeItem implementa una cadena de responsabilidades. Quedo pendiente
+	 * crear un metodo que instancie y encadene nuevos constructores.
+	 */
+	
 	public FabricaDeItem() {
 
 		ConstructorDeItem constructoTextoPlano = new ConstructorDeTextoPlano();
@@ -29,19 +34,19 @@ public class FabricaDeItem {
 		constructorDeItem = constructoDeSeccion;
 	}
 
+	/**
+	 * Este metodo contruye los items y los almacena en una lista.
+	 */
 	public List<Item> crearItems(List<String> itemsLeidos) {
 
 		List<Item> listaParaSalida = new ArrayList<Item>();
 
 		for (String itemLeido : itemsLeidos) {
-
 			Item itemConstruido = constructorDeItem.construir(itemLeido);
 			if (itemConstruido != null) {
-
 				listaParaSalida.add(itemConstruido);
 			}
 		}
-
 		return listaParaSalida;
 	}
 
