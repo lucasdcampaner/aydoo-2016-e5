@@ -40,11 +40,31 @@ public class Program {
 		}
 	}
 
-	private static void getParametrosAplicacion(String[] args) throws Exception {
+	/**
+	 * Este metodo es publico para poder testearse.
+	 */
+	
+	public static void getParametrosAplicacion(String[] args) throws Exception {
 
 		ManejadorDeOpciones manejadorDeOpciones = new ManejadorDeOpciones(args);
 		mode = manejadorDeOpciones.getMode();
 		archivoEntrada = manejadorDeOpciones.getArchivoEntrada();
 		carpetaSalida = manejadorDeOpciones.getCarpetaSalida();
 	}
+	
+	/**
+	 * Estos metodos existen para poder testear.
+	 */
+	public String getMode() {
+		return this.mode;
+	}
+
+	public String getArchivoEntrada() {
+		return this.archivoEntrada;
+	}
+	
+	public String getCarpetaSalida() {
+		return this.carpetaSalida;
+	}	
+	
 }
