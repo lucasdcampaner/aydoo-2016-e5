@@ -1,4 +1,4 @@
- package ar.edu.untref.aydoo.entradasalida;
+package ar.edu.untref.aydoo.entradasalida;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,50 +20,51 @@ public class GeneradorSalida {
 	}
 
 	/**
-	 * Salida por pantalla 
+	 * Salida por pantalla
 	 */
 	public String generarStringSalidaHTML(List<Item> itemsEntrada) {
 
 		String stringSalida = "";
-		
+
 		for (Item itemEntrada : itemsEntrada) {
 			stringSalida = stringSalida + itemEntrada.getTextoFormateadoHTML();
 		}
 		return stringSalida;
 	}
-	
+
 	/**
-	 * Salida en carpeta 
+	 * Salida en carpeta
 	 */
 	public void generarSalidaEnCarpeta(List<Item> itemsEntrada) throws IOException {
-	
+
 		String pathJar = obtenerPathJar();
 		File plantilla = new File(pathJar + "/plantilla");
 		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);
-		
+
 		CopiadorDeDirectorios.copiarDirectorio(plantilla.toPath(), carpetaSalida.toPath());
 		sobreEscribirLineaEnIndex(itemsEntrada);
 	}
-	
+
 	private String obtenerPathJar() {
 		File jar = new File(System.getProperty("java.class.path"));
 		File direccionJar = jar.getAbsoluteFile().getParentFile();
 		String pathJar = direccionJar.toString();
 		return pathJar;
-	}	
-	
+	}
+
 	/**
-	 * Este metodo genera un nuevo archivo y en la linea especificada escribe el texto formateado.
-	 * Luego borra el archivo original y renombra el nuevo generado. 
+	 * Este metodo genera un nuevo archivo y en la linea especificada escribe el
+	 * texto formateado. Luego borra el archivo original y renombra el nuevo
+	 * generado.
 	 */
-	
+
 	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada) throws IOException {
 
 		String stringSalida = generarStringSalidaHTML(itemsEntrada);
 		File indexHTML = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/index.html");
 		FileWriter indexNuevo = new FileWriter(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
 		scanner = new Scanner(indexHTML);
-		
+
 		String lineaLeida = "";
 		while (scanner.hasNextLine()) {
 			lineaLeida = scanner.nextLine();

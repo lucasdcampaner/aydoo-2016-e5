@@ -13,14 +13,14 @@ public class LectorDeArchivoDeEntrada {
 	private Scanner scanner;
 
 	public LectorDeArchivoDeEntrada(String archivoEntrada) throws FileNotFoundException {
-		
+
 		this.listaDeItems = new ArrayList<String>();
 		this.archivoEntrada = new FileReader(archivoEntrada);
 		this.scanner = new Scanner(this.archivoEntrada);
 	}
 
 	public List<String> getListaItemsLeidos() {
-		
+
 		String lineaLeida = "";
 		while (scanner.hasNextLine()) {
 			lineaLeida = scanner.nextLine();
@@ -29,7 +29,7 @@ public class LectorDeArchivoDeEntrada {
 			}
 		}
 		scanner.close();
-		return listaDeItems;		
+		return listaDeItems;
 	}
-	
+
 }
