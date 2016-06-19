@@ -10,11 +10,11 @@ public class ConstructorDeImagenTest {
 
 	@Test
 	public void construirImagenMD() {
-		
+
 		ConstructorDeImagen constructorDeImagen = new ConstructorDeImagen();
 		String Imagen = "i: Imagen";
 		Item itemEsperado = constructorDeImagen.construir(Imagen);
-				
+
 		Assert.assertEquals(Imagen.class, itemEsperado.getClass());
 	}
 

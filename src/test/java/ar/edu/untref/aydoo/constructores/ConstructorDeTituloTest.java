@@ -10,11 +10,11 @@ public class ConstructorDeTituloTest {
 
 	@Test
 	public void construirTituloMD() {
-		
+
 		ConstructorDeTitulo constructorDeTitulo = new ConstructorDeTitulo();
 		String titulo = "# Titulo";
 		Item itemEsperado = constructorDeTitulo.construir(titulo);
-				
+
 		Assert.assertEquals(Titulo.class, itemEsperado.getClass());
 	}
 

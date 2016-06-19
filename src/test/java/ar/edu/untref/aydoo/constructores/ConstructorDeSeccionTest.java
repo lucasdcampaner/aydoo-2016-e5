@@ -10,11 +10,11 @@ public class ConstructorDeSeccionTest {
 
 	@Test
 	public void construirSeccionMD() {
-		
+
 		ConstructorDeSeccion constructorDeSeccion = new ConstructorDeSeccion();
 		String Seccion = "---";
 		Item itemEsperado = constructorDeSeccion.construir(Seccion);
-				
+
 		Assert.assertEquals(Seccion.class, itemEsperado.getClass());
 	}
 

@@ -10,11 +10,11 @@ public class ConstructorDeTextoPlanoTest {
 
 	@Test
 	public void construirTextoPlanoMD() {
-		
+
 		ConstructorDeTextoPlano constructorDeTextoPlano = new ConstructorDeTextoPlano();
 		String textoPlano = "Texto plano";
 		Item itemEsperado = constructorDeTextoPlano.construir(textoPlano);
-				
+
 		Assert.assertEquals(TextoPlano.class, itemEsperado.getClass());
 	}
 

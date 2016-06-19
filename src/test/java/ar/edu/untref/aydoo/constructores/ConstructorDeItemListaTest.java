@@ -10,11 +10,11 @@ public class ConstructorDeItemListaTest {
 
 	@Test
 	public void construirItemListaMD() {
-		
+
 		ConstructorDeItemLista constructorDeItemLista = new ConstructorDeItemLista();
 		String ItemLista = "* Un item de una lista";
 		Item itemEsperado = constructorDeItemLista.construir(ItemLista);
-				
+
 		Assert.assertEquals(ItemLista.class, itemEsperado.getClass());
 	}
 
