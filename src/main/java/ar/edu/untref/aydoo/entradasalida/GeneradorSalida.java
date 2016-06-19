@@ -52,6 +52,11 @@ public class GeneradorSalida {
 		return pathJar;
 	}	
 	
+	/**
+	 * Este metodo genera un nuevo archivo y en la linea especificada escribe el texto formateado.
+	 * Luego borra el archivo original y renombra el nuevo generado. 
+	 */
+	
 	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada) throws IOException {
 
 		String stringSalida = generarStringSalidaHTML(itemsEntrada);
