@@ -20,54 +20,46 @@ public class GeneradorSalida {
 	}
 
 	/**
-	 * Este metodo se utiliza para imprimir la salida por pantalla y para imprimirla en el archivo de salida. 
+	 * Salida por pantalla 
 	 */
-	
 	public String generarStringSalidaHTML(List<Item> itemsEntrada) {
 
 		String stringSalida = "";
-
+		
 		for (Item itemEntrada : itemsEntrada) {
 			stringSalida = stringSalida + itemEntrada.getTextoFormateadoHTML();
 		}
-
 		return stringSalida;
 	}
 	
+	/**
+	 * Salida en carpeta 
+	 */
 	public void generarSalidaEnCarpeta(List<Item> itemsEntrada) throws IOException {
-		copiarArchivosDesdePlantilla();
+	
+		String pathJar = obtenerPathJar();
+		File plantilla = new File(pathJar + "/plantilla");
+		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);
+		
+		CopiadorDeDirectorios.copiarDirectorio(plantilla.toPath(), carpetaSalida.toPath());
 		sobreEscribirLineaEnIndex(itemsEntrada);
 	}
-
+	
 	private String obtenerPathJar() {
 		File jar = new File(System.getProperty("java.class.path"));
 		File direccionJar = jar.getAbsoluteFile().getParentFile();
 		String pathJar = direccionJar.toString();
 		return pathJar;
-	}
-
-	private File obtenerIndexHTML() {
-		File indexHTML = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/index.html");
-		return indexHTML;
-	}
-
-	private void copiarArchivosDesdePlantilla() throws IOException {
-
-		String pathJar = obtenerPathJar();
-		File plantilla = new File(pathJar + "/plantilla");
-		File carpetaSalida = new File(pathJar + "/" + this.nombreCarpetaSalida);
-
-		CopiadorDeDirectorios.copiarDirectorio(plantilla.toPath(), carpetaSalida.toPath());
-	}
-
+	}	
+	
 	private void sobreEscribirLineaEnIndex(List<Item> itemsEntrada) throws IOException {
 
 		String stringSalida = generarStringSalidaHTML(itemsEntrada);
-		File indexHTML = obtenerIndexHTML();
-		FileWriter indexNuevo = crearArchivoIndexNuevoARenombrar();
+		File indexHTML = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/index.html");
+		FileWriter indexNuevo = new FileWriter(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
 		scanner = new Scanner(indexHTML);
+		
 		String lineaLeida = "";
-
 		while (scanner.hasNextLine()) {
 			lineaLeida = scanner.nextLine();
 			if (lineaLeida.toUpperCase().trim().equals(lineaASobreEscribir.toUpperCase().trim())) {
@@ -76,30 +68,13 @@ public class GeneradorSalida {
 				escribirArchivoIndexNuevoARenombrar(indexNuevo, lineaLeida);
 			}
 		}
-		cerrarArchivoIndexNuevoARenombrar(indexNuevo);
-		borrarIndexHTMLActual(indexHTML);
-		renombrarArchivoIndexNuevo(indexHTML);
-	}
-
-	private FileWriter crearArchivoIndexNuevoARenombrar() throws IOException {
-		FileWriter indexNuevo = new FileWriter(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
-		return indexNuevo;
-	}
-
-	private void cerrarArchivoIndexNuevoARenombrar(FileWriter indexNuevo) throws IOException {
 		indexNuevo.close();
-	}
-
-	private void borrarIndexHTMLActual(File indexHTML) {
 		indexHTML.delete();
+		File archivoARenombrar = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
+		archivoARenombrar.renameTo(indexHTML);
 	}
 
 	private void escribirArchivoIndexNuevoARenombrar(FileWriter indexNuevo, String lineaAEscribir) throws IOException {
 		indexNuevo.write(lineaAEscribir + "\n");
-	}
-
-	private void renombrarArchivoIndexNuevo(File indexHTML) {
-		File archivoARenombrar = new File(obtenerPathJar() + "/" + this.nombreCarpetaSalida + "/indexNuevo.html");
-		archivoARenombrar.renameTo(indexHTML);
 	}
 }
