@@ -18,7 +18,7 @@ public class Program {
 	private static String carpetaSalida;
 
 	public static final void main(String args[]) throws Exception {
-
+		
 		getParametrosAplicacion(args);
 		LectorDeArchivoDeEntrada lectorDeArchivoDeEntrada = new LectorDeArchivoDeEntrada(archivoEntrada);
 		List<String> itemsLeidos = lectorDeArchivoDeEntrada.getListaItemsLeidos();
@@ -38,8 +38,8 @@ public class Program {
 			generadorSalida.generarSalidaEnCarpeta(listaParaSalida);
 			break;
 		}
-	}
 
+	}
 	/**
 	 * Este metodo es publico para poder testearse.
 	 */
