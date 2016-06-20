@@ -11,9 +11,10 @@ public class FabricaDeItem {
 
 	/**
 	 * La FabricaDeItem implementa una cadena de responsabilidades. Quedo
-	 * pendiente crear un metodo que instancie y encadene nuevos constructores. 
-	 * De igual manera, esta clase puede tener hijos que extiendan o sobreescriban sus metodos.
-	 * Asi, agregar los contructores necesarios y enlazarlos de la forma requerida.
+	 * pendiente crear un metodo que instancie y encadene nuevos constructores.
+	 * De igual manera, esta clase puede tener hijos que extiendan o
+	 * sobreescriban sus metodos. Asi, agregar los contructores necesarios y
+	 * enlazarlos de la forma requerida.
 	 */
 	public FabricaDeItem() {
 
